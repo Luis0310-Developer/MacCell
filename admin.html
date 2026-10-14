@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | MacCell Perú</title>
+    <meta name="description" content="Panel de administración y gestor de inventario oficial de MacCell Perú. Modifica stock, agrega celulares y actualiza fotos en tiempo real.">
+
+    <!-- Fuentes Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Estilos del Administrador -->
+    <link rel="stylesheet" href="css/admin.css">
+
+    <!-- Comprobación Rápida de Sesión de Seguridad -->
+    <script>
+        (function() {
+            var token = sessionStorage.getItem('maccell_admin_session') || localStorage.getItem('maccell_admin_session');
+            if (token === 'TheDino_authenticated') {
+                document.documentElement.classList.add('admin-authenticated');
+            }
+        })();
+    </script>
+</head>
+
+<body class="admin-body">
+
+    <!-- PANTALLA DE ACCESO RESTRINGIDO & AUTENTICACIÓN -->
+    <div id="adminAuthOverlay" class="admin-auth-overlay">
+        <div class="admin-auth-card">
+            <div class="admin-auth-header">
+                <div class="admin-auth-brand-badge">
+                    <span class="pulse-indicator"></span>
+                    <span>Área Restringida</span>
+                </div>
+                <div class="admin-auth-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </div>
+                <h1 class="admin-auth-title">Acceso al Panel Central</h1>
+                <p class="admin-auth-subtitle">Ingresa tus credenciales autorizadas para gestionar el inventario, catálogo y precios de MacCell Perú.</p>
+            </div>
+
+            <form id="adminAuthForm" class="admin-auth-form" onsubmit="window.AdminAuth.login(event)">
+                <div class="admin-auth-field">
+                    <label for="adminAuthUser" class="admin-auth-label">Usuario</label>
+                    <div class="admin-auth-input-wrap">
+                        <span class="auth-input-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </span>
+                        <input type="text" id="adminAuthUser" class="admin-auth-input" placeholder="Ingresa tu usuario" autocomplete="username" required autofocus>
+                    </div>
+                </div>
+
+                <div class="admin-auth-field">
+                    <label for="adminAuthPass" class="admin-auth-label">Contraseña</label>
+                    <div class="admin-auth-input-wrap">
+                        <span class="auth-input-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </span>
+                        <input type="password" id="adminAuthPass" class="admin-auth-input" placeholder="Ingresa tu contraseña" autocomplete="current-password" required>
+                        <button type="button" class="auth-toggle-pass" onclick="window.AdminAuth.togglePassVisibility()" title="Mostrar u ocultar contraseña">
+                            <svg id="eyeIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="admin-auth-options">
+                    <label class="admin-auth-checkbox-label">
+                        <input type="checkbox" id="adminAuthRemember" checked>
+                        <span>Recordar sesión en este equipo</span>
+                    </label>
+                </div>
+
+                <div id="adminAuthError" class="admin-auth-error-msg" style="display: none;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <span id="adminAuthErrorText">Credenciales no válidas. Acceso denegado.</span>
+                </div>
+
+                <button type="submit" class="admin-auth-btn-submit" id="btnAdminLoginSubmit">
+                    <span>Entrar al Panel</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+
+                <div class="admin-auth-footer-links">
+                    <a href="Inicio.html" class="admin-auth-back-link">← Volver a la Tienda Oficial</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Barra de Navegación Superior -->
+    <header class="admin-navbar">
+        <div class="admin-navbar-inner">
+            <div class="admin-brand">
+                <img src="assets/img/ui/Logo.jpeg" alt="MacCell Oficial" class="admin-logo-img">
+                <div class="admin-brand-info">
+                    <div class="admin-brand-title-row">
+                        <span class="admin-brand-name">MacCell</span>
+                        <span class="admin-brand-tag">Gestión Central</span>
+                    </div>
+                    <span class="admin-brand-subtitle">Catálogo de Productos & Control de Inventario</span>
+                </div>
+            </div>
+
+            <div class="admin-nav-actions">
+                <div class="sync-status-pill" id="syncStatusBadge" title="Los cambios se reflejan inmediatamente en la tienda virtual">
+                    <span class="dot"></span>
+                    <span>Tienda Sincronizada</span>
+                </div>
+
+                <a href="Inicio.html" target="_blank" class="btn-admin btn-admin-outline" title="Abrir la tienda en una pestaña nueva">
+                    <svg class="admin-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    <span>Ver Tienda</span>
+                </a>
+
+                <button class="btn-admin btn-admin-primary" onclick="window.AdminModule.saveChangesLive()" title="Guardar cambios para que los clientes los vean de inmediato">
+                    <svg class="admin-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                    <span>Guardar en Tienda</span>
+                </button>
+
+                <button class="btn-admin btn-admin-secondary" onclick="window.AdminModule.saveToDiskServer()" title="Guardar directamente en el archivo data/products.js local">
+                    <svg class="admin-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                    <span>Guardar en Disco</span>
+                </button>
+
+                <button class="btn-admin btn-admin-outline" onclick="window.AdminModule.downloadProductsFile()" title="Descargar archivo data/products.js">
+                    <svg class="admin-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Descargar JS</span>
+                </button>
+
+                <button class="btn-admin btn-admin-logout" onclick="window.AdminAuth.logout()" title="Cerrar sesión de administrador">
+                    <svg class="admin-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    <span>Cerrar Sesión</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <main class="admin-container">
+
+        <!-- Encabezado de la Sección -->
+        <section class="admin-page-header">
+            <div>
+                <h2 class="admin-page-title">Panel de Control & Existencias</h2>
+                <p class="admin-page-description">Supervisa inventario en tiempo real, edita especificaciones y actualiza precios de smartphones y accesorios.</p>
+            </div>
+            <div class="admin-header-badge">
+                <span class="pulse-indicator"></span>
+                <span>Modo Producción</span>
+            </div>
+        </section>
+
+        <!-- Métricas / Dashboard Rápido -->
+        <section class="stats-grid">
+            <div class="stat-card" data-metric="smartphones">
+                <div class="stat-content">
+                    <span class="stat-label">Smartphones Activos</span>
+                    <div class="stat-value" id="statTotalPhones">0</div>
+                    <span class="stat-subtext">Modelos publicados en tienda</span>
+                </div>
+                <div class="stat-icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                </div>
+            </div>
+
+            <div class="stat-card" data-metric="stock">
+                <div class="stat-content">
+                    <span class="stat-label">Unidades en Inventario</span>
+                    <div class="stat-value" id="statTotalStock">0</div>
+                    <span class="stat-subtext">Stock total acumulado</span>
+                </div>
+                <div class="stat-icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card-alert" data-metric="alerts" onclick="document.querySelector('[data-tab=stock]').click()" title="Ver productos con stock crítico">
+                <div class="stat-content">
+                    <span class="stat-label">Alertas de Stock Crítico</span>
+                    <div class="stat-value stat-value-alert" id="statLowStock">0</div>
+                    <span class="stat-subtext">Existencias iguales o menores a 3</span>
+                </div>
+                <div class="stat-icon-wrap stat-icon-alert">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                </div>
+            </div>
+
+            <div class="stat-card" data-metric="accessories">
+                <div class="stat-content">
+                    <span class="stat-label">Accesorios Registrados</span>
+                    <div class="stat-value" id="statTotalAccs">0</div>
+                    <span class="stat-subtext">Cargadores, audífonos y cables</span>
+                </div>
+                <div class="stat-icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Barra de Pestañas Principales (Segmented Navigation) -->
+        <nav class="admin-tabs-bar">
+            <button class="admin-tab-btn active" data-tab="smartphones">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                <span>Smartphones</span>
+                <span class="tab-counter" id="tabCounterPhones">0</span>
+            </button>
+            <button class="admin-tab-btn" data-tab="accesorios">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+                <span>Accesorios</span>
+                <span class="tab-counter" id="tabCounterAccs">0</span>
+            </button>
+            <button class="admin-tab-btn" data-tab="stock">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                <span>Control Rápido de Stock</span>
+                <span class="tab-counter" id="tabCounterStock">0</span>
+            </button>
+            <button class="admin-tab-btn" data-tab="backup">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                <span>Guardado & Respaldos</span>
+            </button>
+        </nav>
+
+        <!-- Barra de Filtros, Búsqueda y Botones de Creación -->
+        <section class="admin-toolbar" id="adminToolbar">
+            <div class="toolbar-left">
+                <div class="search-box">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                    <input type="text" class="search-input" id="adminSearchInput" placeholder="Buscar por modelo, marca, SKU o ID...">
+                    <button class="search-clear-btn" id="adminSearchClear" aria-label="Limpiar búsqueda">✕</button>
+                </div>
+
+                <div class="filter-select-wrapper">
+                    <select class="select-filter" id="adminBrandFilter" title="Filtrar por marca">
+                        <option value="all">Todas las Marcas</option>
+                        <option value="Apple">Apple</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="Xiaomi">Xiaomi</option>
+                        <option value="POCO">POCO</option>
+                        <option value="Honor">Honor</option>
+                        <option value="Motorola">Motorola</option>
+                        <option value="Infinix">Infinix</option>
+                        <option value="Realme">Realme</option>
+                        <option value="Tecno">Tecno</option>
+                        <option value="ZTE">ZTE</option>
+                    </select>
+                </div>
+
+                <div class="filter-select-wrapper">
+                    <select class="select-filter" id="adminStockFilter" title="Filtrar por nivel de inventario">
+                        <option value="all">Todo el Inventario</option>
+                        <option value="in_stock">En Stock (5+)</option>
+                        <option value="low_stock">Stock Crítico (1 a 4)</option>
+                        <option value="out_of_stock">Agotados (0)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="toolbar-right">
+                <div class="view-toggle-group">
+                    <button class="btn-view-toggle active" data-view="table" title="Vista en Tabla Corporativa">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                    <button class="btn-view-toggle" data-view="grid" title="Vista en Cuadrícula">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <button class="btn-admin btn-admin-primary" onclick="window.AdminModule.openProductModal()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    <span>Nuevo Smartphone</span>
+                </button>
+
+                <button class="btn-admin btn-admin-secondary" onclick="window.AdminModule.openAccessoryModal()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    <span>Nuevo Accesorio</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Área Dinámica de Catálogo (Tabla / Cuadrícula) -->
+        <section id="catalogContentArea"></section>
+
+    </main>
+
+    <!-- ====================================================
+         MODAL 1: AGREGAR O EDITAR SMARTPHONE
+         ==================================================== -->
+    <div class="admin-modal-overlay" id="productModal">
+        <div class="admin-modal-dialog">
+            <div class="admin-modal-header">
+                <div class="admin-modal-header-info">
+                    <h3 class="admin-modal-title" id="productModalTitle">Nuevo Smartphone</h3>
+                    <p class="admin-modal-subtitle">Configura los datos técnicos, inventario y precio de venta del dispositivo.</p>
+                </div>
+                <button class="admin-modal-close" onclick="window.AdminModule.closeAllModals()" aria-label="Cerrar modal">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+
+            <!-- Tabs internas del modal de producto -->
+            <div class="modal-tabs">
+                <button type="button" class="modal-tab-btn active" data-modaltab="basic" onclick="window.AdminModule.switchModalTab('basic')">
+                    <span>1. Información General</span>
+                </button>
+                <button type="button" class="modal-tab-btn" data-modaltab="pricing" onclick="window.AdminModule.switchModalTab('pricing')">
+                    <span>2. Precio & Inventario</span>
+                </button>
+                <button type="button" class="modal-tab-btn" data-modaltab="photos" onclick="window.AdminModule.switchModalTab('photos')">
+                    <span>3. Galería Multimedia</span>
+                </button>
+                <button type="button" class="modal-tab-btn" data-modaltab="specs" onclick="window.AdminModule.switchModalTab('specs')">
+                    <span>4. Especificaciones Técnicas</span>
+                </button>
+            </div>
+
+            <form id="productForm" onsubmit="window.AdminModule.saveProductFromModal(event)">
+                <div class="admin-modal-body">
+                    
+                    <!-- PESTAÑA 1: DATOS BÁSICOS -->
+                    <div class="modal-tab-pane" data-pane="basic">
+                        <div class="form-grid">
+                            <div class="form-group form-group-full">
+                                <label class="form-label">Nombre Comercial del Equipo <span class="required-mark">*</span></label>
+                                <input type="text" class="form-input" id="prodName" required placeholder="Ej: iPhone 16 Pro Max 256GB Titanio Natural">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Marca <span class="required-mark">*</span></label>
+                                <select class="form-select" id="prodBrand" required>
+                                    <option value="Apple">Apple</option>
+                                    <option value="Samsung">Samsung</option>
+                                    <option value="Xiaomi">Xiaomi</option>
+                                    <option value="POCO">POCO</option>
+                                    <option value="Honor">Honor</option>
+                                    <option value="Motorola">Motorola</option>
+                                    <option value="Infinix">Infinix</option>
+                                    <option value="Realme">Realme</option>
+                                    <option value="Tecno">Tecno</option>
+                                    <option value="ZTE">ZTE</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Identificador de Categoría <span class="required-mark">*</span></label>
+                                <select class="form-select" id="prodCategory" required>
+                                    <option value="apple">apple</option>
+                                    <option value="samsung">samsung</option>
+                                    <option value="xiaomi">xiaomi</option>
+                                    <option value="poco">poco</option>
+                                    <option value="honor">honor</option>
+                                    <option value="motorola">motorola</option>
+                                    <option value="infinix">infinix</option>
+                                    <option value="realme">realme</option>
+                                    <option value="tecno">tecno</option>
+                                    <option value="zte">zte</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Segmento / Gama</label>
+                                <select class="form-select" id="prodRange">
+                                    <option value="alta">Gama Alta (Flagship)</option>
+                                    <option value="media">Gama Media</option>
+                                    <option value="economica">Gama Económica / Entrada</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Colores Disponibles (separados por coma)</label>
+                                <input type="text" class="form-input" id="prodColors" placeholder="Ej: Titanio Natural, Titanio Negro, Blanco">
+                            </div>
+
+                            <div class="form-group form-group-full">
+                                <label class="form-label">Descripción Comercial</label>
+                                <textarea class="form-textarea" id="prodDesc" placeholder="Detalla condiciones de venta, garantía, estado de caja y ventajas principales del smartphone..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PESTAÑA 2: PRECIO Y STOCK -->
+                    <div class="modal-tab-pane" data-pane="pricing" style="display: none;">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Precio de Venta (S/.) <span class="required-mark">*</span></label>
+                                <input type="number" class="form-input" id="prodPrice" required min="1" step="1" placeholder="Ej: 3499">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Precio de Referencia / Antes (S/.)</label>
+                                <input type="number" class="form-input" id="prodOriginalPrice" min="1" step="1" placeholder="Ej: 3899">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Unidades en Inventario (Stock) <span class="required-mark">*</span></label>
+                                <input type="number" class="form-input" id="prodStock" required min="0" step="1" placeholder="Ej: 8">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Insignia Promocional (Badge)</label>
+                                <input type="text" class="form-input" id="prodBadge" placeholder="Ej: NUEVO, EN OFERTA, TOP VENTAS">
+                            </div>
+
+                            <div class="form-group form-group-full">
+                                <label class="form-label">Estilo Visual de Insignia</label>
+                                <select class="form-select" id="prodBadgeType">
+                                    <option value="new">Azul Corporativo (Lanzamiento / Nuevo)</option>
+                                    <option value="offer">Rojo Alerta (Oferta / Liquidación)</option>
+                                    <option value="custom">Slate Especial (Destacado Oficial)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PESTAÑA 3: FOTOS Y GALERÍA -->
+                    <div class="modal-tab-pane" data-pane="photos" style="display: none;">
+                        <div class="form-group form-group-full">
+                            <label class="form-label">Fotografía Principal del Dispositivo</label>
+                            
+                            <!-- Uploader arrastrar o seleccionar desde PC -->
+                            <div class="photo-uploader-box" onclick="document.getElementById('prodFileInput').click()"
+                                 ondragover="event.preventDefault(); this.classList.add('drag-over');"
+                                 ondragleave="this.classList.remove('drag-over');"
+                                 ondrop="event.preventDefault(); this.classList.remove('drag-over'); window.AdminModule.handleImageFileUpload(event.dataTransfer.files[0], 'prodImagePath', 'prodPhotoPreviewImg', 'prodPhotoPreviewName');">
+                                <div class="upload-icon-container">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                                </div>
+                                <div class="uploader-primary-text">Haz clic para cargar imagen o arrástrala aquí</div>
+                                <div class="uploader-hint-text">Formatos recomendados: WEBP, PNG o JPG de alta resolución.</div>
+                                <input type="file" id="prodFileInput" accept="image/*" style="display: none;" 
+                                       onchange="window.AdminModule.handleImageFileUpload(this.files[0], 'prodImagePath', 'prodPhotoPreviewImg', 'prodPhotoPreviewName')">
+                            </div>
+
+                            <!-- O escribir ruta local o URL -->
+                            <div style="margin-top: 14px;">
+                                <label class="form-label">Ruta de archivo local o URL remota alternativa</label>
+                                <input type="text" class="form-input" id="prodImagePath" placeholder="Ej: assets/img/brands/Apple/Iphone 18 pro max.jpeg"
+                                       oninput="window.AdminModule.updatePhotoPreview('prodPhotoPreviewImg', 'prodPhotoPreviewName', this.value)">
+                            </div>
+
+                            <!-- Previsualización en vivo -->
+                            <div class="photo-preview-container">
+                                <div class="preview-img-box">
+                                    <img id="prodPhotoPreviewImg" src="assets/img/ui/Logo.jpeg" alt="Vista previa">
+                                </div>
+                                <div class="preview-details">
+                                    <div class="preview-filename" id="prodPhotoPreviewName">Ninguna foto seleccionada</div>
+                                    <div class="preview-hint">Esta imagen se mostrará en las fichas del catálogo y en la vista comercial.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Galería secundaria -->
+                        <div class="form-group form-group-full" style="margin-top: 14px; border-top: 1px solid var(--admin-border-subtle); padding-top: 14px;">
+                            <label class="form-label">Imágenes Secundarias para Carrusel</label>
+                            <div style="display: flex; gap: 8px;">
+                                <input type="text" class="form-input" id="addGalleryInput" placeholder="Ruta o URL adicional para galería..." style="flex: 1;">
+                                <button type="button" class="btn-admin btn-admin-secondary" onclick="const val=document.getElementById('addGalleryInput').value.trim(); if(val){ window.AdminModule.tempGallery.push(val); window.AdminModule.renderGalleryChips(); document.getElementById('addGalleryInput').value=''; }">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    <span>Agregar</span>
+                                </button>
+                            </div>
+                            <div class="gallery-chips-container" id="galleryChipsContainer"></div>
+                        </div>
+                    </div>
+
+                    <!-- PESTAÑA 4: FICHA TÉCNICA -->
+                    <div class="modal-tab-pane" data-pane="specs" style="display: none;">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Pantalla</label>
+                                <input type="text" class="form-input" id="specScreen" placeholder="Ej: 6.9&quot; Super Retina XDR OLED 120Hz">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Procesador</label>
+                                <input type="text" class="form-input" id="specProcessor" placeholder="Ej: Apple A18 Pro Bionic (3nm)">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Memoria RAM</label>
+                                <input type="text" class="form-input" id="specRam" placeholder="Ej: 8 GB RAM LPDDR5X">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Almacenamiento Interno</label>
+                                <input type="text" class="form-input" id="specStorage" placeholder="Ej: 256 GB NVMe / 512 GB UFS 4.0">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Sistema de Cámaras</label>
+                                <input type="text" class="form-input" id="specCameras" placeholder="Ej: Principal 48 MP + Ultra Gran Angular 48 MP + Teleobjetivo 5x">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Batería & Autonomía</label>
+                                <input type="text" class="form-input" id="specBattery" placeholder="Ej: 4,685 mAh | Carga rápida 30W MagSafe">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="admin-modal-footer">
+                    <button type="button" class="btn-admin btn-admin-outline" onclick="window.AdminModule.closeAllModals()">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn-admin btn-admin-primary">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                        <span>Guardar Dispositivo</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ====================================================
+         MODAL 2: AGREGAR O EDITAR ACCESORIO
+         ==================================================== -->
+    <div class="admin-modal-overlay" id="accessoryModal">
+        <div class="admin-modal-dialog" style="max-width: 600px;">
+            <div class="admin-modal-header">
+                <div class="admin-modal-header-info">
+                    <h3 class="admin-modal-title" id="accessoryModalTitle">Nuevo Accesorio</h3>
+                    <p class="admin-modal-subtitle">Gestiona cargadores, adaptadores, audífonos o protectores oficiales.</p>
+                </div>
+                <button class="admin-modal-close" onclick="window.AdminModule.closeAllModals()" aria-label="Cerrar modal">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+
+            <form id="accessoryForm" onsubmit="window.AdminModule.saveAccessoryFromModal(event)">
+                <div class="admin-modal-body">
+                    <div class="form-grid">
+                        <div class="form-group form-group-full">
+                            <label class="form-label">Nombre del Accesorio <span class="required-mark">*</span></label>
+                            <input type="text" class="form-input" id="accName" required placeholder="Ej: Cubo Cargador 20W USB-C Apple Original">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Tipo / Categoría</label>
+                            <input type="text" class="form-input" id="accType" placeholder="Ej: Cargador Rápido, Audífonos, Cable">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Precio de Venta (S/.) <span class="required-mark">*</span></label>
+                            <input type="number" class="form-input" id="accPrice" required min="1" step="1" placeholder="Ej: 65">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Precio de Referencia (S/.)</label>
+                            <input type="number" class="form-input" id="accOriginalPrice" min="1" step="1" placeholder="Ej: 89">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Unidades en Inventario</label>
+                            <input type="number" class="form-input" id="accStock" min="0" step="1" placeholder="Ej: 15">
+                        </div>
+
+                        <div class="form-group form-group-full">
+                            <label class="form-label">Insignia Promocional</label>
+                            <input type="text" class="form-input" id="accBadge" placeholder="Ej: 100% ORIGINAL, CARGA RÁPIDA">
+                        </div>
+
+                        <div class="form-group form-group-full">
+                            <label class="form-label">Fotografía del Accesorio</label>
+                            <div class="photo-uploader-box" onclick="document.getElementById('accFileInput').click()" style="padding: 14px;">
+                                <div class="upload-icon-container" style="margin-bottom: 4px;">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                                </div>
+                                <span class="uploader-primary-text" style="font-size: 0.85rem;">Cargar imagen desde el equipo</span>
+                                <input type="file" id="accFileInput" accept="image/*" style="display: none;" 
+                                       onchange="window.AdminModule.handleImageFileUpload(this.files[0], 'accImagePath', 'accPhotoPreviewImg', 'accPhotoPreviewName')">
+                            </div>
+                            <input type="text" class="form-input" id="accImagePath" placeholder="O ruta: assets/img/ui/accesorios/cubo_20w_apple.webp" style="margin-top: 8px;"
+                                   oninput="window.AdminModule.updatePhotoPreview('accPhotoPreviewImg', 'accPhotoPreviewName', this.value)">
+
+                            <div class="photo-preview-container" style="margin-top: 8px;">
+                                <div class="preview-img-box" style="width: 56px; height: 56px;">
+                                    <img id="accPhotoPreviewImg" src="assets/img/ui/Logo.jpeg" alt="Vista previa">
+                                </div>
+                                <div class="preview-details">
+                                    <div class="preview-filename" id="accPhotoPreviewName">Sin foto seleccionada</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-full">
+                            <label class="form-label">Características Clave (separadas por coma)</label>
+                            <input type="text" class="form-input" id="accSpecs" placeholder="Ej: Carga Rápida 20W, Conector USB-C, Original Apple">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-modal-footer">
+                    <button type="button" class="btn-admin btn-admin-outline" onclick="window.AdminModule.closeAllModals()">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn-admin btn-admin-primary">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                        <span>Guardar Accesorio</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ====================================================
+         MODAL 3: CAMBIAR FOTO RÁPIDO
+         ==================================================== -->
+    <div class="admin-modal-overlay" id="quickPhotoModal">
+        <div class="admin-modal-dialog" style="max-width: 520px;">
+            <div class="admin-modal-header">
+                <div class="admin-modal-header-info">
+                    <h3 class="admin-modal-title" id="quickPhotoTitle">Actualizar Fotografía</h3>
+                    <p class="admin-modal-subtitle">Asigna una nueva foto de producto para el catálogo.</p>
+                </div>
+                <button class="admin-modal-close" onclick="window.AdminModule.closeAllModals()" aria-label="Cerrar modal">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+
+            <div class="admin-modal-body">
+                <div class="photo-uploader-box" onclick="document.getElementById('quickFileInput').click()">
+                    <div class="upload-icon-container">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    </div>
+                    <div class="uploader-primary-text">Seleccionar fotografía desde tu equipo</div>
+                    <div class="uploader-hint-text">Haz clic o arrastra un archivo JPG, PNG o WEBP</div>
+                    <input type="file" id="quickFileInput" accept="image/*" style="display: none;"
+                           onchange="window.AdminModule.handleImageFileUpload(this.files[0], 'quickPhotoInput', 'quickPhotoPreviewImg', 'quickPhotoPreviewName')">
+                </div>
+
+                <div style="margin-top: 14px;">
+                    <label class="form-label">O ingresa la Ruta Local o URL Web:</label>
+                    <input type="text" class="form-input" id="quickPhotoInput" placeholder="assets/img/brands/... o https://..."
+                           oninput="window.AdminModule.updatePhotoPreview('quickPhotoPreviewImg', 'quickPhotoPreviewName', this.value)">
+                </div>
+
+                <div class="photo-preview-container" style="margin-top: 14px;">
+                    <div class="preview-img-box" style="width: 76px; height: 76px;">
+                        <img id="quickPhotoPreviewImg" src="assets/img/ui/Logo.jpeg" alt="Vista previa">
+                    </div>
+                    <div class="preview-details">
+                        <div class="preview-filename" id="quickPhotoPreviewName">Vista previa</div>
+                        <div class="preview-hint">Se actualizará inmediatamente en todas las vistas de la tienda.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-modal-footer">
+                <button type="button" class="btn-admin btn-admin-outline" onclick="window.AdminModule.closeAllModals()">
+                    Cancelar
+                </button>
+                <button type="button" class="btn-admin btn-admin-primary" onclick="window.AdminModule.saveQuickPhoto()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Guardar Fotografía</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor Flotante de Notificaciones Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts del Panel de Administrador -->
+    <script src="data/products.js"></script>
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

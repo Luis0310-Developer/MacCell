@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros, Garantías y Envíos | MacCell Perú</title>
+    <meta name="description"
+        content="Conoce MacCell Perú: smartphones originales 100% nuevos, sellados y con garantía de 1 año. Políticas oficiales de garantía, cobertura y envíos a todo el Perú.">
+    <link rel="icon" type="image/jpeg" href="../assets/img/ui/Logo.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+
+<body>
+    <div class="top-nav-bar">
+        <div class="top-nav-container">
+            <div class="top-nav-left">
+                <span>📍 Galería Centro Lima / CC. Plaza Tec, Tienda 303</span>
+                <span class="top-nav-sep">•</span>
+                <span>🕒 Lun - Sáb: 10:00 AM - 8:00 PM</span>
+            </div>
+            <div class="top-nav-right">
+                <a href="../pages/ubicacion.html" class="top-nav-link">🛵 Envíos y Delivery</a>
+                <a href="../pages/ubicacion.html" class="top-nav-link">📍 Tienda Física</a>
+                <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" class="top-nav-link top-nav-wa">
+                    💬 WhatsApp: +51 924 678 780
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <header class="casu-header">
+        <div class="casu-header-inner">
+            <a href="../Inicio.html" class="casu-logo-link" title="MacCell - Celulares y Accesorios">
+                <img src="../assets/img/ui/Logo.jpeg" alt="MacCell Logo" class="casu-logo-img">
+            </a>
+
+            <ul class="casu-nav-list">
+                <li><a href="../Inicio.html" class="casu-nav-item">Inicio</a></li>
+                <li><a href="catalogo.html" class="casu-nav-item">Catálogo</a></li>
+                <li><a href="nosotros.html" class="casu-nav-item active">Nosotros</a></li>
+                <li><a href="ubicacion.html" class="casu-nav-item">Ubícanos</a></li>
+            </ul>
+
+            <div class="casu-search-wrap">
+                <div class="casu-search-pill">
+                    <input type="text" id="mainSearchInput" class="casu-search-input" placeholder="Buscar celulares...">
+                    <button class="casu-search-btn" onclick="window.location.href='catalogo.html?q=' + encodeURIComponent(document.getElementById('mainSearchInput').value)" title="Buscar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="casu-header-actions">
+                <div class="casu-cart-widget" onclick="openCart()" title="Ver Carrito de Compras">
+                    <div class="cart-icon-wrapper">
+                        <div id="lottieHeaderCart" class="lottie-icon-cart"></div>
+                        <span class="cart-circle-badge" id="cartBadge">0</span>
+                    </div>
+                    <span class="cart-price-text" id="headerCartTotal">S/ 0.00</span>
+                </div>
+
+                <button class="casu-mobile-menu-btn" onclick="toggleMenuMovil()" aria-label="Abrir Menú">
+                    <div id="lottieNavMenu" class="lottie-icon-hamburger"></div>
+                </button>
+            </div>
+        </div>
+
+        <div class="casu-mobile-drawer" id="mobileDrawer">
+            <div class="mobile-drawer-header">
+                <img src="../assets/img/ui/Logo.jpeg" alt="MacCell" class="mobile-drawer-logo">
+                <button class="mobile-drawer-close" onclick="toggleMenuMovil()" aria-label="Cerrar">✕</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="../Inicio.html">🏠 Inicio</a></li>
+                <li><a href="catalogo.html">📱 Catálogo de Celulares</a></li>
+                <li><a href="nosotros.html" class="active">👥 Sobre Nosotros</a></li>
+                <li><a href="ubicacion.html">📍 Local y Delivery</a></li>
+            </ul>
+            <div class="mobile-drawer-footer">
+                <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" class="mobile-btn-whatsapp">
+                    Pedir por WhatsApp (+51 924 678 780)
+                </a>
+            </div>
+        </div>
+        <div class="casu-mobile-backdrop" id="mobileBackdrop" onclick="toggleMenuMovil()"></div>
+    </header>
+
+    <main class="page-main-container">
+        <div class="container" style="padding-top: 30px; padding-bottom: 60px;">
+
+            <div class="nosotros-main-wrapper">
+
+                <div class="social-hub-container" id="seccion-redes-sociales">
+                    <div class="section-title-wrap text-center">
+                        <span class="section-badge" style="background: rgba(0, 180, 216, 0.15); color: var(--logo-cyan);">
+                            COMUNIDAD & CANALES OFICIALES
+                        </span>
+                        <h3>Conéctate a Nuestras Redes Sociales</h3>
+                        <p>Sigue nuestros canales para enterarte de nuevos ingresos, unboxings de celulares, sorteos, pruebas de cámara y entregas a clientes felices.</p>
+                    </div>
+
+                    <div class="social-hub-grid">
+                        <div class="social-hub-card tiktok-card">
+                            <div class="social-card-header">
+                                <div class="social-icon-circle tiktok-bg">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.5 2.76 1.44-.03 2.75-.97 3.23-2.32.22-.59.29-1.23.28-1.85.03-5.26.01-10.52.02-15.78z" />
+                                    </svg>
+                                </div>
+                                <div class="social-card-titles">
+                                    <h4>TikTok Oficial</h4>
+                                    <span class="social-handle-pill">@maccell.oficial</span>
+                                </div>
+                            </div>
+                            <p class="social-card-desc">
+                                Unboxings, reviews rápidas, comparativas entre modelos y tips de tecnología en video.
+                            </p>
+                            <a href="https://www.tiktok.com/@maccell.oficial?_r=1&_t=ZS-9A9h3vU1Ime" target="_blank" rel="noopener noreferrer" class="social-card-btn tiktok-btn">
+                                <span>Seguir en TikTok</span>
+                                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+                            </a>
+                        </div>
+
+                        <div class="social-hub-card instagram-card">
+                            <div class="social-card-header">
+                                <div class="social-icon-circle ig-bg">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                                    </svg>
+                                </div>
+                                <div class="social-card-titles">
+                                    <h4>Instagram</h4>
+                                    <span class="social-handle-pill">@maccel.oficial</span>
+                                </div>
+                            </div>
+                            <p class="social-card-desc">
+                                Historias diarias de stock en tienda, fotos de entregas reales y lanzamientos exclusivos.
+                            </p>
+                            <a href="https://www.instagram.com/maccel.oficial?utm_source=qr&stkn=YTVmYnh5ZjMxOGxk" target="_blank" rel="noopener noreferrer" class="social-card-btn ig-btn">
+                                <span>Seguir en Instagram</span>
+                                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+                            </a>
+                        </div>
+
+                        <div class="social-hub-card facebook-card">
+                            <div class="social-card-header">
+                                <div class="social-icon-circle fb-bg">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                    </svg>
+                                </div>
+                                <div class="social-card-titles">
+                                    <h4>Facebook</h4>
+                                    <span class="social-handle-pill">MacCell Oficial</span>
+                                </div>
+                            </div>
+                            <p class="social-card-desc">
+                                Comunidad MacCell, catálogos en PDF, promociones y consultas directas por Messenger.
+                            </p>
+                            <a href="https://www.facebook.com/share/1b18Ds1Z9s/" target="_blank" rel="noopener noreferrer" class="social-card-btn fb-btn">
+                                <span>Seguir en Facebook</span>
+                                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+                            </a>
+                        </div>
+
+                        <div class="social-hub-card whatsapp-card">
+                            <div class="social-card-header">
+                                <div class="social-icon-circle wa-bg">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.7c.96.523 1.874.801 2.79.8 3.183 0 5.768-2.587 5.77-5.766.001-3.182-2.585-5.769-5.768-5.785m3.411 8.163c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.18-.538-1.503-.623-2.464-2.148-2.538-2.247-.074-.099-.607-.808-.607-1.542s.385-1.096.522-1.246c.137-.15.299-.187.4-.187.1 0 .201.002.289.006.092.004.215-.035.336.257.126.302.43 1.049.467 1.125.037.075.062.164.013.264-.05.099-.074.163-.148.251-.074.088-.157.197-.224.264-.075.074-.153.155-.066.305.087.15.385.636.827 1.03.568.506 1.048.663 1.198.738.15.075.237.062.324-.038.087-.1.374-.435.474-.585.1-.15.2-.125.337-.075.137.05.87.41 1.02.485.15.075.25.112.287.175.037.062.037.362-.107.767" />
+                                    </svg>
+                                </div>
+                                <div class="social-card-titles">
+                                    <h4>WhatsApp Pedidos</h4>
+                                    <span class="social-handle-pill">+51 924 678 780</span>
+                                </div>
+                            </div>
+                            <p class="social-card-desc">
+                                Canal directo para cotizar, consultar stock de colores y coordinar delivery inmediato.
+                            </p>
+                            <a href="https://api.whatsapp.com/send?phone=51924678780&text=Hola%20MacCell!%20Deseo%20hacer%20un%20pedido%20o%20cotizaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="social-card-btn wa-btn">
+                                <span>Escribir por WhatsApp</span>
+                                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="triple-guarantee-banner">
+                    <div class="guarantee-pillar-card">
+                        <div class="pillar-icon-box">🛡️</div>
+                        <div class="pillar-info">
+                            <h4>1 AÑO DE GARANTÍA</h4>
+                            <p>Cobertura oficial por 12 meses en software, sistema operativo y red.</p>
+                        </div>
+                    </div>
+                    <div class="guarantee-pillar-card">
+                        <div class="pillar-icon-box">📅</div>
+                        <div class="pillar-info">
+                            <h4>7 A 15 DÍAS DE PRUEBA</h4>
+                            <p>Período de prueba calendario para detectar cualquier falla de fábrica.</p>
+                        </div>
+                    </div>
+                    <div class="guarantee-pillar-card">
+                        <div class="pillar-icon-box">🤝</div>
+                        <div class="pillar-info">
+                            <h4>TU COMPRA SEGURA</h4>
+                            <p>Boleta o factura legal, empaque sellado y soporte técnico garantizado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="policy-main-card" id="seccion-garantia">
+                    <div class="policy-header-block">
+                        <span class="section-badge" style="background: rgba(0, 192, 163, 0.15); color: #00c0a3;">
+                            TÉRMINOS LEGALES & SOPORTE
+                        </span>
+                        <h3>1. Políticas y Condiciones de Garantía Oficial</h3>
+                        <p class="policy-lead-text">
+                            En MacCell brindamos respaldo formal en cada venta. A continuación detallamos los requisitos, coberturas, exclusiones y tiempos de nuestro servicio técnico:
+                        </p>
+                    </div>
+
+                    <div class="policy-subblock" id="requisitosGarantia">
+                        <h4 class="subblock-title">
+                            <span class="title-icon">📋</span> Requisitos para Hacer Válida la Garantía
+                        </h4>
+                        <div class="warranty-req-grid">
+                            <div class="req-card">
+                                <div class="req-step-number">1</div>
+                                <h5>Presentar Boleta o Nota de Venta</h5>
+                                <p>Es el respaldo legal obligatorio que acredita la compra, la fecha y el número de serie/IMEI del equipo.</p>
+                            </div>
+                            <div class="req-card">
+                                <div class="req-step-number">2</div>
+                                <h5>Dentro del Período de Garantía</h5>
+                                <p>El equipo debe encontrarse dentro de los 12 meses vigentes contados a partir de la fecha de adquisición.</p>
+                            </div>
+                            <div class="req-card">
+                                <div class="req-step-number">3</div>
+                                <h5>Caja Original y Accesorios Completos</h5>
+                                <p>Presentar y entregar el equipo con su caja original, bandejas internas y todos sus accesorios en buen estado.</p>
+                            </div>
+                            <div class="req-card">
+                                <div class="req-step-number">4</div>
+                                <h5>Exclusivo por Defectos de Fábrica</h5>
+                                <p>Aplica exclusivamente para celulares por fallas o defectos de manufactura (no aplica para accesorios individuales).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="policy-subblock" id="coberturaGarantia">
+                        <div class="warranty-comparative-grid">
+
+                            <div class="comparative-column cover-yes">
+                                <div class="comparative-header">
+                                    <div class="header-icon-badge yes-badge">
+                                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                                    </div>
+                                    <div>
+                                        <h4>¿QUÉ SÍ CUBRE LA GARANTÍA?</h4>
+                                        <span>Alcance y Cobertura Oficial MacCell</span>
+                                    </div>
+                                </div>
+                                <ul class="comparative-list">
+                                    <li>
+                                        <div class="list-bullet yes-bullet">✓</div>
+                                        <div>
+                                            <strong>12 Meses (1 Año) de Garantía:</strong>
+                                            <span>Cobertura en software, sistema operativo, señal telefónica y conectividad de red contados desde la compra.</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-bullet yes-bullet">✓</div>
+                                        <div>
+                                            <strong>Período de Prueba de 7 a 15 Días:</strong>
+                                            <span>Días calendario para evaluación y cambio por fallas o defectos directos de fábrica comprobables.</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-bullet yes-bullet">✓</div>
+                                        <div>
+                                            <strong>Revisión Técnica Especializada:</strong>
+                                            <span>Tiempo estimado de revisión y diagnóstico técnico: hasta 28 días hábiles desde la recepción oficial del equipo en taller.</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-bullet yes-bullet">✓</div>
+                                        <div>
+                                            <strong>Defectos de Fábrica en el Smartphone:</strong>
+                                            <span>Aplica exclusivamente para el equipo celular principal ante anomalías de ensamblaje o placa base.</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="comparative-column cover-no">
+                                <div class="comparative-header">
+                                    <div class="header-icon-badge no-badge">
+                                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+                                    </div>
+                                    <div>
+                                        <h4>¿QUÉ NO CUBRE LA GARANTÍA?</h4>
+                                        <span>Exclusiones Técnicas y Mal Uso</span>
+                                    </div>
+                                </div>
+                                <ul class="comparative-list">
+                                    <li>
+                                        <div class="list-bullet no-bullet">✕</div>
+                                        <div>
+                                            <strong>Caídas, Golpes o Aplastamiento:</strong>
+                                            <span>Daños físicos por caídas, presión, roturas, golpes o mal uso general del equipo.</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-bullet no-bullet">✕</div>
+                                        <div>
+                                            <strong>Zócalo de Carga, Batería y Módulos de Audio:</strong>
+                                            <span>Componentes cuya durabilidad depende exclusivamente de los hábitos de carga y cuidado del usuario.</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-bullet no-bullet">✕</div>
+                                        <div>
+                                            <strong>Contacto con Líquidos, Humedad o Sulfatación:</strong>
+                                            <span>Cualquier ingreso de líquidos, humedad excesiva o sulfatación anula la garantía de inmediato.</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-bullet no-bullet">✕</div>
+                                        <div>
+                                            <strong>Pantalla, Flex, Carcasa y Conectores:</strong>
+                                            <span>Pantallas rotas, líneas en display, flex dañado, carcasas trizadas, parlantes o micrófonos obstruidos.</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-bullet no-bullet">✕</div>
+                                        <div>
+                                            <strong>Actualizaciones de Sistema de la Marca:</strong>
+                                            <span>Fallas provocadas por actualizaciones de software o sistema operativo enviadas por la marca fabricante.</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-bullet no-bullet">✕</div>
+                                        <div>
+                                            <strong>Manipulación Técnica de Terceros:</strong>
+                                            <span>Equipos abiertos, reparados o intervenidos por personal o talleres técnicos externos no autorizados.</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-bullet no-bullet">✕</div>
+                                        <div>
+                                            <strong>Registro de Lista Blanca:</strong>
+                                            <span>El registro es entera responsabilidad del cliente siguiendo las indicaciones y pautas brindadas por el asesor.</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-bullet no-bullet">✕</div>
+                                        <div>
+                                            <strong>Accesorios de Empaque:</strong>
+                                            <span>Cargador, cable USB, adaptadores y audífonos incluidos en la caja comercial.</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-bullet no-bullet">✕</div>
+                                        <div>
+                                            <strong>No Cambios por Gusto Personal:</strong>
+                                            <span>No se aceptan cambios ni devoluciones por preferencia estética una vez abierto o utilizado el equipo.</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="warranty-alert-box" id="consideracionesGarantia">
+                        <div class="alert-icon-wrap">ℹ️</div>
+                        <div class="alert-content">
+                            <h5>Consideraciones Importantes & Servicio Técnico</h5>
+                            <ul>
+                                <li><strong>Sin equipo de reemplazo:</strong> No se entrega equipo de sustitución o préstamo mientras el celular se encuentre en proceso de revisión técnica.</li>
+                                <li><strong>Política de no reembolsos:</strong> No se realizan devoluciones ni reembolsos de dinero bajo ningún concepto.</li>
+                                <li><strong>Diagnóstico fuera de cobertura:</strong> En caso de que el equipo esté fuera del período de garantía o la falla no aplique a garantía de fábrica, el servicio de diagnóstico técnico tiene un <strong>costo base desde S/ 25.00</strong> (no reembolsable).</li>
+                                <li><strong>Empaque íntegro obligatorio:</strong> Todo equipo recibido para revisión debe ser presentado con su caja y accesorios completos.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="policy-subblock" id="seccion-garantia-provincia" style="margin-top: 36px;">
+                        <h4 class="subblock-title">
+                            <span class="title-icon">🚛</span> Garantía para Clientes de Provincia - ¿Cómo Funciona?
+                        </h4>
+                        <p style="color: #64748b; font-size: 0.92rem; margin-bottom: 20px;">
+                            Si adquiriste tu equipo desde provincia, nuestro protocolo técnico te brinda total seguridad paso a paso:
+                        </p>
+                        <div class="province-steps-timeline">
+                            <div class="province-step-item">
+                                <div class="prov-badge">1</div>
+                                <div class="prov-step-info">
+                                    <h6>Envío Seguro con Caja Completa</h6>
+                                    <p>El cliente envía el celular con su caja original, todos sus accesorios y un embalaje reforzado para protegerlo durante el transporte.</p>
+                                </div>
+                            </div>
+                            <div class="province-step-item">
+                                <div class="prov-badge">2</div>
+                                <div class="prov-step-info">
+                                    <h6>Revisión Técnica Inicial</h6>
+                                    <p>Al ser recibido en taller en Lima, se efectúa una evaluación preliminar (5 a 7 días hábiles) para verificar el estado físico y falla reportada.</p>
+                                </div>
+                            </div>
+                            <div class="province-step-item">
+                                <div class="prov-badge">3</div>
+                                <div class="prov-step-info">
+                                    <h6>Internamiento Oficial</h6>
+                                    <p>Si la falla califica para garantía de fábrica, el equipo queda internado para el proceso técnico oficial (hasta 28 días hábiles).</p>
+                                </div>
+                            </div>
+                            <div class="province-step-item">
+                                <div class="prov-badge">4</div>
+                                <div class="prov-step-info">
+                                    <h6>Costos Logísticos</h6>
+                                    <p>Los costos logísticos de envío (ida desde su ciudad a Lima y vuelta a su localidad) corren por cuenta del cliente.</p>
+                                </div>
+                            </div>
+                            <div class="province-step-item">
+                                <div class="prov-badge">5</div>
+                                <div class="prov-step-info">
+                                    <h6>Retorno Coordinado</h6>
+                                    <p>Concluido el proceso técnico, se coordina el retorno del equipo directamente con el cliente a través de agencias seguras con guía y clave.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="policy-main-card" id="seccion-envios">
+                    <div class="policy-header-block">
+                        <span class="section-badge" style="background: rgba(0, 180, 216, 0.15); color: var(--logo-cyan);">
+                            COMPRA ÁGIL & DESPACHOS SEGUROS
+                        </span>
+                        <h3>2. Logística de Envíos y Proceso de Compra</h3>
+                        <p class="policy-lead-text">
+                            Diseñamos un proceso de compra rápido, transparente y 100% confiable tanto si estás en Lima como en cualquier departamento del Perú.
+                        </p>
+                    </div>
+
+                    <div class="logistics-dual-grid">
+
+                        <div class="logistics-card lima-card">
+                            <div class="logistics-card-top">
+                                <div class="logistics-type-badge lima-badge">
+                                    <span>🛵 LIMA METROPOLITANA</span>
+                                </div>
+                                <h4>Delivery en Lima Metropolitana</h4>
+                                <p class="logistics-slogan">"Tu compra, más cerca de ti"</p>
+                            </div>
+
+                            <div class="logistics-flow-steps">
+                                <div class="flow-step">
+                                    <div class="flow-step-num">1</div>
+                                    <div class="flow-step-content">
+                                        <strong>Realiza tu Pedido:</strong>
+                                        <span>Contacto directo vía WhatsApp para solicitar el modelo de celular, color y accesorios de tu elección.</span>
+                                    </div>
+                                </div>
+                                <div class="flow-step">
+                                    <div class="flow-step-num">2</div>
+                                    <div class="flow-step-content">
+                                        <strong>Envía tu Ubicación:</strong>
+                                        <span>Envíanos tu dirección o ubicación en tiempo real para confirmar disponibilidad de stock inmediato y cotizar el envío.</span>
+                                    </div>
+                                </div>
+                                <div class="flow-step">
+                                    <div class="flow-step-num">3</div>
+                                    <div class="flow-step-content">
+                                        <strong>Recibe tu Pedido:</strong>
+                                        <span>Entrega rápida, segura y confiable en la puerta de tu domicilio, oficina o centro de labores.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="payment-highlight-box">
+                                <div class="pay-icon">💵</div>
+                                <div>
+                                    <strong>Modalidad de Pago: PAGO CONTRAENTREGA HABILITADO</strong>
+                                    <p>Pagas cómodamente al recibir tu equipo sellado mediante <strong>Efectivo, Yape o Plin</strong> tras verificar tu compra.</p>
+                                </div>
+                            </div>
+
+                            <a href="https://api.whatsapp.com/send?phone=51924678780&text=Hola%20MacCell!%20Deseo%20solicitar%20un%20delivery%20en%20Lima%20Metropolitana."
+                                target="_blank" class="btn-whatsapp" style="width: 100%; justify-content: center; margin-top: 18px; text-decoration: none;">
+                                Solicitar Delivery en Lima por WhatsApp
+                            </a>
+                        </div>
+
+                        <div class="logistics-card provincia-card">
+                            <div class="logistics-card-top">
+                                <div class="logistics-type-badge prov-badge-top">
+                                    <span>🇵🇪 TODO EL PERÚ</span>
+                                </div>
+                                <h4>Envíos a Nivel Nacional (Provincias)</h4>
+                                <p class="logistics-slogan">"Tu equipo en todo el Perú"</p>
+                            </div>
+
+                            <div class="logistics-flow-steps">
+                                <div class="flow-step">
+                                    <div class="flow-step-num">1</div>
+                                    <div class="flow-step-content">
+                                        <strong>Cotización y Asesoría:</strong>
+                                        <span>Asesoría personalizada por WhatsApp sobre catálogo oficial, características técnicas y precios actualizados.</span>
+                                    </div>
+                                </div>
+                                <div class="flow-step">
+                                    <div class="flow-step-num">2</div>
+                                    <div class="flow-step-content">
+                                        <strong>Realiza el Pago:</strong>
+                                        <span>Depósito o transferencia bancaria segura a nuestras cuentas bancarias oficiales de MacCell.</span>
+                                    </div>
+                                </div>
+                                <div class="flow-step">
+                                    <div class="flow-step-num">3</div>
+                                    <div class="flow-step-content">
+                                        <strong>Preparación del Paquete:</strong>
+                                        <span>Embalaje cuidadoso y reforzado del producto en su empaque original con todos sus accesorios completos.</span>
+                                    </div>
+                                </div>
+                                <div class="flow-step">
+                                    <div class="flow-step-num">4</div>
+                                    <div class="flow-step-content">
+                                        <strong>Despacho por Agencia Confiable:</strong>
+                                        <span>Envío a través de <strong>Shalom, Olva Courier, Marvisur, Flores</strong> y afines con foto del paquete y guía de seguimiento.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="agency-tags-row">
+                                <span class="agency-tag">📦 Shalom Empresarial</span>
+                                <span class="agency-tag">🚚 Olva Courier</span>
+                                <span class="agency-tag">🚛 Marvisur</span>
+                                <span class="agency-tag">🚌 Flores Cargo</span>
+                            </div>
+
+                            <a href="https://api.whatsapp.com/send?phone=51924678780&text=Hola%20MacCell!%20Deseo%20cotizar%20un%20env%C3%ADo%20para%20provincia."
+                                target="_blank" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 18px; text-decoration: none;">
+                                Cotizar Envío a Provincia
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="seccion-sobre-nosotros" style="display: flex; flex-direction: column; gap: 24px;">
+                    <div class="container-hero-banner" style="margin-bottom: 0;">
+                        <div class="container-hero-text">
+                            <span class="section-badge" style="background: rgba(0, 192, 163, 0.2); color: #00e0bf;">
+                                🏢 TRAYECTORIA, FORMALIDAD & CONFIANZA
+                            </span>
+                            <h1>Sobre Nosotros - MacCell Perú</h1>
+                            <p>Especialistas en importación y venta de smartphones 100% nuevos, sellados de fábrica y con garantía legal. Conoce nuestra historia, canales oficiales y todas nuestras políticas de garantía y compra segura.</p>
+                        </div>
+                    </div>
+
+                    <div class="about-section-container" id="seccion-quienes-somos">
+                        <div class="about-grid">
+                            <div class="about-text">
+                                <span class="section-badge">QUIÉNES SOMOS</span>
+                                <h2>Más que celulares, confianza absoluta</h2>
+                                <p>
+                                    En <strong>MacCell</strong> nos dedicamos a la importación y comercialización formal de smartphones de las marcas tecnológicas líderes del mundo: <strong>Apple, Samsung, Xiaomi, Honor, Motorola, Infinix y POCO</strong>.
+                                </p>
+                                <p>
+                                    Nacimos con el propósito de brindar una alternativa segura, transparente y formal en el mercado de telecomunicaciones de Lima y provincias. Cada cliente recibe un equipo <strong>100% nuevo, sellado de fábrica</strong>, libre para todas las operadoras (Claro, Movistar, Entel y Bitel) y respaldado con <strong>boleta o factura de venta electrónica legal</strong>.
+                                </p>
+                                <p>
+                                    Además, contamos con atención presencial en nuestro local comercial del Cercado de Lima para que puedas revisar tu celular, abrir la caja sellada y recibir soporte para la migración de datos.
+                                </p>
+
+                                <div class="about-highlights">
+                                    <div class="about-highlight-box">
+                                        <h5>📦 100% Nuevos y Sellados</h5>
+                                        <p>Caja original sellada de fábrica con todos sus accesorios oficiales.</p>
+                                    </div>
+                                    <div class="about-highlight-box">
+                                        <h5>🧾 Boleta o Factura Legal</h5>
+                                        <p>Emitimos comprobante electrónico con RUC formal verificado.</p>
+                                    </div>
+                                    <div class="about-highlight-box">
+                                        <h5>🛡️ Garantía Real 12 Meses</h5>
+                                        <p>Cobertura técnica oficial en software, sistema operativo y conectividad.</p>
+                                    </div>
+                                    <div class="about-highlight-box">
+                                        <h5>🇵🇪 Envíos Seguros a Todo el Perú</h5>
+                                        <p>Motorizado express en Lima con contraentrega y envíos diarios a provincia.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="about-brand-card">
+                                <img src="../assets/img/ui/Logo.jpeg" alt="Logo MacCell Celulares y Accesorios">
+                                <h4 style="font-size: 1.35rem; margin-bottom: 6px; font-weight: 800;">MacCell Perú</h4>
+                                <span class="brand-motto-tag">MÁS QUE CELULARES, CONFIANZA</span>
+                                <p style="font-size: 0.88rem; color: #94a3b8; margin: 14px 0 20px; line-height: 1.5;">
+                                    📍 Galería Centro Lima / CC. Plaza Tec, Tienda 303, Cercado de Lima.<br>
+                                    Compra con boleta, factura y respaldo técnico oficial.
+                                </p>
+                                <div class="brand-card-action-btns">
+                                    <a href="https://api.whatsapp.com/send?phone=51924678780&text=Hola%20MacCell!%20Deseo%20conocer%20m%C3%A1s%20sobre%20sus%20equipos%20disponibles."
+                                        target="_blank" class="btn-primary" style="justify-content: center; width: 100%;">
+                                        💬 Asesoría por WhatsApp
+                                    </a>
+                                    <a href="ubicacion.html" class="btn-outline-white" style="width: 100%; margin-top: 10px; text-decoration: none;">
+                                        📍 Conoce Nuestra Tienda Física
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="casu-footer">
+        <div class="footer-layout-container">
+            <div class="footer-main-columns">
+                <a href="../Inicio.html" class="footer-brand-logo-wrap" title="MacCell - Celulares y Accesorios">
+                    <img src="../assets/img/ui/Logo.jpeg" alt="MacCell Oficial" class="footer-brand-img">
+                </a>
+
+                <div class="footer-col-block">
+                    <p class="footer-col-title">Celulares</p>
+                    <ul class="footer-col-list">
+                        <li><a href="../Inicio.html#catalogo">Apple iPhone</a></li>
+                        <li><a href="../Inicio.html#catalogo">Samsung Galaxy</a></li>
+                        <li><a href="../Inicio.html#catalogo">Xiaomi & POCO</a></li>
+                        <li><a href="../Inicio.html#catalogo">Honor</a></li>
+                        <li><a href="../Inicio.html#catalogo">Motorola</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col-block">
+                    <p class="footer-col-title">Tienda Oficial</p>
+                    <ul class="footer-col-list">
+                        <li><a href="../Inicio.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Sobre Nosotros & Redes</a></li>
+                        <li><a href="../Inicio.html#accesorios">Todo en Accesorios</a></li>
+                        <li><a href="ubicacion.html">Ubícanos en Plaza TEC</a></li>
+                        <li><a href="contacto.html">Contacto & Cotización</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col-block">
+                    <p class="footer-col-title">Garantía & Envíos</p>
+                    <ul class="footer-col-list">
+                        <li><a href="#seccion-garantia">Políticas de Garantía (1 Año)</a></li>
+                        <li><a href="#coberturaGarantia">¿Qué Cubre y Qué No Cubre?</a></li>
+                        <li><a href="#seccion-garantia-provincia">Garantía para Provincias</a></li>
+                        <li><a href="#seccion-envios">Proceso de Compra & Delivery</a></li>
+                        <li><a href="#seccion-redes-sociales">Redes Sociales Oficiales</a></li>
+                        <li><a onclick="abrirLibroReclamaciones()" style="cursor: pointer;"><span style="color: var(--accent-cyan); margin-right: 6px;">📖</span>Libro de Reclamaciones</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-side-summary">
+                <p class="footer-side-text">Especialistas en smartphones nuevos y accesorios originales con garantía real y envíos a todo el Perú.</p>
+                <div class="footer-socials-row">
+                <a href="https://www.facebook.com/share/1b18Ds1Z9s/" target="_blank" rel="noreferrer"
+                    class="footer-social-link footer-social-animated" title="Facebook MacCell Oficial" aria-label="Facebook">
+                    <div id="lottieFooterFb" class="lottie-icon-footer lottie-footer-fb"></div>
+                </a>
+                <a href="https://www.instagram.com/maccel.oficial?utm_source=qr&stkn=YTVmYnh5ZjMxOGxk" target="_blank"
+                    rel="noreferrer" class="footer-social-link footer-social-animated" title="Instagram MacCell Oficial" aria-label="Instagram">
+                    <div id="lottieFooterIg" class="lottie-icon-footer lottie-footer-ig"></div>
+                </a>
+                <a href="https://www.tiktok.com/@maccell.oficial?_r=1&_t=ZS-9A9h3vU1Ime" target="_blank"
+                    rel="noreferrer" class="footer-social-link footer-social-animated" title="TikTok MacCell Oficial" aria-label="TikTok">
+                    <div class="tiktok-animated-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.99v9.06c-.02 1.95-.62 3.86-1.84 5.37-1.48 1.83-3.76 2.92-6.13 2.95-2.12.02-4.2-.74-5.74-2.17-1.83-1.69-2.77-4.14-2.58-6.6.18-2.32 1.34-4.47 3.19-5.83 1.68-1.24 3.79-1.78 5.86-1.52.02 1.48.01 2.96.01 4.44-.99-.18-2.04-.08-2.94.34-1.02.48-1.78 1.43-1.99 2.54-.3 1.45.28 2.99 1.44 3.89 1.05.82 2.47 1.04 3.76.6 1.16-.4 2.01-1.42 2.22-2.63.14-.82.12-1.66.12-2.49V.02h.17z"/>
+                        </svg>
+                    </div>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" rel="noreferrer"
+                    class="footer-social-link footer-social-animated" title="WhatsApp Oficial MacCell (+51 924 678 780)" aria-label="WhatsApp">
+                    <div id="lottieFooterWa" class="lottie-icon-footer lottie-footer-wa"></div>
+                </a>
+            </div>
+
+            <!-- BOTÓN OFICIAL LIBRO DE RECLAMACIONES (LEY N° 29571) -->
+            <div class="footer-libro-rec-wrap" style="margin-top: 14px;">
+                <button type="button" class="btn-libro-reclamaciones" onclick="abrirLibroReclamaciones()" title="Libro de Reclamaciones Virtual conforme a Ley N° 29571">
+                    <div class="libro-rec-badge-icon">
+                        <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+                            <path d="M4 8C7.5 6 12 6.5 16 8.5C20 6.5 24.5 6 28 8V24C24.5 22 20 22.5 16 24.5C12 22.5 7.5 22 4 24V8Z" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
+                            <rect x="14.8" y="7" width="0.8" height="18" fill="#DC2626"/>
+                            <rect x="15.6" y="7" width="0.8" height="18" fill="#FFFFFF"/>
+                            <rect x="16.4" y="7" width="0.8" height="18" fill="#DC2626"/>
+                            <line x1="7" y1="11" x2="13" y2="11" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="7" y1="14" x2="13" y2="14" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="7" y1="17" x2="12" y2="17" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="19" y1="11" x2="25" y2="11" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="19" y1="14" x2="25" y2="14" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="19" y1="17" x2="24" y2="17" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="libro-rec-badge-content">
+                        <span class="libro-rec-badge-title">LIBRO DE RECLAMACIONES</span>
+                        <span class="libro-rec-badge-desc">Conforme a Ley N° 29571 • Indecopi</span>
+                        <span class="libro-rec-badge-link">Hoja de Reclamación Virtual →</span>
+                    </div>
+                </button>
+            </div>
+
+                <p class="footer-copyright-note">© 2025 MacCell Perú. RUC Verificado. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>🛒 Mi Carrito de Compras</h3>
+            <button class="cart-close-btn" onclick="closeCart()" aria-label="Cerrar">✕</button>
+        </div>
+        <div class="cart-body" id="cartItemsList">
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total a Pagar:</span>
+                <strong id="cartTotal">S/ 0.00</strong>
+            </div>
+            <button class="btn-checkout-wa" onclick="checkoutViaWhatsApp()" style="background: linear-gradient(135deg, #00d2ff 0%, #0070f3 100%); color: #040810; font-weight: 800; box-shadow: 0 4px 18px rgba(0, 210, 255, 0.45);">
+                <span>Proceder al Despacho y Pago</span>
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <a href="https://api.whatsapp.com/send?phone=51924678780&text=¡Hola%20MacCell!%20Deseo%20solicitar%20asesor%C3%ADa%20y%20precios%20de%20celulares."
+        target="_blank" rel="noopener noreferrer" class="maccell-floating-whatsapp"
+        title="Chatear por WhatsApp (+51 924 678 780)">
+        <div id="lottieFloatWa" class="lottie-icon-wa-float"></div>
+    </a>
+
+    <script src="../data/products.js"></script>
+    <script src="../js/products-render.js"></script>
+    <script src="../js/animated-icons-data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/checkout-modal.js"></script>
+</body>
+
+</html>

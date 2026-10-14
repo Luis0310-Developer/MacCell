@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto & Cotización Inmediata | MacCell Perú</title>
+    <meta name="description"
+        content="Contáctanos y cotiza tu smartphone al instante en MacCell Perú. Asesoría directa por WhatsApp al +51 924 678 780 y atención en tienda física Plaza TEC.">
+    <link rel="icon" type="image/jpeg" href="../assets/img/ui/Logo.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+
+<body>
+    <div class="top-nav-bar">
+        <div class="top-nav-container">
+            <div class="top-nav-left">
+                <span>📍 Galería Centro Lima / CC. Plaza Tec, Tienda 303</span>
+                <span class="top-nav-sep">•</span>
+                <span>🕒 Lun - Sáb: 10:00 AM - 8:00 PM</span>
+            </div>
+            <div class="top-nav-right">
+                <a href="ubicacion.html" class="top-nav-link">🛵 Envíos y Delivery</a>
+                <a href="ubicacion.html" class="top-nav-link">📍 Tienda Física</a>
+                <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" class="top-nav-link top-nav-wa">
+                    💬 WhatsApp: +51 924 678 780
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <header class="casu-header">
+        <div class="casu-header-inner">
+            <a href="../Inicio.html" class="casu-logo-link" title="MacCell - Celulares y Accesorios">
+                <img src="../assets/img/ui/Logo.jpeg" alt="MacCell Logo" class="casu-logo-img">
+            </a>
+
+            <ul class="casu-nav-list">
+                <li><a href="../Inicio.html" class="casu-nav-item">Inicio</a></li>
+                <li><a href="catalogo.html" class="casu-nav-item">Catálogo</a></li>
+                <li><a href="nosotros.html" class="casu-nav-item">Nosotros</a></li>
+                <li><a href="ubicacion.html" class="casu-nav-item">Ubícanos</a></li>
+            </ul>
+
+            <div class="casu-search-wrap">
+                <div class="casu-search-pill">
+                    <input type="text" id="mainSearchInput" class="casu-search-input" placeholder="Buscar celulares...">
+                    <button class="casu-search-btn" onclick="window.location.href='catalogo.html?q=' + encodeURIComponent(document.getElementById('mainSearchInput').value)" title="Buscar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="casu-header-actions">
+                <div class="casu-cart-widget" onclick="openCart()" title="Ver Carrito de Compras">
+                    <div class="cart-icon-wrapper">
+                        <div id="lottieHeaderCart" class="lottie-icon-cart"></div>
+                        <span class="cart-circle-badge" id="cartBadge">0</span>
+                    </div>
+                    <span class="cart-price-text" id="headerCartTotal">S/ 0.00</span>
+                </div>
+
+                <button class="casu-mobile-menu-btn" onclick="toggleMenuMovil()" aria-label="Abrir Menú">
+                    <div id="lottieNavMenu" class="lottie-icon-hamburger"></div>
+                </button>
+            </div>
+        </div>
+
+        <div class="casu-mobile-drawer" id="mobileDrawer">
+            <div class="mobile-drawer-header">
+                <img src="../assets/img/ui/Logo.jpeg" alt="MacCell" class="mobile-drawer-logo">
+                <button class="mobile-drawer-close" onclick="toggleMenuMovil()" aria-label="Cerrar">✕</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="../Inicio.html">🏠 Inicio</a></li>
+                <li><a href="catalogo.html">📱 Catálogo de Celulares</a></li>
+                <li><a href="nosotros.html">👥 Sobre Nosotros</a></li>
+                <li><a href="ubicacion.html">📍 Local y Delivery</a></li>
+            </ul>
+            <div class="mobile-drawer-footer">
+                <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" class="mobile-btn-whatsapp">
+                    Pedir por WhatsApp (+51 924 678 780)
+                </a>
+            </div>
+        </div>
+        <div class="casu-mobile-backdrop" id="mobileBackdrop" onclick="toggleMenuMovil()"></div>
+    </header>
+
+    <main class="page-main-container">
+        <div class="container" style="padding-top: 30px; padding-bottom: 60px;">
+
+            <div class="container-hero-banner contacto-hero-flex">
+                <div class="container-hero-text">
+                    <span class="section-badge" style="background: rgba(0, 192, 163, 0.2); color: #00e0bf;">ASESORÍA PERSONALIZADA</span>
+                    <h1>💬 Contáctanos y Cotiza al Instante</h1>
+                    <p>¿Tienes dudas sobre un modelo o quieres confirmar disponibilidad de color? Escríbenos directamente o déjanos tus datos para coordinar en tiempo real.</p>
+                </div>
+            </div>
+
+            <div class="contact-section-container" style="margin-top: 24px;">
+                <div class="contact-grid">
+
+                    <div class="contact-form-box">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 8px;">Solicitar Cotización Rápida</h3>
+                        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 20px;">
+                            Llena tus datos y te generamos la cotización directa en WhatsApp con descuento especial y asesoría en vivo.
+                        </p>
+
+                        <form onsubmit="handleQuickQuote(event)">
+                            <div class="form-group" style="margin-bottom: 16px;">
+                                <label for="quoteName" style="display: block; font-size: 0.85rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Nombre Completo:</label>
+                                <input type="text" id="quoteName" class="form-input" placeholder="Ej: Carlos Mendoza" required
+                                    style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.9rem;">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 16px;">
+                                <label for="quotePhone" style="display: block; font-size: 0.85rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Número de WhatsApp:</label>
+                                <input type="tel" id="quotePhone" class="form-input" placeholder="Ej: 987654321" required
+                                    style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.9rem;">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="quoteModel" style="display: block; font-size: 0.85rem; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Modelo de Celular de Interés:</label>
+                                <select id="quoteModel" class="form-input" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.9rem;">
+                                    <option value="iPhone 16 Pro Max">iPhone 16 Pro Max</option>
+                                    <option value="Samsung Galaxy S24 Ultra">Samsung Galaxy S24 Ultra</option>
+                                    <option value="Xiaomi 14 Ultra">Xiaomi 14 Ultra</option>
+                                    <option value="Honor Magic 8 Pro">Honor Magic 8 Pro</option>
+                                    <option value="Moto Edge 50 Ultra">Moto Edge 50 Ultra</option>
+                                    <option value="POCO F9 Ultra">POCO F9 Ultra</option>
+                                    <option value="ZTE Nubia Redmagic 11S">ZTE Nubia Redmagic 11S</option>
+                                    <option value="Otro modelo / Accesorio">Otro modelo / Accesorio</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-whatsapp" style="width: 100%; justify-content: center; padding: 14px; font-size: 0.95rem;">
+                                💬 Enviar Consulta por WhatsApp
+                            </button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <h2 style="font-size: 1.55rem; color: #0f172a; margin-bottom: 12px;">Canales Oficiales MacCell</h2>
+                        <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+                            Nuestro equipo de ventas te atiende en tiempo real para cotizaciones, confirmación de stock, delivery express en Lima y despachos a provincia.
+                        </p>
+
+                        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px;">
+                            <div style="display: flex; align-items: center; gap: 14px; font-size: 0.95rem; color: #1e293b; background: #f8fafc; padding: 14px 18px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                                <span style="font-size: 1.5rem;">💬</span>
+                                <div>
+                                    <div style="font-size: 0.75rem; color: #64748b; font-weight: 700;">WHATSAPP DE VENTAS & PEDIDOS</div>
+                                    <strong>+51 924 678 780</strong>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 14px; font-size: 0.95rem; color: #1e293b; background: #f8fafc; padding: 14px 18px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                                <span style="font-size: 1.5rem;">📞</span>
+                                <div>
+                                    <div style="font-size: 0.75rem; color: #64748b; font-weight: 700;">CENTRAL TELEFÓNICA TIENDA</div>
+                                    <strong>946 950 724</strong>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 14px; font-size: 0.95rem; color: #1e293b; background: #f8fafc; padding: 14px 18px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                                <span style="font-size: 1.5rem;">✉️</span>
+                                <div>
+                                    <div style="font-size: 0.75rem; color: #64748b; font-weight: 700;">CORREO ELECTRÓNICO OFICIAL</div>
+                                    <strong>maccelperu.oficial@gmail.com</strong>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 14px; font-size: 0.95rem; color: #1e293b; background: #f8fafc; padding: 14px 18px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                                <span style="font-size: 1.5rem;">🏢</span>
+                                <div>
+                                    <div style="font-size: 0.75rem; color: #64748b; font-weight: 700;">LOCAL COMERCIAL EN LIMA</div>
+                                    <strong>CC. Plaza Tec / Galería Centro Lima, Tienda 303</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <a href="https://api.whatsapp.com/send?phone=51924678780&text=Hola%20MacCell!%20Deseo%20hacer%20una%20consulta."
+                                target="_blank" class="btn-whatsapp" style="text-decoration: none;">
+                                Chatear con Asesor Ahora
+                            </a>
+                            <a href="ubicacion.html" class="btn-primary" style="text-decoration: none;">
+                                Ver Ruta a la Tienda
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="casu-footer">
+        <div class="footer-layout-container">
+            <div class="footer-main-columns">
+                <a href="../Inicio.html" class="footer-brand-logo-wrap" title="MacCell">
+                    <img src="../assets/img/ui/Logo.jpeg" alt="MacCell Oficial" class="footer-brand-img">
+                </a>
+
+                <div class="footer-col-block">
+                    <p class="footer-col-title">Celulares</p>
+                    <ul class="footer-col-list">
+                        <li><a href="../Inicio.html#catalogo">Apple iPhone</a></li>
+                        <li><a href="../Inicio.html#catalogo">Samsung Galaxy</a></li>
+                        <li><a href="../Inicio.html#catalogo">Xiaomi & POCO</a></li>
+                        <li><a href="../Inicio.html#catalogo">Honor</a></li>
+                        <li><a href="../Inicio.html#catalogo">Motorola</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col-block">
+                    <p class="footer-col-title">Tienda Oficial</p>
+                    <ul class="footer-col-list">
+                        <li><a href="../Inicio.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Sobre Nosotros & Redes</a></li>
+                        <li><a href="../Inicio.html#accesorios">Todo en Accesorios</a></li>
+                        <li><a href="ubicacion.html">Ubícanos en Plaza TEC</a></li>
+                        <li><a href="contacto.html">Contacto & Cotización</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col-block">
+                    <p class="footer-col-title">Garantía & Envíos</p>
+                    <ul class="footer-col-list">
+                        <li><a href="nosotros.html#seccion-garantia">Políticas de Garantía (1 Año)</a></li>
+                        <li><a href="nosotros.html#coberturaGarantia">¿Qué Cubre y Qué No Cubre?</a></li>
+                        <li><a href="nosotros.html#seccion-garantia-provincia">Garantía para Provincias</a></li>
+                        <li><a href="nosotros.html#seccion-envios">Proceso de Compra & Delivery</a></li>
+                        <li><a href="nosotros.html#seccion-redes-sociales">Redes Sociales Oficiales</a></li>
+                        <li><a onclick="abrirLibroReclamaciones()" style="cursor: pointer;"><span style="color: var(--accent-cyan); margin-right: 6px;">📖</span>Libro de Reclamaciones</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-side-summary">
+                <p class="footer-side-text">Especialistas en smartphones nuevos y accesorios originales con garantía real y envíos a todo el Perú.</p>
+                <div class="footer-socials-row">
+                <a href="https://www.facebook.com/share/1b18Ds1Z9s/" target="_blank" rel="noreferrer"
+                    class="footer-social-link footer-social-animated" title="Facebook MacCell Oficial" aria-label="Facebook">
+                    <div id="lottieFooterFb" class="lottie-icon-footer lottie-footer-fb"></div>
+                </a>
+                <a href="https://www.instagram.com/maccel.oficial?utm_source=qr&stkn=YTVmYnh5ZjMxOGxk" target="_blank"
+                    rel="noreferrer" class="footer-social-link footer-social-animated" title="Instagram MacCell Oficial" aria-label="Instagram">
+                    <div id="lottieFooterIg" class="lottie-icon-footer lottie-footer-ig"></div>
+                </a>
+                <a href="https://www.tiktok.com/@maccell.oficial?_r=1&_t=ZS-9A9h3vU1Ime" target="_blank"
+                    rel="noreferrer" class="footer-social-link footer-social-animated" title="TikTok MacCell Oficial" aria-label="TikTok">
+                    <div class="tiktok-animated-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.99v9.06c-.02 1.95-.62 3.86-1.84 5.37-1.48 1.83-3.76 2.92-6.13 2.95-2.12.02-4.2-.74-5.74-2.17-1.83-1.69-2.77-4.14-2.58-6.6.18-2.32 1.34-4.47 3.19-5.83 1.68-1.24 3.79-1.78 5.86-1.52.02 1.48.01 2.96.01 4.44-.99-.18-2.04-.08-2.94.34-1.02.48-1.78 1.43-1.99 2.54-.3 1.45.28 2.99 1.44 3.89 1.05.82 2.47 1.04 3.76.6 1.16-.4 2.01-1.42 2.22-2.63.14-.82.12-1.66.12-2.49V.02h.17z"/>
+                        </svg>
+                    </div>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" rel="noreferrer"
+                    class="footer-social-link footer-social-animated" title="WhatsApp Oficial MacCell (+51 924 678 780)" aria-label="WhatsApp">
+                    <div id="lottieFooterWa" class="lottie-icon-footer lottie-footer-wa"></div>
+                </a>
+            </div>
+
+            <!-- BOTÓN OFICIAL LIBRO DE RECLAMACIONES (LEY N° 29571) -->
+            <div class="footer-libro-rec-wrap" style="margin-top: 14px;">
+                <button type="button" class="btn-libro-reclamaciones" onclick="abrirLibroReclamaciones()" title="Libro de Reclamaciones Virtual conforme a Ley N° 29571">
+                    <div class="libro-rec-badge-icon">
+                        <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+                            <path d="M4 8C7.5 6 12 6.5 16 8.5C20 6.5 24.5 6 28 8V24C24.5 22 20 22.5 16 24.5C12 22.5 7.5 22 4 24V8Z" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
+                            <rect x="14.8" y="7" width="0.8" height="18" fill="#DC2626"/>
+                            <rect x="15.6" y="7" width="0.8" height="18" fill="#FFFFFF"/>
+                            <rect x="16.4" y="7" width="0.8" height="18" fill="#DC2626"/>
+                            <line x1="7" y1="11" x2="13" y2="11" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="7" y1="14" x2="13" y2="14" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="7" y1="17" x2="12" y2="17" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="19" y1="11" x2="25" y2="11" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="19" y1="14" x2="25" y2="14" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="19" y1="17" x2="24" y2="17" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="libro-rec-badge-content">
+                        <span class="libro-rec-badge-title">LIBRO DE RECLAMACIONES</span>
+                        <span class="libro-rec-badge-desc">Conforme a Ley N° 29571 • Indecopi</span>
+                        <span class="libro-rec-badge-link">Hoja de Reclamación Virtual →</span>
+                    </div>
+                </button>
+            </div>
+
+                <p class="footer-copyright-note">© 2025 MacCell Perú. RUC Verificado. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>🛒 Mi Carrito de Compras</h3>
+            <button class="cart-close-btn" onclick="closeCart()" aria-label="Cerrar">✕</button>
+        </div>
+        <div class="cart-body" id="cartItemsList"></div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total a Pagar:</span>
+                <strong id="cartTotal">S/ 0.00</strong>
+            </div>
+            <button class="btn-checkout-wa" onclick="checkoutViaWhatsApp()" style="background: linear-gradient(135deg, #00d2ff 0%, #0070f3 100%); color: #040810; font-weight: 800; box-shadow: 0 4px 18px rgba(0, 210, 255, 0.45);">
+                <span>Proceder al Despacho y Pago</span>
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <a href="https://api.whatsapp.com/send?phone=51924678780&text=¡Hola%20MacCell!%20Deseo%20solicitar%20asesor%C3%ADa%20y%20precios%20de%20celulares."
+        target="_blank" rel="noopener noreferrer" class="maccell-floating-whatsapp"
+        title="Chatear por WhatsApp (+51 924 678 780)">
+        <div id="lottieFloatWa" class="lottie-icon-wa-float"></div>
+    </a>
+
+    <script>
+        function handleQuickQuote(e) {
+            e.preventDefault();
+            const name = document.getElementById('quoteName').value;
+            const phone = document.getElementById('quotePhone').value;
+            const model = document.getElementById('quoteModel').value;
+
+            const message = `¡Hola MacCell! 👋\n` +
+                `Mi nombre es *${name}* (${phone}).\n` +
+                `Deseo solicitar cotización y consultar disponibilidad del modelo:\n` +
+                `📱 *${model}*\n\n` +
+                `¿Tienen stock disponible para entrega hoy?`;
+
+            const url = `https://api.whatsapp.com/send?phone=51924678780&text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+    <script src="../data/products.js"></script>
+    <script src="../js/products-render.js"></script>
+    <script src="../js/animated-icons-data.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/checkout-modal.js"></script>
+</body>
+
+</html>

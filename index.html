@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacCell | Celulares y Accesorios Originales</title>
+    <meta name="description"
+        content="MacCell - Venta de celulares originales y liberados con garantía oficial de 1 año. Envíos express el mismo día en Lima y a todo el Perú por Shalom y Olva.">
+    <link rel="icon" type="image/jpeg" href="assets/img/ui/Logo.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+
+    <div class="casu-top-bar">
+        <div class="container casu-top-bar-inner">
+
+            <div class="top-bar-announcement">
+                <span class="emoji-badge">🛡️</span>
+                <span>Venta de Celulares Originales y Liberados con Garantía 1 Año 💯</span>
+            </div>
+
+            <div class="top-bar-right-nav">
+                <a href="pages/ubicacion.html#delivery" class="top-nav-link" title="Envíos y Delivery">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                    </svg>
+                    <span>Envíos y Delivery</span>
+                </a>
+
+                <span class="top-nav-divider"></span>
+
+                <a href="pages/ubicacion.html" class="top-nav-link" title="Nuestro Local en Plaza TEC">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                    </svg>
+                    <span>Nuestro Local</span>
+                </a>
+
+                <span class="top-nav-divider"></span>
+
+                <a onclick="openCart()" class="top-nav-link" title="Ver carrito de compras">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                    </svg>
+                    <span>Mis Compras</span>
+                </a>
+
+                <span class="top-nav-divider"></span>
+
+                <div class="top-social-icons">
+                    <a href="https://www.facebook.com/share/1b18Ds1Z9s/" target="_blank" rel="noopener noreferrer"
+                        class="top-social-link" title="Facebook MacCell Oficial">
+                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12Z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/maccel.oficial?utm_source=qr&stkn=YTVmYnh5ZjMxOGxk"
+                        target="_blank" rel="noopener noreferrer" class="top-social-link"
+                        title="Instagram MacCell Oficial">
+                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@maccell.oficial?_r=1&_t=ZS-9A9h3vU1Ime" target="_blank"
+                        rel="noopener noreferrer" class="top-social-link" title="TikTok MacCell Oficial">
+                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.99v9.06c-.02 1.95-.62 3.86-1.84 5.37-1.48 1.83-3.76 2.92-6.13 2.95-2.12.02-4.2-.74-5.74-2.17-1.83-1.69-2.77-4.14-2.58-6.6.18-2.32 1.34-4.47 3.19-5.83 1.68-1.24 3.79-1.78 5.86-1.52.02 1.48.01 2.96.01 4.44-.99-.18-2.04-.08-2.94.34-1.02.48-1.78 1.43-1.99 2.54-.3 1.45.28 2.99 1.44 3.89 1.05.82 2.47 1.04 3.76.6 1.16-.4 2.01-1.42 2.22-2.63.14-.82.12-1.66.12-2.49V.02h.17z" />
+                        </svg>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" rel="noopener noreferrer"
+                        class="top-social-link" title="WhatsApp Oficial (+51 924 678 780)">
+                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.7c.96.523 1.874.801 2.79.8 3.183 0 5.768-2.587 5.77-5.766.001-3.182-2.585-5.769-5.768-5.785m3.411 8.163c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.18-.538-1.503-.623-2.464-2.148-2.538-2.247-.074-.099-.607-.808-.607-1.542s.385-1.096.522-1.246c.137-.15.299-.187.4-.187.1 0 .201.002.289.006.092.004.215-.035.336.257.126.302.43 1.049.467 1.125.037.075.062.164.013.264-.05.099-.074.163-.148.251-.074.088-.157.197-.224.264-.075.074-.153.155-.066.305.087.15.385.636.827 1.03.568.506 1.048.663 1.198.738.15.075.237.062.324-.038.087-.1.374-.435.474-.585.1-.15.2-.125.337-.075.137.05.87.41 1.02.485.15.075.25.112.287.175.037.062.037.362-.107.767" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <header class="casu-header">
+        <div class="container casu-header-inner">
+
+            <a href="Inicio.html" class="casu-logo-link" title="MacCell - Celulares y Accesorios">
+                <img src="assets/img/ui/Logo.jpeg" alt="MacCell Celulares y Accesorios" class="casu-logo-img">
+            </a>
+
+            <ul class="casu-main-nav">
+                <li>
+                    <a href="Inicio.html" class="casu-nav-item active">Inicio</a>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="pages/catalogo.html" class="casu-nav-item">
+                        <span>Catálogo</span>
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/catalogo.html">📱 Ver Todo el Catálogo</a></li>
+                        <li><a href="pages/catalogo.html?marca=apple">Apple iPhone</a></li>
+                        <li><a href="pages/catalogo.html?marca=samsung">Samsung Galaxy</a></li>
+                        <li><a href="pages/catalogo.html?marca=xiaomi">Xiaomi</a></li>
+                        <li><a href="pages/catalogo.html?marca=poco">POCO</a></li>
+                        <li><a href="pages/catalogo.html?marca=honor">Honor</a></li>
+                        <li><a href="pages/catalogo.html?marca=motorola">Motorola</a></li>
+                        <li><a href="pages/catalogo.html?marca=infinix">Infinix</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="pages/nosotros.html" class="casu-nav-item">Nosotros</a>
+                </li>
+                <li>
+                    <a href="pages/ubicacion.html" class="casu-nav-item">Ubícanos</a>
+                </li>
+            </ul>
+
+            <div class="casu-search-wrap">
+                <div class="casu-search-pill">
+                    <input type="text" id="mainSearchInput" class="casu-search-input" placeholder="Buscar productos..."
+                        autocomplete="off">
+                    <button class="casu-search-btn" onclick="scrollToCatalog()" title="Buscar en catálogo">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="casu-header-actions">
+                <div class="casu-cart-widget" onclick="openCart()" title="Ver Carrito de Compras">
+                    <div class="cart-icon-wrapper">
+                        <div id="lottieHeaderCart" class="lottie-icon-cart"></div>
+                        <span class="cart-circle-badge" id="cartBadge">0</span>
+                    </div>
+                    <span class="cart-price-text" id="headerCartTotal">S/ 0.00</span>
+                </div>
+
+                <button class="casu-mobile-menu-btn" onclick="toggleMenuMovil()" id="mobileMenuBtn"
+                    aria-label="Abrir Menú">
+                    <div id="lottieNavMenu" class="lottie-icon-hamburger"></div>
+                    <svg class="icon-close-menu" width="24" height="24" fill="none" stroke="currentColor"
+                        stroke-width="2.2" viewBox="0 0 24 24" style="display:none;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="casu-mobile-drawer" id="mobileDrawer">
+            <div class="mobile-drawer-header">
+                <div class="mobile-drawer-brand">
+                    <img src="assets/img/ui/Logo.jpeg" alt="MacCell" class="mobile-drawer-logo">
+                </div>
+                <button class="mobile-drawer-close" onclick="toggleMenuMovil()" aria-label="Cerrar menú">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mobile-drawer-search">
+                <input type="text" id="mobileSearchInput" placeholder="Buscar celular o accesorio..."
+                    oninput="appState.searchQuery = this.value; renderProducts();">
+            </div>
+
+            <ul class="mobile-nav-links">
+                <li><a href="Inicio.html" onclick="toggleMenuMovil()" class="active">🏠 Inicio</a></li>
+                <li><a href="pages/catalogo.html" onclick="toggleMenuMovil()">📱 Catálogo de Celulares</a></li>
+                <li><a href="pages/nosotros.html" onclick="toggleMenuMovil()">👥 Nosotros</a></li>
+                <li><a href="pages/ubicacion.html" onclick="toggleMenuMovil()">📍 Ubícanos</a></li>
+                <li class="mobile-nav-group-title"><span>Comprar por Marcas:</span></li>
+                <li class="mobile-sub"><a href="pages/catalogo.html?marca=apple" onclick="toggleMenuMovil()">Apple iPhone</a></li>
+                <li class="mobile-sub"><a href="pages/catalogo.html?marca=samsung" onclick="toggleMenuMovil()">Samsung Galaxy</a></li>
+                <li class="mobile-sub"><a href="pages/catalogo.html?marca=xiaomi" onclick="toggleMenuMovil()">Xiaomi</a></li>
+                <li class="mobile-sub"><a href="pages/catalogo.html?marca=poco" onclick="toggleMenuMovil()">POCO</a></li>
+                <li class="mobile-sub"><a href="pages/catalogo.html?marca=honor" onclick="toggleMenuMovil()">Honor</a></li>
+                <li class="mobile-sub"><a href="pages/catalogo.html?marca=motorola" onclick="toggleMenuMovil()">Motorola</a></li>
+                <li class="mobile-sub"><a href="pages/catalogo.html?marca=infinix" onclick="toggleMenuMovil()">Infinix</a></li>
+                <li><a href="pages/ubicacion.html#delivery" onclick="toggleMenuMovil()">🛵 Envíos y Delivery</a></li>
+                <li><a onclick="toggleMenuMovil(); abrirLibroReclamaciones();" style="cursor: pointer;"><span style="color: var(--accent-cyan); margin-right: 6px;">📖</span>Libro de Reclamaciones</a></li>
+            </ul>
+
+            <div class="mobile-drawer-footer">
+                <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" class="mobile-btn-whatsapp">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.7c.96.523 1.874.801 2.79.8 3.183 0 5.768-2.587 5.77-5.766.001-3.182-2.585-5.769-5.768-5.785m3.411 8.163c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.18-.538-1.503-.623-2.464-2.148-2.538-2.247-.074-.099-.607-.808-.607-1.542s.385-1.096.522-1.246c.137-.15.299-.187.4-.187.1 0 .201.002.289.006.092.004.215-.035.336.257.126.302.43 1.049.467 1.125.037.075.062.164.013.264-.05.099-.074.163-.148.251-.074.088-.157.197-.224.264-.075.074-.153.155-.066.305.087.15.385.636.827 1.03.568.506 1.048.663 1.198.738.15.075.237.062.324-.038.087-.1.374-.435.474-.585.1-.15.2-.125.337-.075.137.05.87.41 1.02.485.15.075.25.112.287.175.037.062.037.362-.107.767" />
+                    </svg>
+                    <span>Pedir por WhatsApp (+51 924 678 780)</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="casu-mobile-backdrop" id="mobileBackdrop" onclick="toggleMenuMovil()"></div>
+    </header>
+
+    <main id="mainSectionsWrapper">
+
+        <div class="casu-hero-carousel" id="casuHeroCarousel">
+            <div class="casu-carousel-track">
+
+                <div class="casu-slide active" data-brand="apple" onclick="filterByBrand('apple'); scrollToCatalog();"
+                    title="Click para ver catálogo de iPhone">
+                    <div class="casu-slide-image-wrapper">
+                        <img src="assets/img/ui/banners/banner iphone.jpeg" alt="iPhone Celulares MacCell"
+                            class="casu-banner-img">
+                    </div>
+                    <div class="casu-slide-content">
+                        <h2 class="casu-brand-title">
+                            <span class="brand-highlight turquoise">IPHONE</span>
+                            <span class="brand-gray">CELULARES</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="casu-slide" data-brand="samsung" onclick="filterByBrand('samsung'); scrollToCatalog();"
+                    title="Click para ver celulares Samsung Galaxy">
+                    <div class="casu-slide-image-wrapper">
+                        <img src="assets/img/ui/banners/Banner samsung.jpeg" alt="Samsung Celulares MacCell"
+                            class="casu-banner-img">
+                    </div>
+                    <div class="casu-slide-content">
+                        <h2 class="casu-brand-title">
+                            <span class="brand-highlight turquoise">SAMSUNG</span>
+                            <span class="brand-gray">CELULARES</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="casu-slide" data-brand="xiaomi" onclick="filterByBrand('xiaomi'); scrollToCatalog();"
+                    title="Click para ver celulares Xiaomi & POCO">
+                    <div class="casu-slide-image-wrapper">
+                        <img src="assets/img/ui/banners/xiaomi banner.jpeg" alt="Xiaomi Celulares MacCell"
+                            class="casu-banner-img">
+                    </div>
+                    <div class="casu-slide-content">
+                        <h2 class="casu-brand-title">
+                            <span class="brand-highlight turquoise">XIAOMI</span>
+                            <span class="brand-gray">CELULARES</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="casu-slide" data-brand="infinix" onclick="filterByBrand('infinix'); scrollToCatalog();"
+                    title="Click para ver celulares Infinix">
+                    <div class="casu-slide-image-wrapper">
+                        <img src="assets/img/ui/banners/infinix banner.jpeg" alt="Infinix Celulares MacCell"
+                            class="casu-banner-img">
+                    </div>
+                    <div class="casu-slide-content">
+                        <h2 class="casu-brand-title">
+                            <span class="brand-highlight turquoise">INFINIX</span>
+                            <span class="brand-gray">CELULARES</span>
+                        </h2>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="casu-nav-arrow prev" onclick="event.stopPropagation(); changeHeroSlide(-1);"
+                aria-label="Slide anterior" title="Anterior">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+            </button>
+            <button class="casu-nav-arrow next" onclick="event.stopPropagation(); changeHeroSlide(1);"
+                aria-label="Slide siguiente" title="Siguiente">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+
+            <div class="casu-progress-timeline">
+                <div class="casu-progress-segment active" onclick="event.stopPropagation(); setHeroSlide(0);"
+                    title="Ver iPhone">
+                    <div class="casu-progress-fill"></div>
+                </div>
+                <div class="casu-progress-segment" onclick="event.stopPropagation(); setHeroSlide(1);"
+                    title="Ver Samsung">
+                    <div class="casu-progress-fill"></div>
+                </div>
+                <div class="casu-progress-segment" onclick="event.stopPropagation(); setHeroSlide(2);"
+                    title="Ver Xiaomi">
+                    <div class="casu-progress-fill"></div>
+                </div>
+                <div class="casu-progress-segment" onclick="event.stopPropagation(); setHeroSlide(3);"
+                    title="Ver Infinix">
+                    <div class="casu-progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <section class="brands-showcase-section" id="marcasShowcase">
+            <div class="brands-showcase-header">
+                <div>
+                    <span class="section-badge" style="background: rgba(0, 210, 255, 0.12); color: var(--accent-cyan);">MARCAS OFICIALES</span>
+                    <h2 class="brands-showcase-title">Compra por Marcas</h2>
+                    <p class="brands-showcase-sub">Equipos 100% nuevos de fábrica con garantía real de 1 año y entrega inmediata</p>
+                </div>
+                <a href="pages/catalogo.html" class="btn-link-all" style="text-decoration:none;">
+                    <span>Ver todo el catálogo</span>
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="brands-cards-grid">
+                <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=apple';" title="Ver catálogo Apple iPhone">
+                    <div class="brand-card-phone-wrap">
+                        <img src="assets/img/brands/Iphone/Iphone 18 pro max.jpeg" alt="Apple iPhone" class="brand-card-phone-img">
+                    </div>
+                    <div class="brand-card-divider"></div>
+                    <div class="brand-card-footer">
+                        <img src="assets/img/brands/Iphone/iphone_logo_clean.png" alt="Apple" class="brand-card-logo-img brand-logo-apple">
+                    </div>
+                </div>
+
+                <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=samsung';" title="Ver catálogo Samsung Galaxy">
+                    <div class="brand-card-phone-wrap">
+                        <img src="assets/img/brands/Samsung/S26 ultra.jpeg" alt="Samsung Galaxy" class="brand-card-phone-img">
+                    </div>
+                    <div class="brand-card-divider"></div>
+                    <div class="brand-card-footer">
+                        <img src="assets/img/brands/Samsung/Samsung_logo_clean.png" alt="Samsung" class="brand-card-logo-img brand-logo-samsung">
+                    </div>
+                </div>
+
+                <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=xiaomi';" title="Ver catálogo Xiaomi">
+                    <div class="brand-card-phone-wrap">
+                        <img src="assets/img/brands/Xiaomi/Xioami 18 pro max.jpg" alt="Xiaomi" class="brand-card-phone-img">
+                    </div>
+                    <div class="brand-card-divider"></div>
+                    <div class="brand-card-footer">
+                        <img src="assets/img/brands/Xiaomi/Xiaomi_logo_clean.png" alt="Xiaomi" class="brand-card-logo-img brand-logo-xiaomi">
+                    </div>
+                </div>
+
+                <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=honor';" title="Ver catálogo Honor">
+                    <div class="brand-card-phone-wrap">
+                        <img src="assets/img/brands/Honor/HONOR MAGIC 8 PRO.webp" alt="Honor" class="brand-card-phone-img">
+                    </div>
+                    <div class="brand-card-divider"></div>
+                    <div class="brand-card-footer">
+                        <img src="assets/img/brands/Honor/Honor_logo_clean.png" alt="Honor" class="brand-card-logo-img brand-logo-honor">
+                    </div>
+                </div>
+
+                <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=motorola';" title="Ver catálogo Motorola">
+                    <div class="brand-card-phone-wrap">
+                        <img src="assets/img/brands/Motorola/MOTO EDGE 50 ULTRA 5G.webp" alt="Motorola" class="brand-card-phone-img">
+                    </div>
+                    <div class="brand-card-divider"></div>
+                    <div class="brand-card-footer">
+                        <img src="assets/img/brands/Motorola/motorola_logo_clean.png" alt="Motorola" class="brand-card-logo-img brand-logo-motorola">
+                    </div>
+                </div>
+
+                <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=poco';" title="Ver catálogo POCO">
+                    <div class="brand-card-phone-wrap">
+                        <img src="assets/img/brands/Poco/Poco f9 ultra.webp" alt="POCO" class="brand-card-phone-img">
+                    </div>
+                    <div class="brand-card-divider"></div>
+                    <div class="brand-card-footer">
+                        <img src="assets/img/brands/Poco/Poco_logo_clean.png" alt="POCO" class="brand-card-logo-img brand-logo-poco">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="clientes-felices-section" id="clientesFelices">
+            <div class="clientes-banner-container" onclick="abrirModalClientes()"
+                title="Toca para ver fotos de clientes satisfechos estilo Instagram">
+                <div class="clientes-banner-info">
+                    <div class="clientes-curved-badge">
+                        <span class="badge-tag-mini">★ COMUNIDAD MACCELL</span>
+                        <h3 class="clientes-title-curved">
+                            CLIENTES <br>
+                            <span class="clientes-highlight">FELICES</span>
+                        </h3>
+                        <p class="clientes-subtext">
+                            Más de <strong>5,000 entregas exitosas</strong> en Lima y envíos a todo el Perú.
+                            Equipos 100% nuevos, sellados y con garantía real de fábrica.
+                        </p>
+                    </div>
+
+                    <div class="clientes-banner-cta">
+                        <button class="btn-instagram-gallery" type="button">
+                            <div id="lottieBannerIg" class="lottie-icon-ig-banner"></div>
+                            <span>Ver Fotos en Instagram (+29 entregas)</span>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </button>
+                        <span class="clientes-badge-live">● Toca para abrir galería en fotos de IG</span>
+                    </div>
+                </div>
+
+                <div class="clientes-banner-photos">
+                    <div class="client-photo-card card-pos-1">
+                        <img src="assets/img/ui/clientes-satisfechos/fotos/cliente_1.jpg" alt="Cliente Satisfecho Honor X9b">
+                        <div class="client-photo-badge">Honor X9b 5G</div>
+                    </div>
+                    <div class="client-photo-card card-pos-2 featured-card">
+                        <img src="assets/img/ui/clientes-satisfechos/fotos/cliente_3.jpg" alt="Cliente Satisfecho Samsung Galaxy A56">
+                        <div class="client-photo-badge blue">Galaxy A56 5G</div>
+                        <div class="client-floating-heart">❤️</div>
+                    </div>
+                    <div class="client-photo-card card-pos-3">
+                        <img src="assets/img/ui/clientes-satisfechos/fotos/cliente_2.jpg" alt="Cliente Satisfecho Unnecto Bolt One">
+                        <div class="client-photo-badge">Unnecto Bolt One</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="accesorios-showcase-section" id="seccionAccesorios">
+            <div class="accesorios-header-wrap">
+                <div class="accesorios-title-group">
+                    <h2 class="accesorios-section-title">
+                        Todo en Accesorios
+                        <span class="accesorios-title-underline"></span>
+                    </h2>
+                    <p class="accesorios-section-sub">🎧 Cubos de carga rápida, audífonos bluetooth y cables 100% originales 🔌</p>
+                </div>
+
+                <div class="accesorios-slider-controls">
+                    <button class="accesorios-ctrl-btn" onclick="scrollAccesoriosTrack(-1)" title="Ver anteriores">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                        </svg>
+                    </button>
+                    <button class="accesorios-ctrl-btn" onclick="scrollAccesoriosTrack(1)" title="Ver siguientes">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="accesorios-motion-wrapper" id="accesoriosMotionWrapper">
+                <div class="accesorios-motion-track" id="accesoriosTrack">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="trusted-marquee-section" id="trustedMarqueeSection">
+        <div class="trusted-marquee-wrapper" id="trustedMarqueeWrapper">
+            <div class="trusted-marquee-track">
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'apple')" title="Ver celulares Apple iPhone">
+                    <img src="assets/img/trusted-bar/iphone%20logo%20bar.png" alt="Apple iPhone" class="trusted-big-logo iphone-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'samsung')" title="Ver celulares Samsung Galaxy">
+                    <img src="assets/img/trusted-bar/samsung%20logo%20bar.svg" alt="Samsung Galaxy" class="trusted-big-logo samsung-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'xiaomi')" title="Ver celulares Xiaomi">
+                    <img src="assets/img/trusted-bar/xioami%20logo%20bar.png" alt="Xiaomi" class="trusted-big-logo xiaomi-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'honor')" title="Ver celulares Honor">
+                    <img src="assets/img/trusted-bar/honor%20logo%20bar.jpeg" alt="Honor" class="trusted-big-logo honor-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'motorola')" title="Ver celulares Motorola">
+                    <img src="assets/img/trusted-bar/motorola%20logo%20bar.jpeg" alt="Motorola" class="trusted-big-logo motorola-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'poco')" title="Ver celulares POCO">
+                    <img src="assets/img/trusted-bar/poco%20logo%20bar.png" alt="POCO" class="trusted-big-logo poco-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'tecno')" title="Ver celulares Tecno">
+                    <img src="assets/img/trusted-bar/tecnolo%20logo%20bar.png" alt="Tecno Mobile" class="trusted-big-logo tecno-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'zte')" title="Ver celulares ZTE Nubia">
+                    <img src="assets/img/trusted-bar/zte%20logo%20bar.png" alt="ZTE Nubia" class="trusted-big-logo zte-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'apple')" title="Ver celulares Apple iPhone">
+                    <img src="assets/img/trusted-bar/iphone%20logo%20bar.png" alt="Apple iPhone" class="trusted-big-logo iphone-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'samsung')" title="Ver celulares Samsung Galaxy">
+                    <img src="assets/img/trusted-bar/samsung%20logo%20bar.svg" alt="Samsung Galaxy" class="trusted-big-logo samsung-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'xiaomi')" title="Ver celulares Xiaomi">
+                    <img src="assets/img/trusted-bar/xioami%20logo%20bar.png" alt="Xiaomi" class="trusted-big-logo xiaomi-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'honor')" title="Ver celulares Honor">
+                    <img src="assets/img/trusted-bar/honor%20logo%20bar.jpeg" alt="Honor" class="trusted-big-logo honor-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'motorola')" title="Ver celulares Motorola">
+                    <img src="assets/img/trusted-bar/motorola%20logo%20bar.jpeg" alt="Motorola" class="trusted-big-logo motorola-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'poco')" title="Ver celulares POCO">
+                    <img src="assets/img/trusted-bar/poco%20logo%20bar.png" alt="POCO" class="trusted-big-logo poco-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'tecno')" title="Ver celulares Tecno">
+                    <img src="assets/img/trusted-bar/tecnolo%20logo%20bar.png" alt="Tecno Mobile" class="trusted-big-logo tecno-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'zte')" title="Ver celulares ZTE Nubia">
+                    <img src="assets/img/trusted-bar/zte%20logo%20bar.png" alt="ZTE Nubia" class="trusted-big-logo zte-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="prebuilt-footer-maccell">
+        <div class="footer-columns-group">
+            <a href="Inicio.html" class="footer-brand-logo-wrap" title="MacCell - Celulares y Accesorios">
+                <img src="assets/img/ui/Logo.jpeg" alt="MacCell Oficial" class="footer-brand-img">
+            </a>
+
+            <div class="footer-col-block">
+                <p class="footer-col-title">Celulares</p>
+                <ul class="footer-col-list">
+                    <li><a href="pages/catalogo.html?marca=apple">Apple iPhone</a></li>
+                    <li><a href="pages/catalogo.html?marca=samsung">Samsung Galaxy</a></li>
+                    <li><a href="pages/catalogo.html?marca=xiaomi">Xiaomi & POCO</a></li>
+                    <li><a href="pages/catalogo.html?marca=honor">Honor</a></li>
+                    <li><a href="pages/catalogo.html?marca=motorola">Motorola</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col-block">
+                <p class="footer-col-title">Tienda Oficial</p>
+                <ul class="footer-col-list">
+                    <li><a href="Inicio.html">Inicio</a></li>
+                    <li><a href="pages/catalogo.html">Catálogo de Celulares</a></li>
+                    <li><a href="pages/nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="#seccionAccesorios">Todo en Accesorios</a></li>
+                    <li>
+                        <a onclick="abrirModalClientes()">
+                            Clientes Felices
+                            <span class="footer-pill-tag">+29 Entregas</span>
+                        </a>
+                    </li>
+                    <li><a href="pages/ubicacion.html">Ubícanos en Plaza TEC</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col-block">
+                <p class="footer-col-title">Garantía & Envíos</p>
+                <ul class="footer-col-list">
+                    <li><a href="pages/nosotros.html#seccion-garantia">Políticas de Garantía (1 Año)</a></li>
+                    <li><a href="pages/nosotros.html#coberturaGarantia">¿Qué Cubre y Qué No Cubre?</a></li>
+                    <li><a href="pages/nosotros.html#seccion-garantia-provincia">Garantía para Provincias</a></li>
+                    <li><a href="pages/ubicacion.html#delivery">Proceso de Compra & Delivery</a></li>
+                    <li><a href="pages/contacto.html">Atención & Contacto WhatsApp</a></li>
+                    <li><a onclick="abrirLibroReclamaciones()" style="cursor: pointer;"><span style="color: var(--accent-cyan); margin-right: 6px;">📖</span>Libro de Reclamaciones</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-side-summary">
+            <p class="footer-side-text">Especialistas en smartphones nuevos y accesorios originales con garantía real y envíos a todo el Perú.</p>
+
+            <div class="footer-socials-row">
+                <a href="https://www.facebook.com/share/1b18Ds1Z9s/" target="_blank" rel="noreferrer"
+                    class="footer-social-link footer-social-animated" title="Facebook MacCell Oficial" aria-label="Facebook">
+                    <div id="lottieFooterFb" class="lottie-icon-footer lottie-footer-fb"></div>
+                </a>
+                <a href="https://www.instagram.com/maccel.oficial?utm_source=qr&stkn=YTVmYnh5ZjMxOGxk" target="_blank"
+                    rel="noreferrer" class="footer-social-link footer-social-animated" title="Instagram MacCell Oficial" aria-label="Instagram">
+                    <div id="lottieFooterIg" class="lottie-icon-footer lottie-footer-ig"></div>
+                </a>
+                <a href="https://www.tiktok.com/@maccell.oficial?_r=1&_t=ZS-9A9h3vU1Ime" target="_blank"
+                    rel="noreferrer" class="footer-social-link footer-social-animated" title="TikTok MacCell Oficial" aria-label="TikTok">
+                    <div class="tiktok-animated-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.99v9.06c-.02 1.95-.62 3.86-1.84 5.37-1.48 1.83-3.76 2.92-6.13 2.95-2.12.02-4.2-.74-5.74-2.17-1.83-1.69-2.77-4.14-2.58-6.6.18-2.32 1.34-4.47 3.19-5.83 1.68-1.24 3.79-1.78 5.86-1.52.02 1.48.01 2.96.01 4.44-.99-.18-2.04-.08-2.94.34-1.02.48-1.78 1.43-1.99 2.54-.3 1.45.28 2.99 1.44 3.89 1.05.82 2.47 1.04 3.76.6 1.16-.4 2.01-1.42 2.22-2.63.14-.82.12-1.66.12-2.49V.02h.17z"/>
+                        </svg>
+                    </div>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" rel="noreferrer"
+                    class="footer-social-link footer-social-animated" title="WhatsApp Oficial MacCell (+51 924 678 780)" aria-label="WhatsApp">
+                    <div id="lottieFooterWa" class="lottie-icon-footer lottie-footer-wa"></div>
+                </a>
+            </div>
+
+            <!-- BOTÓN OFICIAL LIBRO DE RECLAMACIONES (LEY N° 29571) -->
+            <div class="footer-libro-rec-wrap">
+                <button type="button" class="btn-libro-reclamaciones" onclick="abrirLibroReclamaciones()" title="Libro de Reclamaciones Virtual conforme a Ley N° 29571">
+                    <div class="libro-rec-badge-icon">
+                        <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+                            <path d="M4 8C7.5 6 12 6.5 16 8.5C20 6.5 24.5 6 28 8V24C24.5 22 20 22.5 16 24.5C12 22.5 7.5 22 4 24V8Z" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
+                            <rect x="14.8" y="7" width="0.8" height="18" fill="#DC2626"/>
+                            <rect x="15.6" y="7" width="0.8" height="18" fill="#FFFFFF"/>
+                            <rect x="16.4" y="7" width="0.8" height="18" fill="#DC2626"/>
+                            <line x1="7" y1="11" x2="13" y2="11" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="7" y1="14" x2="13" y2="14" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="7" y1="17" x2="12" y2="17" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="19" y1="11" x2="25" y2="11" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="19" y1="14" x2="25" y2="14" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            <line x1="19" y1="17" x2="24" y2="17" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="libro-rec-badge-content">
+                        <span class="libro-rec-badge-title">LIBRO DE RECLAMACIONES</span>
+                        <span class="libro-rec-badge-desc">Conforme a Ley N° 29571 • Indecopi</span>
+                        <span class="libro-rec-badge-link">Hoja de Reclamación Virtual →</span>
+                    </div>
+                </button>
+            </div>
+
+            <p class="footer-copyright-note">© 2025 <a href="Inicio.html">MacCell Perú</a>. RUC Verificado. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3 style="display: flex; align-items: center; gap: 8px;">
+                <div id="lottieDrawerCart" class="lottie-icon-drawer-cart"></div>
+                Mis Compras / Carrito
+            </h3>
+            <button class="btn-close-cart" onclick="closeCart()" title="Cerrar">✕</button>
+        </div>
+
+        <div class="cart-items-list" id="cartItemsList">
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-summary-row">
+                <span>Subtotal:</span>
+                <span id="cartSubtotal">S/ 0</span>
+            </div>
+            <div class="cart-summary-row">
+                <span>Envío en Lima:</span>
+                <span style="color: #10b981; font-weight: 700;">A coordinar / Express</span>
+            </div>
+            <div class="cart-total-row">
+                <span>Total a Pagar:</span>
+                <span id="cartTotal" style="color: var(--accent-cyan);">S/ 0</span>
+            </div>
+
+            <div class="cart-actions-box">
+                <button class="btn-checkout-wa" onclick="checkoutViaWhatsApp()"
+                    style="width: 100%; justify-content: center; font-size: 0.95rem; padding: 14px; background: linear-gradient(135deg, #00d2ff 0%, #0070f3 100%); color: #040810; font-weight: 800; box-shadow: 0 4px 18px rgba(0, 210, 255, 0.45); border-radius: var(--radius-sm, 8px);">
+                    <span>Proceder al Despacho y Pago</span>
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+                    </svg>
+                </button>
+                <button class="pill-btn" onclick="closeCart()"
+                    style="background: transparent; color: var(--text-muted); text-align: center; width: 100%;">
+                    Continuar viendo celulares
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <div class="modal-overlay" id="quickViewModal" onclick="if(event.target===this) closeQuickView();">
+        <div class="modal-content">
+            <button class="btn-close-modal" onclick="closeQuickView()">✕</button>
+            <div id="modalContentBody">
+            </div>
+        </div>
+    </div>
+
+    <div class="ig-modal-overlay" id="modalClientesOverlay" onclick="cerrarModalClientes(event)">
+        <div class="ig-modal-container" onclick="event.stopPropagation()">
+            <div class="ig-modal-header">
+                <div class="ig-profile-info">
+                    <div class="ig-avatar-ring">
+                        <img src="assets/img/ui/Logo.jpeg" alt="MacCell" class="ig-avatar-img">
+                    </div>
+                    <div>
+                        <div class="ig-username-line">
+                            <span class="ig-username">maccell.pe</span>
+                            <svg class="ig-verified-icon" width="16" height="16" viewBox="0 0 24 24" fill="#00d2ff">
+                                <path d="m8.6 22.5-1.9-3.2-3.6-.8.4-3.7-2.5-2.8 2.5-2.8-.4-3.7 3.6-.8 1.9-3.2 3.4 1.5 3.4-1.5 1.9 3.2 3.6.8-.4 3.7 2.5 2.8-2.5 2.8.4 3.7-3.6.8-1.9 3.2-3.4-1.5-3.4 1.5zm2.4-7.5 5.7-5.7-1.4-1.4-4.3 4.3-2.1-2.1-1.4 1.4 3.5 3.5z" />
+                            </svg>
+                            <span class="ig-follow-pill">Siguiendo</span>
+                        </div>
+                        <span class="ig-profile-subtitle">📸 Entregas reales de celulares a clientes felices • CC Plaza TEC, Lima</span>
+                    </div>
+                </div>
+
+                <button class="ig-modal-close" onclick="cerrarModalClientes()" title="Cerrar galería">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="ig-modal-tabs">
+                <button class="ig-tab-btn active" onclick="filtrarFotosClientes('todos', this)">Todas las Entregas (29)</button>
+                <button class="ig-tab-btn" onclick="filtrarFotosClientes('apple', this)">iPhone</button>
+                <button class="ig-tab-btn" onclick="filtrarFotosClientes('samsung', this)">Samsung</button>
+                <button class="ig-tab-btn" onclick="filtrarFotosClientes('xiaomi', this)">Xiaomi & POCO</button>
+                <button class="ig-tab-btn" onclick="filtrarFotosClientes('honor', this)">Honor</button>
+                <button class="ig-tab-btn" onclick="filtrarFotosClientes('otros', this)">Otras Marcas</button>
+            </div>
+
+            <div class="ig-posts-grid" id="igPostsGrid">
+            </div>
+        </div>
+    </div>
+
+    <a href="https://api.whatsapp.com/send?phone=51924678780&text=¡Hola%20MacCell!%20Deseo%20solicitar%20asesor%C3%ADa%20y%20precios%20de%20celulares."
+        target="_blank" rel="noopener noreferrer" class="maccell-floating-whatsapp"
+        title="Chatear por WhatsApp (+51 924 678 780)" aria-label="WhatsApp">
+        <div id="lottieFloatWa" class="lottie-icon-wa-float"></div>
+    </a>
+
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+        <a href="Inicio.html" class="mobile-bottom-item active">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+            <span>Inicio</span>
+        </a>
+        <a href="pages/catalogo.html" class="mobile-bottom-item">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+            </svg>
+            <span>Catálogo</span>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=51924678780&text=¡Hola%20MacCell!%20Deseo%20hacer%20una%20consulta%20por%20un%20celular."
+            target="_blank" rel="noopener noreferrer" class="mobile-bottom-item mobile-bottom-whatsapp">
+            <div id="lottieBottomWa" class="lottie-icon-wa-bottom"></div>
+            <span style="color: #25d366; font-weight: 700;">WhatsApp</span>
+        </a>
+        <a onclick="abrirModalClientes()" class="mobile-bottom-item">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+            <span>Clientes</span>
+        </a>
+        <a onclick="openCart()" class="mobile-bottom-item">
+            <div style="position: relative; display: inline-flex;">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
+                <span class="mobile-bottom-badge" id="bottomCartBadge">0</span>
+            </div>
+            <span>Carrito</span>
+        </a>
+    </nav>
+
+    <div class="floating-compare-bar" id="floatingCompareBar">
+        <div class="floating-compare-inner">
+            <div class="floating-compare-row-top">
+                <div class="floating-compare-left">
+                    <div class="floating-compare-icon-wrap">⚖️</div>
+                    <div>
+                        <div class="floating-compare-title">
+                            Comparando (<span id="compareCountNum">0</span>/4)
+                        </div>
+                        <div class="floating-compare-sub">
+                            Selecciona de 2 a 4 celulares
+                        </div>
+                    </div>
+                </div>
+
+                <div class="floating-compare-items" id="floatingCompareItems">
+                </div>
+            </div>
+
+            <div class="floating-compare-actions">
+                <button class="btn-floating-clear" onclick="clearCompare()" title="Limpiar selección">
+                    Limpiar
+                </button>
+                <button class="btn-floating-compare-now disabled" id="btnCompareNow" onclick="openCompareModal()" disabled title="Selecciona al menos 2 celulares">
+                    <span>Comparar Equipos</span>
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="compare-modal-overlay" id="compareModal" onclick="if(event.target===this) closeCompareModal();">
+        <div class="compare-modal-dialog">
+            <div class="compare-modal-header">
+                <div class="compare-modal-header-left">
+                    <span class="compare-header-icon">⚖️</span>
+                    <div>
+                        <h3 class="compare-modal-title">Comparativa de Smartphones</h3>
+                        <p class="compare-modal-subtitle">Compara especificaciones técnicas detalladas lado a lado</p>
+                    </div>
+                </div>
+                <div class="compare-modal-header-right">
+                    <button class="btn-highlight-diff" id="btnToggleHighlightDiff" onclick="toggleHighlightDifferences()" title="Resaltar las filas con características distintas">
+                        <span>✨ Resaltar diferencias</span>
+                    </button>
+                    <button class="compare-modal-close" onclick="closeCompareModal()" title="Cerrar comparativa" aria-label="Cerrar">✕</button>
+                </div>
+            </div>
+            <div class="compare-modal-body" id="compareModalBody">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/ubicanos-map.js"></script>
+    <script src="js/animated-icons-data.js"></script>
+    <script src="data/products.js"></script>
+    <script src="js/products-render.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/checkout-modal.js"></script>
+
+</body>
+
+</html>
