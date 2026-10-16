@@ -88,17 +88,17 @@
         <div class="shipping-methodology-dialog" onclick="event.stopPropagation()">
           <div class="shipping-methodology-header">
             <div class="shipping-methodology-title">
-              <span>🛡️</span>
+              <svg width="20" height="20" fill="none" stroke="#22d3ee" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
               <span>FORMA DE COMPRA PARA PROVINCIA (S/ 20 ENVÍO)</span>
             </div>
-            <button type="button" class="shipping-methodology-close" onclick="closeShippingMethodologyModal()" title="Cerrar">✕</button>
+            <button type="button" class="shipping-methodology-close" onclick="closeShippingMethodologyModal()" title="Cerrar" aria-label="Cerrar">✕</button>
           </div>
           
           <div class="shipping-methodology-body">
             <div class="methodology-step-card">
               <div class="methodology-step-num">1</div>
               <div class="methodology-step-content">
-                <h4>➡️ CONFIRMA TU PEDIDO</h4>
+                <h4>CONFIRMA TU PEDIDO</h4>
                 <p>Elige tu equipo y realiza el pago del producto + <strong>S/ 20 de envío</strong> mediante depósito o transferencia a nuestras cuentas oficiales.</p>
               </div>
             </div>
@@ -106,7 +106,7 @@
             <div class="methodology-step-card">
               <div class="methodology-step-num">2</div>
               <div class="methodology-step-content">
-                <h4>➡️ ENVÍANOS TUS DATOS</h4>
+                <h4>ENVÍANOS TUS DATOS</h4>
                 <p>Envíanos la captura del pago junto con tus datos completos para realizar el despacho.</p>
               </div>
             </div>
@@ -114,7 +114,7 @@
             <div class="methodology-step-card">
               <div class="methodology-step-num">3</div>
               <div class="methodology-step-content">
-                <h4>➡️ PREPARAMOS TU EQUIPO</h4>
+                <h4>PREPARAMOS TU EQUIPO</h4>
                 <p>Emitimos tu comprobante y, antes de embalarlo, te enviamos evidencia de tu equipo. Se despacha con su caja y accesorios completos.</p>
               </div>
             </div>
@@ -122,7 +122,7 @@
             <div class="methodology-step-card">
               <div class="methodology-step-num">4</div>
               <div class="methodology-step-content">
-                <h4>➡️ DESPACHAMOS TU PEDIDO</h4>
+                <h4>DESPACHAMOS TU PEDIDO</h4>
                 <p>Enviamos tu compra mediante la agencia previamente coordinada (Shalom, Olva Courier o Marvisur).</p>
               </div>
             </div>
@@ -130,7 +130,7 @@
             <div class="methodology-step-card">
               <div class="methodology-step-num">5</div>
               <div class="methodology-step-content">
-                <h4>➡️ CONFIRMACIÓN Y SEGUIMIENTO</h4>
+                <h4>CONFIRMACIÓN Y SEGUIMIENTO</h4>
                 <p>Te enviamos la constancia de envío, número de guía y la información de llegada para que puedas recoger tu pedido en tu ciudad.</p>
               </div>
             </div>
@@ -138,7 +138,7 @@
 
           <div class="shipping-methodology-footer">
             <button type="button" class="btn-close-methodology-action" onclick="closeShippingMethodologyModal()">
-              Entendido, volver a mi pedido ✓
+              Entendido, volver a mi pedido
             </button>
           </div>
         </div>
@@ -206,7 +206,9 @@
 
           <!-- SELLO DE CONFIANZA Y GARANTÍA -->
           <div class="dispatch-guarantee-box">
-            <span class="guarantee-icon">🛡️</span>
+            <span class="guarantee-icon">
+              <svg width="22" height="22" fill="none" stroke="#22d3ee" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+            </span>
             <div class="guarantee-text">
               <strong>Garantía Oficial de 1 Año</strong>
               <span>Equipos 100% nuevos sellados • Boleta o Factura</span>
@@ -264,7 +266,9 @@
             <!-- OPCIÓN EXTRA: RECOJO EN TIENDA PLAZA TEC -->
             <div class="dispatch-tienda-quick-pill" id="cardMethodTienda" onclick="selectDispatchMethod('tienda')">
               <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="font-size: 1.05rem;">📍</span>
+                <span style="display: flex; align-items: center; color: #22d3ee;">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+                </span>
                 <span><strong>Recojo en Tienda Física:</strong> C.C. Plaza Tec Tienda 303, Lima</span>
               </div>
               <span class="dispatch-card-badge badge-store-free">Gratis</span>
@@ -283,31 +287,41 @@
                 </div>
                 <div class="provincia-guide-steps">
                   <div class="prov-step-item">
-                    <span class="prov-step-arrow">➡️</span>
+                    <span class="prov-step-arrow">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                    </span>
                     <div class="prov-step-content">
                       <strong>CONFIRMA TU PEDIDO:</strong> Elige tu equipo y realiza el pago del producto + S/20 de envío mediante depósito o transferencia a nuestras cuentas oficiales.
                     </div>
                   </div>
                   <div class="prov-step-item">
-                    <span class="prov-step-arrow">➡️</span>
+                    <span class="prov-step-arrow">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                    </span>
                     <div class="prov-step-content">
                       <strong>ENVÍANOS TUS DATOS:</strong> Envíanos la captura del pago junto con tus datos completos para realizar el despacho.
                     </div>
                   </div>
                   <div class="prov-step-item">
-                    <span class="prov-step-arrow">➡️</span>
+                    <span class="prov-step-arrow">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                    </span>
                     <div class="prov-step-content">
                       <strong>PREPARAMOS TU EQUIPO:</strong> Emitimos tu comprobante y, antes de embalarlo, te enviamos evidencia de tu equipo. Se despacha con su caja y accesorios completos.
                     </div>
                   </div>
                   <div class="prov-step-item">
-                    <span class="prov-step-arrow">➡️</span>
+                    <span class="prov-step-arrow">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                    </span>
                     <div class="prov-step-content">
                       <strong>DESPACHAMOS TU PEDIDO:</strong> Enviamos tu compra mediante la agencia previamente coordinada.
                     </div>
                   </div>
                   <div class="prov-step-item">
-                    <span class="prov-step-arrow">➡️</span>
+                    <span class="prov-step-arrow">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                    </span>
                     <div class="prov-step-content">
                       <strong>CONFIRMACIÓN Y SEGUIMIENTO:</strong> Te enviamos la constancia de envío, número de guía y la información de llegada para que puedas recoger tu pedido en tu ciudad.
                     </div>
@@ -316,7 +330,9 @@
               </div>
 
               <div class="dispatch-section-subtitle">
-                <span>🏢</span>
+                <span style="display: inline-flex; align-items: center; color: #22d3ee;">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21"/></svg>
+                </span>
                 <span>1. Elige la Agencia para tu Encomienda:</span>
               </div>
 
@@ -324,7 +340,9 @@
               <div class="dispatch-agencies-grid">
                 <!-- SHALOM -->
                 <div class="dispatch-agency-card active" id="agencyCardShalom" onclick="selectProvinciaAgency('shalom')">
-                  <div class="agency-card-icon">📦</div>
+                  <div class="agency-card-icon">
+                    <svg width="22" height="22" fill="none" stroke="#22d3ee" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
+                  </div>
                   <div class="agency-card-name">Shalom</div>
                   <span class="agency-card-badge" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border-color: rgba(34, 197, 94, 0.3);">Recojo en Agencia</span>
                   <div class="agency-card-info">Retiro con DNI y Clave</div>
@@ -332,7 +350,9 @@
 
                 <!-- OLVA COURIER -->
                 <div class="dispatch-agency-card" id="agencyCardOlva" onclick="selectProvinciaAgency('olva')">
-                  <div class="agency-card-icon">🚚</div>
+                  <div class="agency-card-icon">
+                    <svg width="22" height="22" fill="none" stroke="#facc15" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25V5.25a1.125 1.125 0 0 0-1.125-1.125h-9A1.125 1.125 0 0 0 3 5.25v9m13.5-6.75H12"/></svg>
+                  </div>
                   <div class="agency-card-name">Olva Courier</div>
                   <span class="agency-card-badge" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border-color: rgba(234, 179, 8, 0.3);">Domicilio / Agencia</span>
                   <div class="agency-card-info">A nivel nacional</div>
@@ -340,7 +360,9 @@
 
                 <!-- MARVISUR -->
                 <div class="dispatch-agency-card" id="agencyCardMarvisur" onclick="selectProvinciaAgency('marvisur')">
-                  <div class="agency-card-icon">🚛</div>
+                  <div class="agency-card-icon">
+                    <svg width="22" height="22" fill="none" stroke="#34d399" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3h16.5v13.5h-16.5zm0 13.5v3.75h16.5V16.5M6 19.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm12 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+                  </div>
                   <div class="agency-card-name">Marvisur</div>
                   <span class="agency-card-badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3);">Terminal Terrestre</span>
                   <div class="agency-card-info">Cargas y Encomiendas</div>
@@ -349,7 +371,9 @@
 
               <!-- 2. DATOS DEL DESTINATARIO PARA LA GUÍA -->
               <div class="dispatch-section-subtitle" style="margin-top: 14px;">
-                <span>📋</span>
+                <span style="display: inline-flex; align-items: center; color: #22d3ee;">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"/></svg>
+                </span>
                 <span>2. Datos del Destinatario (Para emisión de Guía de Remisión):</span>
               </div>
 
@@ -390,7 +414,9 @@
 
               <!-- BOTÓN VER METODOLOGÍA DE ENVÍOS A PROVINCIA -->
               <button type="button" class="btn-view-shipping-methodology" onclick="openShippingMethodologyModal()">
-                <div class="methodology-icon">🛡️</div>
+                <div class="methodology-icon">
+                  <svg width="22" height="22" fill="none" stroke="#22d3ee" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+                </div>
                 <div class="methodology-text">
                   <strong>Forma de Compra para Provincia (5 Pasos Oficiales)</strong>
                   <span>Ver detalles del pago + S/20, emisión de boleta, video de prueba y guía</span>
@@ -409,23 +435,29 @@
               <div class="delivery-quote-card" id="deliveryQuoteNotice">
                 <div class="delivery-quote-header">
                   <span class="delivery-quote-tag">A Cotizar</span>
-                  <div class="delivery-quote-title">🛵 COTIZA TU DELIVERY</div>
+                  <div class="delivery-quote-title">COTIZA TU DELIVERY EN LIMA</div>
                 </div>
                 <div class="delivery-quote-body">
                   <div class="delivery-quote-row">
-                    <span class="dq-icon">📍</span>
+                    <span class="dq-icon" style="color: #22d3ee;">
+                      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+                    </span>
                     <p><strong>Envíanos tu ubicación en tiempo real</strong> para calcular el costo del envío. El delivery tiene costo según la distancia y kilometraje del motorizado.</p>
                   </div>
                   <div class="delivery-quote-row">
-                    <span class="dq-icon">✅</span>
+                    <span class="dq-icon" style="color: #4ade80;">
+                      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
                     <p>Puedes cotizar <strong>sin compromiso</strong>.</p>
                   </div>
                   <div class="delivery-quote-row alert">
-                    <span class="dq-icon">⚠️</span>
+                    <span class="dq-icon" style="color: #facc15;">
+                      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
+                    </span>
                     <p><strong>(Recuerda que el delivery se paga por adelantado</strong> para confirmar el servicio y garantizar la seriedad y responsabilidad del pedido).</p>
                   </div>
                   <div class="delivery-quote-footer">
-                    <span>✨ Una vez confirmado, coordinamos tu entrega.</span>
+                    <span>Una vez confirmado, coordinamos tu entrega express.</span>
                   </div>
                 </div>
               </div>
@@ -433,7 +465,7 @@
               <div class="dispatch-address-header">
                 <span class="dispatch-address-label" id="dispatchAddressLabelTitle">DIRECCIÓN DE ENTREGA EN LIMA</span>
                 <button type="button" class="dispatch-address-edit-btn" id="btnToggleEditAddr" onclick="toggleEditAddress()">
-                  Editar ✏️
+                  Editar
                 </button>
               </div>
 
@@ -450,7 +482,7 @@
                   <input type="tel" id="inpAddressPhone" class="dispatch-input-field" placeholder="WhatsApp / Teléfono">
                 </div>
                 <input type="text" id="inpAddressName" class="dispatch-input-field" placeholder="Nombre de quien recibe">
-                <button type="button" class="btn-save-addr" onclick="saveAddressFromInputs()">Guardar Dirección ✓</button>
+                <button type="button" class="btn-save-addr" onclick="saveAddressFromInputs()">Guardar Dirección</button>
               </div>
 
               <div style="margin-top: 10px;">
@@ -464,30 +496,40 @@
             <!-- MÉTODO DE PAGO PREFERIDO RÁPIDO -->
             <div style="margin-top: 14px;" id="dispatchPaymentContainer">
               <div class="dispatch-section-subtitle">
-                <span>💳</span>
+                <span style="display: inline-flex; align-items: center; color: #22d3ee;">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-6-10.5h16.5c.621 0 1.125.504 1.125 1.125v10.5c0 .621-.504 1.125-1.125 1.125H3.75c-.621 0-1.125-.504-1.125-1.125V6.75c0-.621.504-1.125 1.125-1.125Z"/></svg>
+                </span>
                 <span id="lblPaymentSectionTitle">Medio de Pago Previo al Despacho:</span>
               </div>
               <div class="payment-methods-grid" id="paymentMethodsGrid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
                 <div class="payment-method-card active" id="payMethodYape" onclick="selectPaymentMethod('yape')">
                   <span class="payment-method-check">✓</span>
-                  <div class="payment-method-icon">📱</div>
+                  <div class="payment-method-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
+                  </div>
                   <div class="payment-method-title">Yape / Plin</div>
                 </div>
                 <div class="payment-method-card" id="payMethodTransfer" onclick="selectPaymentMethod('transferencia')">
                   <span class="payment-method-check">✓</span>
-                  <div class="payment-method-icon">🏦</div>
+                  <div class="payment-method-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.5m-15 10.5V10.5M1.5 21h21"/></svg>
+                  </div>
                   <div class="payment-method-title">BCP / BBVA</div>
                 </div>
                 <div class="payment-method-card" id="payMethodContra" onclick="selectPaymentMethod('contraentrega')" style="display: none;">
                   <span class="payment-method-check">✓</span>
-                  <div class="payment-method-icon">💵</div>
+                  <div class="payment-method-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6H2.25m0 0v8.25m0 0H3a.75.75 0 0 1 .75.75v.75m16.5-9.75V4.5a.75.75 0 0 0-.75-.75h-.75m0 0H6.75m14.25 0v.75a.75.75 0 0 1-.75.75H19.5m0 0v8.25m0 0h.75a.75.75 0 0 1 .75.75v.75m0 0a60.07 60.07 0 0 1-15.797-2.101c-.727-.198-1.453.342-1.453 1.096V18.75m16.5 0v-8.25"/></svg>
+                  </div>
                   <div class="payment-method-title" id="payMethodContraTitle">Contraentrega</div>
                 </div>
               </div>
 
               <!-- NOTIFICACIÓN ACLARATORIA DE CONDICIÓN: FORMA DE PAGO EN PROVINCIA -->
               <div class="payment-agency-notice" id="paymentAgencyNotice">
-                <span class="notice-icon">🔒</span>
+                <span class="notice-icon" style="color: #22d3ee;">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+                </span>
                 <div class="notice-text">
                   <strong>Forma de Compra para Envíos a Provincia:</strong> Elige tu equipo y realiza el pago del producto + <strong>S/ 20 de envío</strong> mediante depósito o transferencia a nuestras cuentas oficiales. <strong>No existe pago contraentrega en agencias de encomienda.</strong> Antes de embalarlo emitimos tu comprobante y te enviamos evidencia en video con su caja y accesorios completos.
                 </div>
@@ -786,11 +828,11 @@
 
       displayView.style.display = 'none';
       editForm.style.display = 'flex';
-      if (btn) btn.textContent = 'Cancelar ✕';
+      if (btn) btn.textContent = 'Cancelar';
     } else {
       displayView.style.display = 'block';
       editForm.style.display = 'none';
-      if (btn) btn.textContent = 'Editar ✏️';
+      if (btn) btn.textContent = 'Editar';
     }
   }
 

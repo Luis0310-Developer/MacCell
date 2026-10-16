@@ -33,6 +33,93 @@ function formatPrice(amount) {
   return "S/ " + Number(amount || 0).toLocaleString('es-PE', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 }
 
+// Mapa de colores oficiales y tonos metálicos realistas
+const SMARTPHONE_COLOR_MAP = {
+  // Apple iPhone
+  "titanio desierto": "#c5a787",
+  "titanio natural": "#9f9891",
+  "titanio negro": "#1e2022",
+  "titanio blanco": "#f5f5f7",
+  "negro espacial": "#1b1b1d",
+  "plata": "#e3e4e5",
+  "oro": "#fae7cf",
+  "azul": "#3b82f6",
+  "verde": "#2e7d32",
+  "rosa": "#f4a6b8",
+  "medianoche": "#1a1e24",
+  "blanco estelar": "#f9f6ef",
+  
+  // Samsung Galaxy
+  "gris titanio": "#686a6e",
+  "negro titanio": "#212124",
+  "violeta titanio": "#685b7b",
+  "amarillo titanio": "#e6db74",
+  "crema": "#eeebe3",
+  "fantasma negro": "#17181a",
+  "iceblue": "#93c5fd",
+  "navy": "#1e3a8a",
+  
+  // Xiaomi & Leica
+  "negro cuero vegano": "#1f2022",
+  "blanco": "#fcfcfc",
+  "negro": "#141517",
+  "azul leica": "#1d4ed8",
+  "verde aurora": "#10b981",
+  
+  // Motorola
+  "madera nórdica": "#966f33",
+  "peach fuzz pantone": "#ffbe98",
+  "negro eclipse": "#1a1c20",
+  "verde liana": "#435d49",
+  
+  // Honor
+  "verde esmeralda": "#1b4d3e",
+  "negro medianoche": "#16181d",
+  "azul océano": "#1e3a8a",
+  
+  // POCO & Infinix
+  "amarillo poco": "#ffd600",
+  "gris titán": "#64748b",
+  "azul estelar": "#2563eb",
+  "dorado": "#d4af37",
+  "verde ciprés": "#2d6a4f"
+};
+
+function getSwatchHex(colorName) {
+  if (!colorName) return "#64748b";
+  const normalized = colorName.toLowerCase().trim();
+  for (const [key, val] of Object.entries(SMARTPHONE_COLOR_MAP)) {
+    if (normalized.includes(key) || key.includes(normalized)) {
+      return val;
+    }
+  }
+  if (normalized.includes('negro') || normalized.includes('black')) return '#1e2022';
+  if (normalized.includes('blanco') || normalized.includes('white')) return '#f8fafc';
+  if (normalized.includes('gris') || normalized.includes('gray') || normalized.includes('silver')) return '#64748b';
+  if (normalized.includes('azul') || normalized.includes('blue')) return '#2563eb';
+  if (normalized.includes('verde') || normalized.includes('green')) return '#16a34a';
+  if (normalized.includes('oro') || normalized.includes('gold') || normalized.includes('dorado')) return '#d4af37';
+  if (normalized.includes('violeta') || normalized.includes('morado') || normalized.includes('purple')) return '#7c3aed';
+  if (normalized.includes('amarillo') || normalized.includes('yellow')) return '#eab308';
+  return '#475569';
+}
+
+function selectCardColor(button, id, colorName) {
+  const card = button.closest('.product-card');
+  if (card) {
+    card.dataset.selectedColor = colorName;
+    const dots = card.querySelectorAll('.card-swatch-dot');
+    dots.forEach(d => d.classList.remove('active'));
+    button.classList.add('active');
+    const label = card.querySelector('.card-swatch-name-label');
+    if (label) label.textContent = colorName;
+  }
+}
+if (typeof window !== 'undefined') {
+  window.selectCardColor = selectCardColor;
+  window.getSwatchHex = getSwatchHex;
+}
+
 // Helper para resolver rutas de imágenes según el directorio actual (/pages/ vs raíz)
 function resolveAssetPath(path) {
   if (!path) return '';
@@ -106,7 +193,19 @@ function renderProducts() {
       brandName === currentCategory.toLowerCase();
 
     const prodRange = (prod.range || '').toLowerCase();
-    const matchRange = currentRange === 'all' || prodRange === currentRange.toLowerCase();
+    const prodPrice = prod.price || prod.precio || 0;
+    let matchRange = false;
+    if (currentRange === 'all') {
+      matchRange = true;
+    } else if (currentRange === 'budget-low') {
+      matchRange = prodPrice <= 1500;
+    } else if (currentRange === 'budget-mid') {
+      matchRange = prodPrice > 1500 && prodPrice <= 3000;
+    } else if (currentRange === 'budget-high') {
+      matchRange = prodPrice > 3000;
+    } else {
+      matchRange = prodRange === currentRange.toLowerCase();
+    }
 
     const prodName = (prod.name || prod.nombre || '').toLowerCase();
     const proc = (prod.specsObj && prod.specsObj.processor ? prod.specsObj.processor : (Array.isArray(prod.specs) ? prod.specs.join(' ') : '')).toLowerCase();
@@ -179,8 +278,36 @@ function buildProductCardHtml(prod) {
     `;
   }
 
+  // Colors swatches display
+  const colorsList = Array.isArray(prod.colors) ? prod.colors : [];
+  const defaultColor = colorsList.length > 0 ? colorsList[0] : 'Original';
+  let colorsHtml = '';
+  if (colorsList.length > 0) {
+    colorsHtml = `
+      <div class="card-color-swatches-wrap" onclick="event.stopPropagation()">
+        <div class="card-swatches-dots">
+          ${colorsList.map((c, idx) => {
+            const hex = getSwatchHex(c);
+            const isLight = hex === '#f5f5f7' || hex === '#fcfcfc' || hex === '#ffffff' || hex === '#f8fafc' || hex === '#f9f6ef';
+            return `
+              <button type="button" 
+                class="card-swatch-dot ${idx === 0 ? 'active' : ''}" 
+                style="background-color: ${hex}; ${isLight ? 'border: 1px solid #94a3b8;' : ''}" 
+                title="${c}" 
+                aria-label="Color ${c}"
+                data-color-name="${c}"
+                onclick="selectCardColor(this, '${id}', '${c.replace(/'/g, "\\'")}')">
+              </button>
+            `;
+          }).join('')}
+        </div>
+        <span class="card-swatch-name-label" id="swatchLabel_${id}">${defaultColor}</span>
+      </div>
+    `;
+  }
+
   return `
-    <div class="product-card ${inCompare ? 'in-compare-active' : ''} ${viewMode === 'list' ? 'list-view-card' : ''}" data-id="${id}">
+    <div class="product-card ${inCompare ? 'in-compare-active' : ''} ${viewMode === 'list' ? 'list-view-card' : ''}" data-id="${id}" data-selected-color="${defaultColor}">
       <!-- Badges -->
       <div class="product-badge-stack">
         ${prod.badge ? `<span class="product-badge badge-${prod.badgeType || 'new'}">${prod.badge} ${discount > 0 ? `-${discount}%` : ''}</span>` : ''}
@@ -217,6 +344,7 @@ function buildProductCardHtml(prod) {
         <!-- Brand & Title -->
         <span class="product-brand">${brand}</span>
         <h3 class="product-title" onclick="openQuickView('${id}')" style="cursor: pointer;" title="${name}">${name}</h3>
+        ${colorsHtml}
 
         <!-- Key Specs -->
         <div class="product-specs-list">
@@ -514,24 +642,24 @@ function renderCompareModalContent() {
   const fallbackLogo = resolveAssetPath('assets/img/ui/Logo.jpeg');
 
   const specRows = [
-    { title: "Marca & Gama", icon: "🏷️", get: p => `${p.brand || p.marca} • Gama ${(p.range || 'alta').toUpperCase()}` },
-    { title: "Precio Oferta", icon: "💰", get: p => `<strong style="color: #4f46e5; font-size: 1.1rem;">${formatPrice(p.price || p.precio)}</strong>` },
-    { title: "Precio Regular", icon: "🏷️", get: p => (p.originalPrice > (p.price || p.precio)) ? `<span style="text-decoration: line-through; color: #94a3b8;">${formatPrice(p.originalPrice)}</span>` : 'Mismo precio' },
-    { title: "Calificación", icon: "⭐", get: p => `${p.rating || 4.9} / 5 (${p.reviewsCount || 40} opiniones)` },
-    { title: "Pantalla", icon: "📱", get: p => (p.specsObj && p.specsObj.screen) ? p.specsObj.screen : (p.specs ? p.specs[3] : '-') },
-    { title: "Procesador", icon: "⚡", get: p => (p.specsObj && p.specsObj.processor) ? p.specsObj.processor : (p.specs ? p.specs[0] : '-') },
-    { title: "Memoria RAM", icon: "💾", get: p => (p.specsObj && p.specsObj.ram) ? p.specsObj.ram : (p.specs ? p.specs[1] : '-') },
-    { title: "Almacenamiento", icon: "🗄️", get: p => (p.specsObj && p.specsObj.storage) ? p.specsObj.storage : '-' },
-    { title: "Cámaras", icon: "📸", get: p => (p.specsObj && p.specsObj.cameras) ? p.specsObj.cameras : (p.specs ? p.specs[2] : '-') },
-    { title: "Batería y Carga", icon: "🔋", get: p => (p.specsObj && p.specsObj.battery) ? p.specsObj.battery : '-' },
-    { title: "Colores Disponibles", icon: "🎨", get: p => (p.colors && p.colors.length > 0) ? p.colors.map(c => `<span class="compare-color-chip">${c}</span>`).join(' ') : 'Original' },
-    { title: "Garantía & Estado", icon: "🛡️", get: p => `1 Año Oficial • Caja Sellada • Libre de Fábrica` }
+    { title: "Marca & Gama", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.386a10.998 10.998 0 0 0 4.195-4.195c.486-.827.313-1.908-.386-2.607L10.377 3.659A2.25 2.25 0 0 0 8.786 3h-.786Z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>`, get: p => `${p.brand || p.marca} • Gama ${(p.range || 'alta').toUpperCase()}` },
+    { title: "Precio Oferta", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>`, get: p => `<strong style="color: #00d2ff; font-size: 1.1rem;">${formatPrice(p.price || p.precio)}</strong>` },
+    { title: "Precio Regular", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33"/></svg>`, get: p => (p.originalPrice > (p.price || p.precio)) ? `<span style="text-decoration: line-through; color: #94a3b8;">${formatPrice(p.originalPrice)}</span>` : 'Mismo precio' },
+    { title: "Calificación", icon: `<svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`, get: p => `${p.rating || 4.9} / 5 (${p.reviewsCount || 40} opiniones)` },
+    { title: "Pantalla", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01"/></svg>`, get: p => (p.specsObj && p.specsObj.screen) ? p.specsObj.screen : (p.specs ? p.specs[3] : '-') },
+    { title: "Procesador", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>`, get: p => (p.specsObj && p.specsObj.processor) ? p.specsObj.processor : (p.specs ? p.specs[0] : '-') },
+    { title: "Memoria RAM", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="18" height="14" x="3" y="5" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M7 15h4M7 9h10"/></svg>`, get: p => (p.specsObj && p.specsObj.ram) ? p.specsObj.ram : (p.specs ? p.specs[1] : '-') },
+    { title: "Almacenamiento", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h10M7 12h10M7 17h10"/></svg>`, get: p => (p.specsObj && p.specsObj.storage) ? p.specsObj.storage : '-' },
+    { title: "Cámaras", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z"/><circle cx="12" cy="13.5" r="3.75"/></svg>`, get: p => (p.specsObj && p.specsObj.cameras) ? p.specsObj.cameras : (p.specs ? p.specs[2] : '-') },
+    { title: "Batería y Carga", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="16" height="10" x="2" y="7" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M22 11v2"/></svg>`, get: p => (p.specsObj && p.specsObj.battery) ? p.specsObj.battery : '-' },
+    { title: "Colores Disponibles", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 3a9 9 0 0 1 9 9c0 2.5-2 4.5-4.5 4.5h-1.5a1.5 1.5 0 0 0-1.5 1.5c0 .8-.7 1.5-1.5 1.5A9 9 0 0 1 12 3Z"/></svg>`, get: p => (p.colors && p.colors.length > 0) ? p.colors.map(c => `<span class="compare-color-chip">${c}</span>`).join(' ') : 'Original' },
+    { title: "Garantía & Estado", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>`, get: p => `1 Año Oficial • Caja Sellada • Libre de Fábrica` }
   ];
 
   const highlight = appState.highlightDiff;
 
   body.innerHTML = `
-    <div class="compare-mobile-scroll-hint">👈 Desliza horizontalmente para comparar todos los equipos 👉</div>
+    <div class="compare-mobile-scroll-hint">Desliza horizontalmente para comparar todos los equipos</div>
     <div class="compare-table-responsive-wrapper">
       <table class="compare-table">
         <thead>
@@ -589,18 +717,21 @@ function renderCompareModalContent() {
           <!-- FILA DE ACCIONES Y COMPRA -->
           <tr class="compare-actions-row">
             <td class="compare-spec-name" style="font-weight: 800;">
-              🛒 Comprar / Despacho
+              Comprar / Despacho
             </td>
             ${selected.map(p => `
               <td class="compare-cell compare-action-cell">
-                <button class="btn-compare-action-cart" onclick="addToCart('${p.id}')">
-                  🛒 Agregar al Carrito
+                <button class="btn-compare-action-cart" onclick="addToCart('${p.id}')" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>
+                  <span>Agregar al Carrito</span>
                 </button>
-                <button class="btn-compare-action-wa" onclick="buyViaWhatsApp('${p.id}')">
-                  💬 Pedir por WhatsApp
+                <button class="btn-compare-action-wa" onclick="buyViaWhatsApp('${p.id}')" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+                  <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.7c.96.523 1.874.801 2.79.8 3.183 0 5.768-2.587 5.77-5.766.001-3.182-2.585-5.769-5.768-5.785m3.411 8.163c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.18-.538-1.503-.623-2.464-2.148-2.538-2.247-.074-.099-.607-.808-.607-1.542s.385-1.096.522-1.246c.137-.15.299-.187.4-.187.1 0 .201.002.289.006.092.004.215-.035.336.257.126.302.43 1.049.467 1.125.037.075.062.164.013.264-.05.099-.074.163-.148.251-.074.088-.157.197-.224.264-.075.074-.153.155-.066.305.087.15.385.636.827 1.03.568.506 1.048.663 1.198.738.15.075.237.062.324-.038.087-.1.374-.435.474-.585.1-.15.2-.125.337-.075.137.05.87.41 1.02.485.15.075.25.112.287.175.037.062.037.362-.107.767"/></svg>
+                  <span>Pedir por WhatsApp</span>
                 </button>
-                <button class="btn-compare-action-detail" onclick="openQuickView('${p.id}'); closeCompareModal();">
-                  🔍 Ver Detalle Completo
+                <button class="btn-compare-action-detail" onclick="openQuickView('${p.id}'); closeCompareModal();" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+                  <span>Ver Detalle</span>
                 </button>
               </td>
             `).join('')}
@@ -654,13 +785,9 @@ function buildAccessoryCardHtml(acc) {
           ${originalPrice > price ? `<span class="accesorio-old-price">${formatPrice(originalPrice)}</span>` : ''}
         </div>
         <div class="accesorio-actions-row">
-          <button class="btn-accesorio-cart" onclick="addToCart('${id}', true)" title="Agregar al carrito">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-            <span>Agregar</span>
-          </button>
-          <button class="btn-accesorio-ws" onclick="pedirAccesorioWhatsApp('${name.replace(/'/g, "\\'")}', '${price}')" title="Pedir por WhatsApp">
-            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.7c.96.523 1.874.801 2.79.8 3.183 0 5.768-2.587 5.77-5.766.001-3.182-2.585-5.769-5.768-5.785m3.411 8.163c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.18-.538-1.503-.623-2.464-2.148-2.538-2.247-.074-.099-.607-.808-.607-1.542s.385-1.096.522-1.246c.137-.15.299-.187.4-.187.1 0 .201.002.289.006.092.004.215-.035.336.257.126.302.43 1.049.467 1.125.037.075.062.164.013.264-.05.099-.074.163-.148.251-.074.088-.157.197-.224.264-.075.074-.153.155-.066.305.087.15.385.636.827 1.03.568.506 1.048.663 1.198.738.15.075.237.062.324-.038.087-.1.374-.435.474-.585.1-.15.2-.125.337-.075.137.05.87.41 1.02.485.15.075.25.112.287.175.037.062.037.362-.107.767"/></svg>
-            <span>WhatsApp</span>
+          <button class="btn-accesorio-cart" onclick="addToCart('${id}', true)" title="Agregar ${name.replace(/"/g, '&quot;')} al Carrito">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+            <span>Agregar al Carrito</span>
           </button>
         </div>
       </div>
@@ -761,7 +888,7 @@ function resetFilters() {
   });
 
   document.querySelectorAll('.range-pills .pill-btn, .range-chip').forEach(el => {
-    if (el.textContent.includes('Todas')) el.classList.add('active');
+    if (el.textContent.includes('Todas') || el.textContent.includes('Todos') || el.dataset.range === 'all') el.classList.add('active');
     else el.classList.remove('active');
   });
 

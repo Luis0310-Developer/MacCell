@@ -8,6 +8,12 @@
     <meta name="description"
         content="Visita nuestra tienda física en CC Plaza Tec / Galería Centro Lima Tienda 303. Consulta horarios, rutas, pagos y delivery express en Lima y provincias.">
     <link rel="icon" type="image/jpeg" href="../assets/img/ui/Logo.jpeg">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="MacCell">
+    <link rel="apple-touch-icon" href="../assets/img/pwa/icon-192.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,15 +32,28 @@
     <div class="top-nav-bar">
         <div class="top-nav-container">
             <div class="top-nav-left">
-                <span>📍 Galería Centro Lima / CC. Plaza Tec, Tienda 303</span>
+                <span class="top-bar-badge" style="margin-right: 6px;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    Tienda Oficial
+                </span>
+                <span>Galería Centro Lima / CC. Plaza Tec, Tienda 303</span>
                 <span class="top-nav-sep">•</span>
-                <span>🕒 Lun - Sáb: 10:00 AM - 8:00 PM</span>
+                <span>Lun - Sáb: 10:00 AM - 8:00 PM</span>
             </div>
             <div class="top-nav-right">
-                <a href="ubicacion.html" class="top-nav-link">🛵 Envíos y Delivery</a>
-                <a href="ubicacion.html" class="top-nav-link">📍 Tienda Física</a>
+                <a href="#delivery" class="top-nav-link">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg>
+                    <span>Envíos y Delivery</span>
+                </a>
+                <a href="ubicacion.html" class="top-nav-link">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+                    <span>Tienda Física</span>
+                </a>
                 <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" class="top-nav-link top-nav-wa">
-                    💬 WhatsApp: +51 924 678 780
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.7c.96.523 1.874.801 2.79.8 3.183 0 5.768-2.587 5.77-5.766.001-3.182-2.585-5.769-5.768-5.785m3.411 8.163c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.18-.538-1.503-.623-2.464-2.148-2.538-2.247-.074-.099-.607-.808-.607-1.542s.385-1.096.522-1.246c.137-.15.299-.187.4-.187.1 0 .201.002.289.006.092.004.215-.035.336.257.126.302.43 1.049.467 1.125.037.075.062.164.013.264-.05.099-.074.163-.148.251-.074.088-.157.197-.224.264-.075.074-.153.155-.066.305.087.15.385.636.827 1.03.568.506 1.048.663 1.198.738.15.075.237.062.324-.038.087-.1.374-.435.474-.585.1-.15.2-.125.337-.075.137.05.87.41 1.02.485.15.075.25.112.287.175.037.062.037.362-.107.767"/></svg>
+                    <span>WhatsApp: +51 924 678 780</span>
                 </a>
             </div>
         </div>
@@ -78,26 +97,47 @@
                 </button>
             </div>
         </div>
-
-        <div class="casu-mobile-drawer" id="mobileDrawer">
-            <div class="mobile-drawer-header">
-                <img src="../assets/img/ui/Logo.jpeg" alt="MacCell" class="mobile-drawer-logo">
-                <button class="mobile-drawer-close" onclick="toggleMenuMovil()" aria-label="Cerrar">✕</button>
-            </div>
-            <ul class="mobile-nav-links">
-                <li><a href="../Inicio.html">🏠 Inicio</a></li>
-                <li><a href="catalogo.html">📱 Catálogo de Celulares</a></li>
-                <li><a href="nosotros.html">👥 Sobre Nosotros</a></li>
-                <li><a href="ubicacion.html" class="active">📍 Local y Delivery</a></li>
-            </ul>
-            <div class="mobile-drawer-footer">
-                <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" class="mobile-btn-whatsapp">
-                    Pedir por WhatsApp (+51 924 678 780)
-                </a>
-            </div>
-        </div>
-        <div class="casu-mobile-backdrop" id="mobileBackdrop" onclick="toggleMenuMovil()"></div>
     </header>
+
+    <div class="casu-mobile-drawer" id="mobileDrawer">
+        <div class="mobile-drawer-header">
+            <img src="../assets/img/ui/Logo.jpeg" alt="MacCell" class="mobile-drawer-logo">
+            <button class="mobile-drawer-close" onclick="toggleMenuMovil()" aria-label="Cerrar">✕</button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li>
+                <a href="../Inicio.html">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a href="catalogo.html">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
+                    <span>Catálogo de Celulares</span>
+                </a>
+            </li>
+            <li>
+                <a href="nosotros.html">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
+                    <span>Sobre Nosotros</span>
+                </a>
+            </li>
+            <li>
+                <a href="ubicacion.html" class="active">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+                    <span>Local y Delivery</span>
+                </a>
+            </li>
+        </ul>
+        <div class="mobile-drawer-footer">
+            <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" class="mobile-btn-whatsapp">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.7c.96.523 1.874.801 2.79.8 3.183 0 5.768-2.587 5.77-5.766.001-3.182-2.585-5.769-5.768-5.785m3.411 8.163c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.18-.538-1.503-.623-2.464-2.148-2.538-2.247-.074-.099-.607-.808-.607-1.542s.385-1.096.522-1.246c.137-.15.299-.187.4-.187.1 0 .201.002.289.006.092.004.215-.035.336.257.126.302.43 1.049.467 1.125.037.075.062.164.013.264-.05.099-.074.163-.148.251-.074.088-.157.197-.224.264-.075.074-.153.155-.066.305.087.15.385.636.827 1.03.568.506 1.048.663 1.198.738.15.075.237.062.324-.038.087-.1.374-.435.474-.585.1-.15.2-.125.337-.075.137.05.87.41 1.02.485.15.075.25.112.287.175.037.062.037.362-.107.767"/></svg>
+                <span>Pedir por WhatsApp (+51 924 678 780)</span>
+            </a>
+        </div>
+    </div>
+    <div class="casu-mobile-backdrop" id="mobileBackdrop" onclick="toggleMenuMovil()"></div>
 
     <main class="page-main-container">
         <div class="container" style="padding-top: 30px; padding-bottom: 60px;">
@@ -169,33 +209,59 @@
                 </div>
             </div>
 
-            <div class="delivery-section-container" style="margin-top: 36px;">
+            <div class="delivery-section-container" id="delivery" style="margin-top: 36px;">
                 <div class="section-title-wrap text-center">
                     <span class="section-badge" style="background: rgba(0, 180, 216, 0.15); color: var(--logo-cyan);">
-                        COBERTURA & MODALIDADES DE DESPACHO
+                        MODALIDADES DE DESPACHO SEGURO
                     </span>
-                    <h3>🛵 Envíos Express y Despachos Nacionales</h3>
-                    <p>Elige entre recibir tu celular hoy mismo en Lima con pago contraentrega o envío protegido a tu ciudad en provincia.</p>
+                    <h3>Envíos Express y Despachos Nacionales</h3>
+                    <p>Elige entre recibir tu celular hoy mismo en Lima con motorizado propio o despacho garantizado a cualquier ciudad del Perú.</p>
                 </div>
 
                 <div class="delivery-methods-grid">
                     <div class="delivery-card">
-                        <div class="delivery-card-header">
-                            <div class="delivery-icon-box">🛵</div>
-                            <div>
-                                <h4>Delivery en Lima Metropolitana</h4>
-                                <span>A Cotizar según Distancia y Kilometraje</span>
+                        <div>
+                            <div class="delivery-card-header">
+                                <div class="delivery-icon-box">
+                                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4>Delivery en Lima Metropolitana</h4>
+                                    <span>A Cotizar según Distancia y Kilometraje</span>
+                                </div>
                             </div>
+                            <p>
+                                Envíanos tu ubicación en tiempo real para calcular la tarifa exacta de envío. Cotización transparente y entrega coordinada el mismo día.
+                            </p>
+                            <ul class="delivery-steps-list">
+                                <li>
+                                    <span class="delivery-step-badge">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+                                    </span>
+                                    <div><strong>Ubicación en Tiempo Real:</strong> Para calcular costo exacto según kilometraje del motorizado.</div>
+                                </li>
+                                <li>
+                                    <span class="delivery-step-badge">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                                    </span>
+                                    <div><strong>Cotización Sin Compromiso:</strong> Consulta tu tarifa antes de confirmar tu pedido.</div>
+                                </li>
+                                <li>
+                                    <span class="delivery-step-badge highlight">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
+                                    </span>
+                                    <div><strong>Pago por Adelantado:</strong> El delivery se abona con anticipación para garantizar seriedad y responsabilidad.</div>
+                                </li>
+                                <li>
+                                    <span class="delivery-step-badge">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                                    </span>
+                                    <div><strong>Entrega Coordinada:</strong> Una vez confirmado, coordinamos tu entrega inmediata.</div>
+                                </li>
+                            </ul>
                         </div>
-                        <p>
-                            Envíanos tu ubicación en tiempo real para calcular el costo del envío. Puedes cotizar sin compromiso. Recuerda que el delivery se paga por adelantado para confirmar el servicio.
-                        </p>
-                        <ul class="delivery-steps-list">
-                            <li><span>📍 <strong>Ubicación en Tiempo Real:</strong> Para calcular costo exacto según kilometraje del motorizado.</span></li>
-                            <li><span>✅ <strong>Cotización Sin Compromiso:</strong> Consulta tu tarifa antes de confirmar tu pedido.</span></li>
-                            <li><span>⚠️ <strong>Pago por Adelantado:</strong> El delivery se abona con anticipación para garantizar seriedad y responsabilidad.</span></li>
-                            <li><span>✨ <strong>Entrega Coordinada:</strong> Una vez confirmado, coordinamos tu entrega inmediata.</span></li>
-                        </ul>
                         <a href="https://api.whatsapp.com/send?phone=51924678780&text=Hola%20MacCell!%20Deseo%20cotizar%20un%20delivery%20en%20Lima%20enviando%20mi%20ubicaci%C3%B3n."
                             target="_blank" class="btn-whatsapp" style="width: 100%; justify-content: center; margin-top: 16px; text-decoration: none;">
                             Cotizar Delivery en Lima por WhatsApp
@@ -203,23 +269,44 @@
                     </div>
 
                     <div class="delivery-card">
-                        <div class="delivery-card-header">
-                            <div class="delivery-icon-box">📦</div>
-                            <div>
-                                <h4>Envíos a Provincia (Todo el Perú)</h4>
-                                <span>Tarifa Plana S/ 20.00 • Shalom, Olva o Marvisur</span>
+                        <div>
+                            <div class="delivery-card-header">
+                                <div class="delivery-icon-box">
+                                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4>Envíos a Provincia (Todo el Perú)</h4>
+                                    <span>Tarifa Plana S/ 20.00 • Shalom, Olva o Marvisur</span>
+                                </div>
                             </div>
+                            <p>
+                                Proceso de compra 100% blindado con pago previo, video de prueba de serie e IMEI antes de embalar, y guía oficial de remisión.
+                            </p>
+                            <ul class="delivery-steps-list">
+                                <li>
+                                    <span class="delivery-step-badge">01</span>
+                                    <div><strong>Confirma tu Pedido:</strong> Pago del producto + S/20 de envío a cuentas oficiales de la empresa.</div>
+                                </li>
+                                <li>
+                                    <span class="delivery-step-badge">02</span>
+                                    <div><strong>Envíanos tus Datos:</strong> Comprobante de pago, DNI y datos completos para el despacho.</div>
+                                </li>
+                                <li>
+                                    <span class="delivery-step-badge">03</span>
+                                    <div><strong>Preparamos tu Equipo:</strong> Boleta oficial y video de evidencia antes de precintar caja y accesorios.</div>
+                                </li>
+                                <li>
+                                    <span class="delivery-step-badge">04</span>
+                                    <div><strong>Despachamos tu Pedido:</strong> Salida por la agencia previamente acordada (Shalom, Olva, Marvisur).</div>
+                                </li>
+                                <li>
+                                    <span class="delivery-step-badge">05</span>
+                                    <div><strong>Confirmación y Seguimiento:</strong> Envío de número de guía de remisión y clave para recojo en tu ciudad.</div>
+                                </li>
+                            </ul>
                         </div>
-                        <p>
-                            Forma de compra 100% segura con pago previo de producto + S/20 de envío, video de prueba antes de embalar y guía oficial de remisión.
-                        </p>
-                        <ul class="delivery-steps-list">
-                            <li><span>➡️ <strong>Confirma tu Pedido:</strong> Pago del producto + S/20 de envío a cuentas oficiales.</span></li>
-                            <li><span>➡️ <strong>Envíanos tus Datos:</strong> Captura del pago y datos completos para despacho.</span></li>
-                            <li><span>➡️ <strong>Preparamos tu Equipo:</strong> Boleta y video de evidencia antes de embalar con caja y accesorios.</span></li>
-                            <li><span>➡️ <strong>Despachamos tu Pedido:</strong> Salida por la agencia previamente coordinada.</span></li>
-                            <li><span>➡️ <strong>Confirmación y Seguimiento:</strong> Guía de remisión y clave para recojo en tu ciudad.</span></li>
-                        </ul>
                         <a href="https://api.whatsapp.com/send?phone=51924678780&text=Hola%20MacCell!%20Deseo%20comprar%20con%20env%C3%ADo%20a%20provincia%20(Tarifa%20S/20)."
                             target="_blank" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 16px; text-decoration: none;">
                             Comprar con Envío a Provincia
@@ -231,99 +318,158 @@
         </div>
     </main>
 
-    <footer class="casu-footer">
-        <div class="footer-layout-container">
-            <div class="footer-main-columns">
-                <a href="../Inicio.html" class="footer-brand-logo-wrap" title="MacCell">
-                    <img src="../assets/img/ui/Logo.jpeg" alt="MacCell Oficial" class="footer-brand-img">
-                </a>
+    <footer class="prebuilt-footer-maccell">
+        <div class="footer-container">
+            <!-- BRAND & CONTACT HEADER -->
+            <div class="footer-brand-bar">
+                <div class="footer-brand-left">
+                    <a href="../Inicio.html" class="footer-brand-logo-link" title="MacCell - Celulares y Accesorios">
+                        <img src="../assets/img/ui/Logo.jpeg" alt="MacCell Oficial" class="footer-brand-img">
+                    </a>
+                    <div class="footer-brand-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                        <span>Tienda Física Oficial • CC. Plaza Tec 303</span>
+                    </div>
+                    <p class="footer-brand-desc">
+                        Especialistas en smartphones de última generación 100% nuevos y sellados de fábrica con 1 año de garantía oficial, comprobante electrónico legal (boleta o factura) y envíos asegurados a todo el Perú.
+                    </p>
+                    <div class="footer-quick-contacts">
+                        <a href="ubicacion.html" class="footer-contact-chip">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+                            <span>Plaza Tec Tienda 303, Cercado de Lima</span>
+                        </a>
+                        <div class="footer-contact-chip">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg>
+                            <span>Lun - Sáb: 10:00 AM - 8:00 PM</span>
+                        </div>
+                        <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" class="footer-contact-chip">
+                            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.7c.96.523 1.874.801 2.79.8 3.183 0 5.768-2.587 5.77-5.766.001-3.182-2.585-5.769-5.768-5.785m3.411 8.163c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.18-.538-1.503-.623-2.464-2.148-2.538-2.247-.074-.099-.607-.808-.607-1.542s.385-1.096.522-1.246c.137-.15.299-.187.4-.187.1 0 .201.002.289.006.092.004.215-.035.336.257.126.302.43 1.049.467 1.125.037.075.062.164.013.264-.05.099-.074.163-.148.251-.074.088-.157.197-.224.264-.075.074-.153.155-.066.305.087.15.385.636.827 1.03.568.506 1.048.663 1.198.738.15.075.237.062.324-.038.087-.1.374-.435.474-.585.1-.15.2-.125.337-.075.137.05.87.41 1.02.485.15.075.25.112.287.175.037.062.037.362-.107.767"/></svg>
+                            <span>WhatsApp: +51 924 678 780</span>
+                        </a>
+                    </div>
+                </div>
 
-                <div class="footer-col-block">
-                    <p class="footer-col-title">Celulares</p>
-                    <ul class="footer-col-list">
-                        <li><a href="../Inicio.html#catalogo">Apple iPhone</a></li>
-                        <li><a href="../Inicio.html#catalogo">Samsung Galaxy</a></li>
-                        <li><a href="../Inicio.html#catalogo">Xiaomi & POCO</a></li>
-                        <li><a href="../Inicio.html#catalogo">Honor</a></li>
-                        <li><a href="../Inicio.html#catalogo">Motorola</a></li>
+                <div class="footer-brand-right">
+                    <span class="footer-section-subtitle">Canales Oficiales</span>
+                    <div class="footer-socials-row">
+                        <a href="https://www.facebook.com/share/1b18Ds1Z9s/" target="_blank" rel="noreferrer"
+                            class="footer-social-link" title="Facebook MacCell Oficial" aria-label="Facebook">
+                            <div id="lottieFooterFb" class="lottie-icon-footer"></div>
+                        </a>
+                        <a href="https://www.instagram.com/maccel.oficial?utm_source=qr&stkn=YTVmYnh5ZjMxOGxk" target="_blank"
+                            rel="noreferrer" class="footer-social-link" title="Instagram MacCell Oficial" aria-label="Instagram">
+                            <div id="lottieFooterIg" class="lottie-icon-footer"></div>
+                        </a>
+                        <a href="https://www.tiktok.com/@maccell.oficial?_r=1&_t=ZS-9A9h3vU1Ime" target="_blank"
+                            rel="noreferrer" class="footer-social-link" title="TikTok MacCell Oficial" aria-label="TikTok">
+                            <div class="tiktok-animated-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.99v9.06c-.02 1.95-.62 3.86-1.84 5.37-1.48 1.83-3.76 2.92-6.13 2.95-2.12.02-4.2-.74-5.74-2.17-1.83-1.69-2.77-4.14-2.58-6.6.18-2.32 1.34-4.47 3.19-5.83 1.68-1.24 3.79-1.78 5.86-1.52.02 1.48.01 2.96.01 4.44-.99-.18-2.04-.08-2.94.34-1.02.48-1.78 1.43-1.99 2.54-.3 1.45.28 2.99 1.44 3.89 1.05.82 2.47 1.04 3.76.6 1.16-.4 2.01-1.42 2.22-2.63.14-.82.12-1.66.12-2.49V.02h.17z"/>
+                                </svg>
+                            </div>
+                        </a>
+                        <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" rel="noreferrer"
+                            class="footer-social-link" title="WhatsApp Oficial MacCell (+51 924 678 780)" aria-label="WhatsApp">
+                            <div id="lottieFooterWa" class="lottie-icon-footer"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider-line">
+
+            <!-- 4 COLUMN NAVIGATION DIRECTORY -->
+            <div class="footer-nav-grid">
+                <div class="footer-col-box">
+                    <h4 class="footer-col-heading">Smartphones</h4>
+                    <ul class="footer-col-nav">
+                        <li><a href="catalogo.html?marca=apple">Apple iPhone</a></li>
+                        <li><a href="catalogo.html?marca=samsung">Samsung Galaxy</a></li>
+                        <li><a href="catalogo.html?marca=xiaomi">Xiaomi & POCO</a></li>
+                        <li><a href="catalogo.html?marca=honor">Honor</a></li>
+                        <li><a href="catalogo.html?marca=motorola">Motorola</a></li>
                     </ul>
                 </div>
 
-                <div class="footer-col-block">
-                    <p class="footer-col-title">Tienda Oficial</p>
-                    <ul class="footer-col-list">
+                <div class="footer-col-box">
+                    <h4 class="footer-col-heading">Tienda Oficial</h4>
+                    <ul class="footer-col-nav">
                         <li><a href="../Inicio.html">Inicio</a></li>
-                        <li><a href="nosotros.html">Sobre Nosotros & Redes</a></li>
-                        <li><a href="../Inicio.html#accesorios">Todo en Accesorios</a></li>
+                        <li><a href="catalogo.html">Catálogo Completo</a></li>
+                        <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="../Inicio.html#seccionAccesorios">Todo en Accesorios</a></li>
                         <li><a href="ubicacion.html">Ubícanos en Plaza TEC</a></li>
-                        <li><a href="contacto.html">Contacto & Cotización</a></li>
+                        <li><a href="contacto.html">Contacto Directo</a></li>
                     </ul>
                 </div>
 
-                <div class="footer-col-block">
-                    <p class="footer-col-title">Garantía & Envíos</p>
-                    <ul class="footer-col-list">
+                <div class="footer-col-box">
+                    <h4 class="footer-col-heading">Garantía & Respaldo</h4>
+                    <ul class="footer-col-nav">
                         <li><a href="nosotros.html#seccion-garantia">Políticas de Garantía (1 Año)</a></li>
                         <li><a href="nosotros.html#coberturaGarantia">¿Qué Cubre y Qué No Cubre?</a></li>
                         <li><a href="nosotros.html#seccion-garantia-provincia">Garantía para Provincias</a></li>
-                        <li><a href="nosotros.html#seccion-envios">Proceso de Compra & Delivery</a></li>
-                        <li><a href="nosotros.html#seccion-redes-sociales">Redes Sociales Oficiales</a></li>
-                        <li><a onclick="abrirLibroReclamaciones()" style="cursor: pointer;"><span style="color: var(--accent-cyan); margin-right: 6px;">📖</span>Libro de Reclamaciones</a></li>
+                        <li><a href="nosotros.html#seccion-quienes-somos">Equipos Nuevos y Sellados</a></li>
+                        <li><a href="nosotros.html#requisitosGarantia">Requisitos para Garantía</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col-box">
+                    <h4 class="footer-col-heading">Envíos & Seguridad</h4>
+                    <ul class="footer-col-nav">
+                        <li><a href="ubicacion.html#delivery">Delivery Express Lima</a></li>
+                        <li><a href="ubicacion.html#delivery">Envíos por Shalom y Olva</a></li>
+                        <li><a href="nosotros.html#seccion-envios">Pago Contra Entrega en Lima</a></li>
+                        <li><a href="contacto.html">Atención & WhatsApp</a></li>
+                        <li><a onclick="abrirLibroReclamaciones()" style="cursor: pointer;">Libro de Reclamaciones</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="footer-side-summary">
-                <p class="footer-side-text">Especialistas en smartphones nuevos y accesorios originales con garantía real y envíos a todo el Perú.</p>
-                <div class="footer-socials-row">
-                <a href="https://www.facebook.com/share/1b18Ds1Z9s/" target="_blank" rel="noreferrer"
-                    class="footer-social-link footer-social-animated" title="Facebook MacCell Oficial" aria-label="Facebook">
-                    <div id="lottieFooterFb" class="lottie-icon-footer lottie-footer-fb"></div>
-                </a>
-                <a href="https://www.instagram.com/maccel.oficial?utm_source=qr&stkn=YTVmYnh5ZjMxOGxk" target="_blank"
-                    rel="noreferrer" class="footer-social-link footer-social-animated" title="Instagram MacCell Oficial" aria-label="Instagram">
-                    <div id="lottieFooterIg" class="lottie-icon-footer lottie-footer-ig"></div>
-                </a>
-                <a href="https://www.tiktok.com/@maccell.oficial?_r=1&_t=ZS-9A9h3vU1Ime" target="_blank"
-                    rel="noreferrer" class="footer-social-link footer-social-animated" title="TikTok MacCell Oficial" aria-label="TikTok">
-                    <div class="tiktok-animated-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.99v9.06c-.02 1.95-.62 3.86-1.84 5.37-1.48 1.83-3.76 2.92-6.13 2.95-2.12.02-4.2-.74-5.74-2.17-1.83-1.69-2.77-4.14-2.58-6.6.18-2.32 1.34-4.47 3.19-5.83 1.68-1.24 3.79-1.78 5.86-1.52.02 1.48.01 2.96.01 4.44-.99-.18-2.04-.08-2.94.34-1.02.48-1.78 1.43-1.99 2.54-.3 1.45.28 2.99 1.44 3.89 1.05.82 2.47 1.04 3.76.6 1.16-.4 2.01-1.42 2.22-2.63.14-.82.12-1.66.12-2.49V.02h.17z"/>
-                        </svg>
-                    </div>
-                </a>
-                <a href="https://api.whatsapp.com/send?phone=51924678780" target="_blank" rel="noreferrer"
-                    class="footer-social-link footer-social-animated" title="WhatsApp Oficial MacCell (+51 924 678 780)" aria-label="WhatsApp">
-                    <div id="lottieFooterWa" class="lottie-icon-footer lottie-footer-wa"></div>
-                </a>
-            </div>
+            <hr class="footer-divider-line">
 
-            <!-- BOTÓN OFICIAL LIBRO DE RECLAMACIONES (LEY N° 29571) -->
-            <div class="footer-libro-rec-wrap" style="margin-top: 14px;">
-                <button type="button" class="btn-libro-reclamaciones" onclick="abrirLibroReclamaciones()" title="Libro de Reclamaciones Virtual conforme a Ley N° 29571">
-                    <div class="libro-rec-badge-icon">
-                        <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
-                            <path d="M4 8C7.5 6 12 6.5 16 8.5C20 6.5 24.5 6 28 8V24C24.5 22 20 22.5 16 24.5C12 22.5 7.5 22 4 24V8Z" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
-                            <rect x="14.8" y="7" width="0.8" height="18" fill="#DC2626"/>
-                            <rect x="15.6" y="7" width="0.8" height="18" fill="#FFFFFF"/>
-                            <rect x="16.4" y="7" width="0.8" height="18" fill="#DC2626"/>
-                            <line x1="7" y1="11" x2="13" y2="11" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
-                            <line x1="7" y1="14" x2="13" y2="14" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
-                            <line x1="7" y1="17" x2="12" y2="17" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
-                            <line x1="19" y1="11" x2="25" y2="11" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
-                            <line x1="19" y1="14" x2="25" y2="14" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
-                            <line x1="19" y1="17" x2="24" y2="17" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div class="libro-rec-badge-content">
-                        <span class="libro-rec-badge-title">LIBRO DE RECLAMACIONES</span>
-                        <span class="libro-rec-badge-desc">Conforme a Ley N° 29571 • Indecopi</span>
-                        <span class="libro-rec-badge-link">Hoja de Reclamación Virtual →</span>
-                    </div>
-                </button>
-            </div>
+            <!-- BOTTOM LEGAL & LIBRO & PAYMENT -->
+            <div class="footer-legal-bar">
+                <div class="footer-libro-card-wrap">
+                    <button type="button" class="btn-libro-reclamaciones" onclick="abrirLibroReclamaciones()" title="Libro de Reclamaciones Virtual conforme a Ley N° 29571">
+                        <div class="libro-rec-badge-icon">
+                            <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+                                <path d="M4 8C7.5 6 12 6.5 16 8.5C20 6.5 24.5 6 28 8V24C24.5 22 20 22.5 16 24.5C12 22.5 7.5 22 4 24V8Z" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
+                                <rect x="14.8" y="7" width="0.8" height="18" fill="#DC2626"/>
+                                <rect x="15.6" y="7" width="0.8" height="18" fill="#FFFFFF"/>
+                                <rect x="16.4" y="7" width="0.8" height="18" fill="#DC2626"/>
+                                <line x1="7" y1="11" x2="13" y2="11" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                                <line x1="7" y1="14" x2="13" y2="14" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                                <line x1="7" y1="17" x2="12" y2="17" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                                <line x1="19" y1="11" x2="25" y2="11" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                                <line x1="19" y1="14" x2="25" y2="14" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                                <line x1="19" y1="17" x2="24" y2="17" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="libro-rec-badge-content">
+                            <span class="libro-rec-badge-title">LIBRO DE RECLAMACIONES</span>
+                            <span class="libro-rec-badge-desc">Conforme a Ley N° 29571 • Indecopi</span>
+                            <span class="libro-rec-badge-link">Hoja de Reclamación Virtual →</span>
+                        </div>
+                    </button>
+                </div>
 
-                <p class="footer-copyright-note">© 2025 MacCell Perú. RUC Verificado. Todos los derechos reservados.</p>
+                <div class="footer-payment-methods">
+                    <span class="payment-methods-title">Métodos de Pago Habilitados</span>
+                    <div class="payment-chips-row">
+                        <span class="payment-chip">Yape</span>
+                        <span class="payment-chip">Plin</span>
+                        <span class="payment-chip">Transferencia BCP</span>
+                        <span class="payment-chip">BBVA</span>
+                        <span class="payment-chip">Contra Entrega en Efectivo</span>
+                        <span class="payment-chip">Tarjetas de Débito y Crédito</span>
+                    </div>
+                </div>
+
+                <div class="footer-bottom-copy">
+                    <p>© 2025 <a href="../Inicio.html">MacCell Perú</a>. RUC 20608976541. Todos los derechos reservados.</p>
+                    <p class="footer-address-mini">CC. Plaza Tec, Av. Garcilaso de la Vega 1358, Tienda 303 - Cercado de Lima, Perú.</p>
+                </div>
             </div>
         </div>
     </footer>
@@ -331,7 +477,12 @@
     <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
     <div class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
-            <h3>🛒 Mi Carrito de Compras</h3>
+            <h3 style="display: flex; align-items: center; gap: 8px;">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
+                <span>Mi Carrito de Compras</span>
+            </h3>
             <button class="cart-close-btn" onclick="closeCart()" aria-label="Cerrar">✕</button>
         </div>
         <div class="cart-body" id="cartItemsList"></div>

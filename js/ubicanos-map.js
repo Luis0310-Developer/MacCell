@@ -182,11 +182,17 @@ function initGtaStoreMap(containerId = 'gtaStoreMap') {
 
       <div class="gta-popup-info-grid">
         <div class="gta-popup-info-item">
-          <span>🕒 Horario:</span>
+          <span style="display:inline-flex; align-items:center; gap:4px;">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Horario:
+          </span>
           <strong>${estado.horarioTexto} ${estado.abierto ? '<span style="color: #34d399; font-weight:800;">(Abierto)</span>' : '<span style="color: #f87171; font-weight:800;">(Cerrado)</span>'}</strong>
         </div>
         <div class="gta-popup-info-item">
-          <span>📱 Asesor WhatsApp:</span>
+          <span style="display:inline-flex; align-items:center; gap:4px;">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
+            Asesor WhatsApp:
+          </span>
           <strong>924 678 780</strong>
         </div>
       </div>
