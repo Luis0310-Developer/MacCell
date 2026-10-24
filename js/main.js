@@ -23,6 +23,9 @@ const appState = {
 // Helper universal para resolver rutas de assets entre páginas raíz y subpáginas (/pages/)
 function resolveAssetPath(path) {
   if (!path) return '';
+  if (typeof path === 'string' && path.includes('res.cloudinary.com') && path.includes('/image/upload/') && !path.includes('/image/upload/e_trim/')) {
+    path = path.replace('/image/upload/', '/image/upload/e_trim/');
+  }
   if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:') || path.startsWith('/')) {
     return path;
   }
@@ -291,7 +294,6 @@ function renderCartItems() {
         <img src="${itemImage}" alt="${item.name}" class="cart-item-img" onerror="this.onerror=null; this.src='${fallbackLogo}'">
         <div class="cart-item-info">
           <div class="cart-item-title">${item.name}</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px;">Color: ${item.selectedColor || 'Original'}</div>
           <div class="cart-item-price">${formatPrice(item.price)}</div>
           <div class="cart-item-controls">
             <div class="qty-control">
@@ -332,7 +334,7 @@ function checkoutViaWhatsApp() {
 
   // Carga asíncrona segura si el script aún no estuviera listo
   const isPagesDir = typeof window !== 'undefined' && window.location.pathname.includes('/pages/');
-  const scriptPath = isPagesDir ? '../js/checkout-modal.js' : 'js/checkout-modal.js';
+  const scriptPath = isPagesDir ? '../js/checkout-modal.js?v=20261023-v39' : 'js/checkout-modal.js?v=20261023-v39';
   const script = document.createElement('script');
   script.src = scriptPath;
   script.onload = function () {
@@ -357,7 +359,8 @@ function buyViaWhatsApp(productId) {
     `Estoy interesado(a) en comprar este equipo visto en su catálogo web:\n\n` +
     `📱 *${name}*\n` +
     `💰 *Precio Especial:* ${formatPrice(price)}\n` +
-    `🛡️ *Garantía:* 1 Año Oficial\n` +
+    `🛡️ *Garantía:* Se emite comprobante de venta para garantía\n` +
+    `🏷️ *Registro:* ${prod.registro === 'Libre' ? 'Libre (No registrado en lista blanca)' : 'R (Registrado en lista blanca)'}\n` +
     `📦 *Disponibilidad:* ¿Tienen stock disponible para entrega hoy en Lima o envío a provincia?\n\n` +
     `¡Muchas gracias!`;
 
@@ -396,11 +399,43 @@ function renderProductStarsSvg(rating = 4.9) {
 }
 
 function getProductGallery(prod) {
-  if (Array.isArray(prod.gallery) && prod.gallery.length >= 4) {
-    return prod.gallery.map(img => resolveAssetPath(img));
+  const brandUpper = (prod.brand || prod.marca || prod.name || '').toUpperCase();
+  let defaultImg = 'assets/img/brands/Samsung/S26 ultra.jpeg';
+  if (brandUpper.includes('APPLE') || brandUpper.includes('IPHONE')) {
+    defaultImg = 'assets/img/brands/Iphone/Iphone 18 pro max.jpeg';
+  } else if (brandUpper.includes('XIAOMI') || brandUpper.includes('REDMI')) {
+    defaultImg = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792795879/Xioami_18_pro_max.jpg';
+  } else if (brandUpper.includes('MOTO')) {
+    defaultImg = 'assets/img/brands/Motorola/MOTO EDGE 50 ULTRA 5G.webp';
+  } else if (brandUpper.includes('HONOR')) {
+    defaultImg = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792796978/HONOR_MAGIC_8_PRO.webp';
+  } else if (brandUpper.includes('POCO')) {
+    defaultImg = 'assets/img/brands/Poco/Poco f9 ultra.webp';
+  } else if (brandUpper.includes('INFINIX')) {
+    defaultImg = 'assets/img/brands/Infinix/Celular_infinix_clean.png';
+  } else if (brandUpper.includes('OPPO')) {
+    defaultImg = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792718210/Celular_oppo_para_inicio.webp';
+  } else if (brandUpper.includes('REALME')) {
+    defaultImg = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792719372/Celular_realme_para_inicio.webp';
+  } else if (brandUpper.includes('GOOGLE') || brandUpper.includes('PIXEL')) {
+    defaultImg = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792718180/google_pixel_para_inicio.jpg';
+  } else if (brandUpper.includes('TECNO')) {
+    defaultImg = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792719919/Celular_tecno_clean.png';
+  } else if (brandUpper.includes('ZTE') || brandUpper.includes('NUBIA') || brandUpper.includes('REDMAGIC')) {
+    defaultImg = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792647096/Redmagic_11s.webp';
   }
-  const main = resolveAssetPath(prod.image || prod.imagen || '');
-  return [main, main, main, main];
+
+  const rawMain = prod.image || prod.imagen || defaultImg;
+  const main = resolveAssetPath(rawMain);
+
+  if (Array.isArray(prod.gallery) && prod.gallery.length > 0) {
+    const valid = prod.gallery.map(img => resolveAssetPath(img)).filter(Boolean);
+    const unique = [...new Set(valid)];
+    if (unique.length > 0) {
+      return unique;
+    }
+  }
+  return [main];
 }
 
 function getSimilarPhones(currentProd, count = 3) {
@@ -486,8 +521,33 @@ function openQuickView(productId) {
   const brand = prod.brand || prod.marca || 'Marca';
   const rating = prod.rating || 4.9;
   const reviewsCount = prod.reviewsCount || 42;
-  const fallbackLogo = resolveAssetPath('assets/img/ui/Logo.jpeg');
-  const desc = prod.description || 'Equipo original en caja sellada con garantía oficial de 1 año.';
+  const brandUpper = (brand || '').toUpperCase();
+  let defaultFallbackPhone = resolveAssetPath('assets/img/brands/Samsung/S26 ultra.jpeg');
+  if (brandUpper.includes('APPLE') || brandUpper.includes('IPHONE')) {
+    defaultFallbackPhone = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792728584/Iphone_18_pro_max_clean.png';
+  } else if (brandUpper.includes('XIAOMI') || brandUpper.includes('REDMI')) {
+    defaultFallbackPhone = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792795879/Xioami_18_pro_max.jpg';
+  } else if (brandUpper.includes('MOTO')) {
+    defaultFallbackPhone = 'https://res.cloudinary.com/qknps0t6/image/upload/e_trim/v1792733291/MOTO_EDGE_50_ULTRA_5G.webp';
+  } else if (brandUpper.includes('HONOR')) {
+    defaultFallbackPhone = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792796978/HONOR_MAGIC_8_PRO.webp';
+  } else if (brandUpper.includes('POCO')) {
+    defaultFallbackPhone = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792729244/Poco_f9_ultra.webp';
+  } else if (brandUpper.includes('INFINIX')) {
+    defaultFallbackPhone = 'https://res.cloudinary.com/qknps0t6/image/upload/e_trim/v1792734877/INFINIX_GT_50_PRO_1.webp';
+  } else if (brandUpper.includes('OPPO')) {
+    defaultFallbackPhone = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792718210/Celular_oppo_para_inicio.webp';
+  } else if (brandUpper.includes('REALME')) {
+    defaultFallbackPhone = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792719372/Celular_realme_para_inicio.webp';
+  } else if (brandUpper.includes('GOOGLE') || brandUpper.includes('PIXEL')) {
+    defaultFallbackPhone = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792718180/google_pixel_para_inicio.jpg';
+  } else if (brandUpper.includes('TECNO')) {
+    defaultFallbackPhone = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792719919/Celular_tecno_clean.png';
+  } else if (brandUpper.includes('ZTE') || brandUpper.includes('NUBIA') || brandUpper.includes('REDMAGIC')) {
+    defaultFallbackPhone = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792647096/Redmagic_11s.webp';
+  }
+  const fallbackLogo = defaultFallbackPhone;
+  const desc = prod.description || 'Equipo original en caja sellada. Se emite comprobante de venta para garantía.';
   const colors = prod.colors || ['Original'];
   const specsObj = prod.specsObj || {
     screen: 'Super AMOLED 120Hz',
@@ -499,81 +559,39 @@ function openQuickView(productId) {
   };
 
   const gallery = getProductGallery(prod);
-  const similarProducts = getSimilarPhones(prod, 3);
+  const similarProducts = getSimilarPhones(prod, 8);
   window._currentSelectedColor = colors[0];
 
   const starsHtml = renderProductStarsSvg(rating);
   const discountPercent = originalPrice > price ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0;
 
-  // Renderizar la sección de celulares similares
+  // Renderizar la sección de celulares similares estilo Reuse
   const similarHtml = similarProducts.map(sim => {
     const simPrice = sim.price || sim.precio || 0;
     const simOrigPrice = sim.originalPrice || simPrice;
+    const simDiscountPercent = simOrigPrice > simPrice ? Math.round(((simOrigPrice - simPrice) / simOrigPrice) * 100) : 0;
     const simName = sim.name || sim.nombre || '';
-    const simBrand = sim.brand || sim.marca || '';
     const simImg = resolveAssetPath(sim.image || sim.imagen || '');
-    const simSpecs = sim.specsObj || {};
 
     return `
-      <div class="similar-product-card" onclick="openQuickView('${sim.id}')">
-        <div class="similar-card-top">
-          <span class="similar-badge">${sim.badge || 'RECOMENDADO'}</span>
-          <span class="similar-brand">${simBrand}</span>
-        </div>
-        
+      <div class="similar-product-card" onclick="openQuickView('${sim.id}')" title="Ver detalles de ${simName}">
         <div class="similar-img-wrap">
           <img src="${simImg}" alt="${simName}" class="similar-card-img" loading="lazy" onerror="this.onerror=null; this.src='${fallbackLogo}'">
         </div>
 
-        <h3 class="similar-card-title">${simName}</h3>
+        <div class="similar-card-body">
+          <h4 class="similar-card-title" title="${simName}">${simName}</h4>
 
-        <div class="similar-price-row">
-          <span class="similar-price-current">${formatPrice(simPrice)}</span>
-          ${simOrigPrice > simPrice ? `<span class="similar-price-old">${formatPrice(simOrigPrice)}</span>` : ''}
-        </div>
-
-        <!-- DETALLES Y CARACTERÍSTICAS PARA CADA CELULAR SIMILAR -->
-        <div class="similar-specs-list">
-          <div class="similar-spec-item" title="Pantalla">
-            <span class="spec-icon">
-              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
-            </span>
-            <span class="spec-text"><b>Pantalla:</b> ${simSpecs.screen || 'AMOLED 120Hz'}</span>
+          <div class="similar-price-box">
+            <span class="similar-price-prefix">Desde</span>
+            <span class="similar-price-current">${formatPrice(simPrice)}</span>
+            ${simOrigPrice > simPrice ? `
+              <div class="similar-price-sub">
+                <span class="similar-price-old">${formatPrice(simOrigPrice)}</span>
+                <span class="similar-discount-tag">${simDiscountPercent}% OFF</span>
+              </div>
+            ` : ''}
           </div>
-          <div class="similar-spec-item" title="Procesador">
-            <span class="spec-icon">
-              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
-            </span>
-            <span class="spec-text"><b>Procesador:</b> ${simSpecs.processor || 'Octa-Core'}</span>
-          </div>
-          <div class="similar-spec-item" title="Memoria y Almacenamiento">
-            <span class="spec-icon">
-              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9a.75.75 0 0 1 .75.75v9a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75v-9a.75.75 0 0 1 .75-.75Z"/></svg>
-            </span>
-            <span class="spec-text"><b>Memoria:</b> ${simSpecs.ram || '8 GB'} • ${simSpecs.storage || '256 GB'}</span>
-          </div>
-          <div class="similar-spec-item" title="Cámaras">
-            <span class="spec-icon">
-              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"/></svg>
-            </span>
-            <span class="spec-text"><b>Cámaras:</b> ${simSpecs.cameras || 'Cámara Pro'}</span>
-          </div>
-          <div class="similar-spec-item" title="Batería">
-            <span class="spec-icon">
-              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.75a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-.75.75H21M3.75 6.75h14.25a2.25 2.25 0 0 1 2.25 2.25v6a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 15V9a2.25 2.25 0 0 1 2.25-2.25Z"/></svg>
-            </span>
-            <span class="spec-text"><b>Batería:</b> ${simSpecs.battery || '5,000 mAh'}</span>
-          </div>
-        </div>
-
-        <div class="similar-card-actions" onclick="event.stopPropagation()">
-          <button class="btn-similar-view" onclick="openQuickView('${sim.id}')" title="Ver detalles completos">
-            Ver Detalles
-          </button>
-          <button class="btn-similar-cart" onclick="addToCart('${sim.id}')" title="Agregar al Carrito">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-            Carrito
-          </button>
         </div>
       </div>
     `;
@@ -639,6 +657,7 @@ function openQuickView(productId) {
           
           <div class="product-title-row">
             <span class="product-brand-chip">${brand}</span>
+            <span class="product-badge badge-registro ${prod.registro && String(prod.registro).toLowerCase().trim() === 'libre' ? 'badge-reg-libre' : 'badge-reg-r'}">${prod.registro && String(prod.registro).toLowerCase().trim() === 'libre' ? 'Libre' : 'Registrado'}</span>
             <span class="product-condition-chip">Nuevo Sellado</span>
           </div>
 
@@ -673,25 +692,7 @@ function openQuickView(productId) {
             </div>
           </div>
 
-          <!-- SELECTOR DE COLORES DISPONIBLES -->
-          ${colors && colors.length > 0 ? `
-            <div class="product-colors-section">
-              <div class="product-colors-header">
-                <span class="colors-label">Color:</span>
-                <span class="colors-selected-name" id="currentSelectedColorName">${colors[0]}</span>
-              </div>
-              <div class="product-colors-chips-grid">
-                ${colors.map((c, i) => `
-                  <button type="button" class="product-color-chip ${i === 0 ? 'active' : ''}" 
-                          onclick="selectProductColor(this, '${c}')" 
-                          title="Color ${c}">
-                    <span class="color-dot-indicator"></span>
-                    <span class="color-text-name">${c}</span>
-                  </button>
-                `).join('')}
-              </div>
-            </div>
-          ` : ''}
+
 
           <!-- BENEFICIOS Y DESCRIPCIÓN -->
           <div class="product-benefits-box">
@@ -701,9 +702,10 @@ function openQuickView(productId) {
             </div>
             <ul class="benefits-list">
               <li><strong>${desc}</strong></li>
-              <li><span>✓</span> Equipo 100% original en caja sellada con código IMEI homologado ante OSIPTEL.</li>
+              <li><span>✓</span> Equipo 100% original en caja sellada.</li>
               <li><span>✓</span> Liberado de fábrica para todas las redes 5G y 4G nacionales e internacionales.</li>
-              <li><span>✓</span> Incluye 1 año de garantía legal oficial y comprobante electrónico (boleta/factura).</li>
+              <li><span>✓</span> Se emite comprobante de venta para garantía.</li>
+              <li><span>✓</span> Registro Lista Blanca: <strong>${prod.registro === 'Libre' ? 'Libre (No registrado en lista blanca)' : 'R (Registrado en lista blanca)'}</strong>.</li>
             </ul>
           </div>
 
@@ -720,9 +722,18 @@ function openQuickView(productId) {
                 <span class="spec-label"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg> Pantalla</span>
                 <span class="spec-value">${specsObj.screen || 'AMOLED 120Hz'}</span>
               </div>
-              <div class="spec-card">
+              <div class="spec-card spec-card-processor">
                 <span class="spec-label"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg> Procesador</span>
                 <span class="spec-value">${specsObj.processor || 'Gama Alta'}</span>
+                ${specsObj.antutu ? `
+                  <div class="spec-antutu-badge">
+                    <span class="antutu-tag-pill">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                      AnTuTu v10
+                    </span>
+                    <span class="antutu-score-val">${Number(specsObj.antutu).toLocaleString('es-PE')} <span class="antutu-unit">pts</span></span>
+                  </div>
+                ` : ''}
               </div>
               <div class="spec-card">
                 <span class="spec-label"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9a.75.75 0 0 1 .75.75v9a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75v-9a.75.75 0 0 1 .75-.75Z"/></svg> Memoria RAM</span>
@@ -762,23 +773,25 @@ function openQuickView(productId) {
         </div>
       </div>
 
-      <!-- SECCIÓN RECOMENDACIÓN DE CELULARES SIMILARES -->
+      <!-- SECCIÓN RECOMENDACIÓN DE CELULARES SIMILARES ESTILO REUSE -->
       <div class="similar-products-section">
-        <div class="similar-section-header">
-          <div>
-            <h2 class="similar-heading">
-              <svg width="20" height="20" fill="none" stroke="#22d3ee" stroke-width="2" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z"/></svg>
-              Celulares Similares Recomendados
-            </h2>
-            <p class="similar-sub">Smartphones con características y gama comparables en catálogo</p>
-          </div>
-          <span class="similar-badge-pill">
-            Gama ${prod.range === 'alta' ? 'Alta / Flagship' : 'Media / Avanzada'}
-          </span>
+        <div class="similar-header-reuse">
+          <h2 class="similar-title-reuse">También te podría gustar</h2>
         </div>
 
-        <div class="similar-products-grid">
-          ${similarHtml}
+        <div class="similar-carousel-wrapper">
+          <div class="similar-carousel-track" id="similarCarouselTrack">
+            ${similarHtml}
+          </div>
+
+          <div class="similar-carousel-nav">
+            <button type="button" class="similar-nav-btn next-btn" onclick="slideSimilarCarousel(1)" aria-label="Ver siguientes" title="Siguiente">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+            </button>
+            <button type="button" class="similar-nav-btn prev-btn" onclick="slideSimilarCarousel(-1)" aria-label="Ver anteriores" title="Anterior">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 19.5-7.5-7.5 7.5-7.5"/></svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -828,6 +841,13 @@ if (typeof document !== 'undefined') {
   });
 }
 
+function slideSimilarCarousel(dir) {
+  const track = document.getElementById('similarCarouselTrack');
+  if (!track) return;
+  const scrollAmount = 220 * 2;
+  track.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+}
+
 // Exponer en window para acceso global
 if (typeof window !== 'undefined') {
   window.openQuickView = openQuickView;
@@ -836,6 +856,7 @@ if (typeof window !== 'undefined') {
   window.selectProductColor = selectProductColor;
   window.getProductGallery = getProductGallery;
   window.getSimilarPhones = getSimilarPhones;
+  window.slideSimilarCarousel = slideSimilarCarousel;
 }
 
 // ==========================================
@@ -2118,8 +2139,6 @@ _Enviado conforme al Código de Protección y Defensa del Consumidor (Ley N° 29
 // ==========================================
 // PWA & SOPORTE OFFLINE / INSTALACIÓN NATIVA
 // ==========================================
-let deferredPwaPrompt = null;
-
 function initPwa() {
   if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
     window.addEventListener('load', () => {
@@ -2134,77 +2153,8 @@ function initPwa() {
         });
     });
   }
-
-  initPwaInstallPrompt();
 }
 
-function initPwaInstallPrompt() {
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPwaPrompt = e;
-
-    const dismissedTime = localStorage.getItem('maccell_pwa_dismissed');
-    if (dismissedTime && (Date.now() - Number(dismissedTime)) < 7 * 24 * 60 * 60 * 1000) {
-      return;
-    }
-
-    setTimeout(() => {
-      showPwaInstallBanner();
-    }, 4500);
-  });
-
-  window.addEventListener('appinstalled', () => {
-    console.log('[PWA] MacCell App instalada');
-    deferredPwaPrompt = null;
-    const banner = document.getElementById('pwaInstallBanner');
-    if (banner) banner.remove();
-  });
-}
-
-function showPwaInstallBanner() {
-  if (document.getElementById('pwaInstallBanner') || !deferredPwaPrompt) return;
-
-  const banner = document.createElement('div');
-  banner.id = 'pwaInstallBanner';
-  banner.className = 'pwa-install-banner';
-
-  const iconSrc = resolveAssetPath('assets/img/pwa/icon-192.png');
-
-  banner.innerHTML = `
-    <img src="${iconSrc}" alt="MacCell App" class="pwa-banner-icon">
-    <div class="pwa-banner-info">
-      <div class="pwa-banner-title">MacCell Oficial</div>
-      <p class="pwa-banner-desc">Instala la app para compras rápidas y catálogo sin conexión.</p>
-    </div>
-    <div class="pwa-banner-actions">
-      <button class="pwa-btn-install" id="btnPwaInstallAction">Instalar</button>
-      <button class="pwa-btn-close" id="btnPwaCloseAction" aria-label="Cerrar">✕</button>
-    </div>
-  `;
-
-  document.body.appendChild(banner);
-
-  document.getElementById('btnPwaInstallAction')?.addEventListener('click', () => {
-    if (deferredPwaPrompt) {
-      deferredPwaPrompt.prompt();
-      deferredPwaPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('[PWA] Usuario aceptó instalación');
-        }
-        deferredPwaPrompt = null;
-        banner.remove();
-      });
-    }
-  });
-
-  document.getElementById('btnPwaCloseAction')?.addEventListener('click', () => {
-    localStorage.setItem('maccell_pwa_dismissed', String(Date.now()));
-    banner.style.opacity = '0';
-    banner.style.transform = 'translateY(100%)';
-    banner.style.transition = 'all 0.3s ease';
-    setTimeout(() => banner.remove(), 320);
-  });
-}
 
 // EXPORTAR AL OBJETO GLOBAL WINDOW
 window.STORE_CONFIG = STORE_CONFIG;

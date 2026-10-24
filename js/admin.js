@@ -216,6 +216,17 @@
         const parsed = JSON.parse(savedProds);
         if (Array.isArray(parsed) && parsed.length > 0) {
           baseProds = parsed;
+          (AdminState.factorySmartphones || []).forEach(fp => {
+            if (!baseProds.some(p => p.id === fp.id)) {
+              baseProds.push(JSON.parse(JSON.stringify(fp)));
+            }
+          });
+          baseProds.forEach(p => {
+            if (!p.registro) {
+              const original = (AdminState.factorySmartphones || []).find(x => x.id === p.id);
+              p.registro = (original && original.registro) ? original.registro : 'R';
+            }
+          });
         }
       }
       const savedAccs = localStorage.getItem('maccell_custom_accessories');
@@ -288,6 +299,7 @@
         image: p.image || p.imagen || '',
         badge: p.badge || 'NUEVO',
         badgeType: p.badgeType || 'new',
+        registro: p.registro || 'R',
         stock: Number(p.stock || 0),
         rating: Number(p.rating || 4.8),
         reviewsCount: Number(p.reviewsCount || 15),
@@ -302,7 +314,7 @@
           battery: "5,000 mAh Carga Rápida"
         },
         colors: Array.isArray(p.colors) ? p.colors : ["Negro", "Azul"],
-        description: p.description || "Smartphone con garantía de 1 año y accesorios originales en MacCell Perú.",
+        description: p.description || "Smartphone original en caja sellada. Se emite comprobante de venta para garantía.",
         disponible: p.disponible !== false && Number(p.stock || 0) > 0
       };
     });
@@ -1233,7 +1245,8 @@ if (typeof module !== 'undefined' && module.exports) {
         specs: specsList,
         specsObj: specsObj,
         colors: colors.length > 0 ? colors : ["Negro", "Plata"],
-        description: desc || "Smartphone oficial con garantía de 1 año en MacCell Perú.",
+        description: desc || "Smartphone oficial en caja sellada. Se emite comprobante de venta para garantía.",
+        registro: "R",
         disponible: stock > 0
       };
       AdminState.smartphones.unshift(newPhone);

@@ -1,7 +1,7 @@
 {
   "name": "MacCell Perú | Celulares y Accesorios",
   "short_name": "MacCell",
-  "description": "Smartphones 100% nuevos y sellados de fábrica con 1 año de garantía real. CC. Plaza Tec, Lima.",
+  "description": "Smartphones 100% nuevos y sellados de fábrica. Se emite comprobante de venta para garantía. CC. Plaza Tec, Lima.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

@@ -1,0 +1,1762 @@
+[
+  {
+    "idx": 0,
+    "id": "iphone-15-128gb-fisico-libre",
+    "name": "iPhone 15 128GB (Chip Físico) Libre",
+    "brand": "Apple",
+    "processor": "Apple A16 Bionic (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 1,
+    "id": "iphone-15-128gb-fisico-reg",
+    "name": "iPhone 15 128GB (Chip Físico) Registrado",
+    "brand": "Apple",
+    "processor": "Apple A16 Bionic (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 2,
+    "id": "iphone-16-128gb-fisico-libre",
+    "name": "iPhone 16 128GB (Chip Físico) Libre",
+    "brand": "Apple",
+    "processor": "Apple A18 de 2da generación (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 3,
+    "id": "iphone-16e-128gb-fisico-reg",
+    "name": "iPhone 16e 128GB (Chip Físico) Registrado",
+    "brand": "Apple",
+    "processor": "Apple A18 Bionic (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 4,
+    "id": "iphone-17-256gb-fisico-libre",
+    "name": "iPhone 17 256GB (Chip Físico) Libre",
+    "brand": "Apple",
+    "processor": "Apple A19 Bionic (3nm Mejorado)",
+    "antutu": null
+  },
+  {
+    "idx": 5,
+    "id": "iphone-17-pro-256gb-fisico-libre",
+    "name": "iPhone 17 Pro 256GB (Chip Físico) Libre",
+    "brand": "Apple",
+    "processor": "Apple A19 Pro Bionic (2nm TSMC)",
+    "antutu": null
+  },
+  {
+    "idx": 6,
+    "id": "iphone-13-pro-max-256gb-fisico",
+    "name": "iPhone 13 Pro Max 256GB (Chip Físico) Libre",
+    "brand": "Apple",
+    "processor": "Apple A15 Bionic (GPU 5 núcleos)",
+    "antutu": null
+  },
+  {
+    "idx": 7,
+    "id": "iphone-14-pro-max-1tb-fisico",
+    "name": "iPhone 14 Pro Max 1TB (Chip Físico) Libre",
+    "brand": "Apple",
+    "processor": "Apple A16 Bionic (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 8,
+    "id": "iphone-15-pro-max-256gb-fisico",
+    "name": "iPhone 15 Pro Max 256GB (Chip Físico) Libre",
+    "brand": "Apple",
+    "processor": "Apple A17 Pro con Ray Tracing por hardware",
+    "antutu": null
+  },
+  {
+    "idx": 9,
+    "id": "iphone-16-pro-max-256gb-fisico",
+    "name": "iPhone 16 Pro Max 256GB (Chip Físico) Libre",
+    "brand": "Apple",
+    "processor": "Apple A18 Pro Bionic (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 10,
+    "id": "iphone-17-pro-max-256gb-fisico-libre",
+    "name": "iPhone 17 Pro Max 256GB (Chip Físico) Libre",
+    "brand": "Apple",
+    "processor": "Apple A19 Pro Bionic (2nm TSMC)",
+    "antutu": null
+  },
+  {
+    "idx": 11,
+    "id": "iphone-17-pro-max-256gb-fisico-reg",
+    "name": "iPhone 17 Pro Max 256GB (Chip Físico) Registrado",
+    "brand": "Apple",
+    "processor": "Apple A19 Pro Bionic (2nm TSMC)",
+    "antutu": null
+  },
+  {
+    "idx": 12,
+    "id": "iphone-17-pro-max-512gb-fisico-libre",
+    "name": "iPhone 17 Pro Max 512GB (Chip Físico) Libre",
+    "brand": "Apple",
+    "processor": "Apple A19 Pro Bionic (2nm)",
+    "antutu": null
+  },
+  {
+    "idx": 13,
+    "id": "iphone-17-256gb-esim",
+    "name": "iPhone 17 256GB (eSIM Edition) Libre",
+    "brand": "Apple",
+    "processor": "Apple A19 Bionic (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 14,
+    "id": "iphone-17-pro-256gb-esim",
+    "name": "iPhone 17 Pro 256GB (eSIM Edition) Libre",
+    "brand": "Apple",
+    "processor": "Apple A19 Pro Bionic (2nm)",
+    "antutu": null
+  },
+  {
+    "idx": 15,
+    "id": "iphone-18-pro-256gb-esim",
+    "name": "iPhone 18 Pro 256GB (eSIM Edition) Libre",
+    "brand": "Apple",
+    "processor": "Apple A20 Pro Bionic (2nm GAA de nueva generación)",
+    "antutu": null
+  },
+  {
+    "idx": 16,
+    "id": "iphone-18-pro-512gb-esim",
+    "name": "iPhone 18 Pro 512GB (eSIM Edition) Libre",
+    "brand": "Apple",
+    "processor": "Apple A20 Pro Bionic (2nm GAA)",
+    "antutu": null
+  },
+  {
+    "idx": 17,
+    "id": "iphone-17-pro-max-256gb-esim",
+    "name": "iPhone 17 Pro Max 256GB (eSIM Edition) Libre",
+    "brand": "Apple",
+    "processor": "Apple A19 Pro Bionic (2nm)",
+    "antutu": null
+  },
+  {
+    "idx": 18,
+    "id": "iphone-18-pro-max-256gb-esim",
+    "name": "iPhone 18 Pro MAX 256GB (eSIM Edition) Libre",
+    "brand": "Apple",
+    "processor": "Apple A20 Pro Bionic (2nm GAA)",
+    "antutu": null
+  },
+  {
+    "idx": 19,
+    "id": "iphone-17-pro-max-512gb-esim",
+    "name": "iPhone 17 Pro Max 512GB (eSIM Edition) Libre",
+    "brand": "Apple",
+    "processor": "Apple A19 Pro Bionic (2nm)",
+    "antutu": null
+  },
+  {
+    "idx": 20,
+    "id": "iphone-18-pro-max-512gb-esim",
+    "name": "iPhone 18 Pro MAX 512GB (eSIM Edition) Libre",
+    "brand": "Apple",
+    "processor": "Apple A20 Pro Bionic (2nm GAA)",
+    "antutu": null
+  },
+  {
+    "idx": 21,
+    "id": "iphone-17-pro-max-1tb-esim",
+    "name": "iPhone 17 Pro Max 1TB (eSIM Edition) Libre",
+    "brand": "Apple",
+    "processor": "Apple A19 Pro Bionic (2nm)",
+    "antutu": null
+  },
+  {
+    "idx": 22,
+    "id": "galaxy-a06-128gb-4ram",
+    "name": "Samsung Galaxy A06 128GB (4GB RAM)",
+    "brand": "Samsung",
+    "processor": "MediaTek Helio G85 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 23,
+    "id": "galaxy-a07-64gb-4ram",
+    "name": "Samsung Galaxy A07 64GB (4GB RAM)",
+    "brand": "Samsung",
+    "processor": "MediaTek Helio G85 / Exynos Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 24,
+    "id": "galaxy-a07-128gb-4ram",
+    "name": "Samsung Galaxy A07 128GB (4GB RAM)",
+    "brand": "Samsung",
+    "processor": "MediaTek Helio G85 / Exynos Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 25,
+    "id": "galaxy-a16-128gb-4ram",
+    "name": "Samsung Galaxy A16 128GB (4GB RAM)",
+    "brand": "Samsung",
+    "processor": "MediaTek Helio G99 Octa-Core (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 26,
+    "id": "galaxy-a16-5g-128gb-4ram",
+    "name": "Samsung Galaxy A16 5G 128GB (4GB RAM)",
+    "brand": "Samsung",
+    "processor": "Samsung Exynos 1330 5G / Dimensity 6300",
+    "antutu": null
+  },
+  {
+    "idx": 27,
+    "id": "galaxy-a17-4g-128gb-4ram",
+    "name": "Samsung Galaxy A17 4G 128GB (4GB RAM)",
+    "brand": "Samsung",
+    "processor": "MediaTek Helio G99-Ultra / Exynos",
+    "antutu": null
+  },
+  {
+    "idx": 28,
+    "id": "galaxy-a17-4g-256gb-8ram",
+    "name": "Samsung Galaxy A17 4G 256GB (8GB RAM)",
+    "brand": "Samsung",
+    "processor": "MediaTek Helio G99-Ultra / Exynos",
+    "antutu": null
+  },
+  {
+    "idx": 29,
+    "id": "galaxy-a17-5g-128gb-4ram",
+    "name": "Samsung Galaxy A17 5G 128GB (4GB RAM)",
+    "brand": "Samsung",
+    "processor": "Samsung Exynos 1380 / 1480 5G (5nm)",
+    "antutu": null
+  },
+  {
+    "idx": 30,
+    "id": "galaxy-a17-5g-128gb-6ram",
+    "name": "Samsung Galaxy A17 5G 128GB (6GB RAM)",
+    "brand": "Samsung",
+    "processor": "Samsung Exynos 1380 / 1480 5G (5nm)",
+    "antutu": null
+  },
+  {
+    "idx": 31,
+    "id": "galaxy-a17-5g-256gb-8ram",
+    "name": "Samsung Galaxy A17 5G 256GB (8GB RAM)",
+    "brand": "Samsung",
+    "processor": "Samsung Exynos 1380 / 1480 5G (5nm)",
+    "antutu": null
+  },
+  {
+    "idx": 32,
+    "id": "galaxy-a27-5g-128gb-6ram",
+    "name": "Samsung Galaxy A27 5G 128GB (6GB RAM)",
+    "brand": "Samsung",
+    "processor": "Exynos 1380 Octa-Core 5G (5nm)",
+    "antutu": null
+  },
+  {
+    "idx": 33,
+    "id": "galaxy-a27-5g-256gb-8ram",
+    "name": "Samsung Galaxy A27 5G 256GB (8GB RAM)",
+    "brand": "Samsung",
+    "processor": "Exynos 1380 Octa-Core 5G (5nm)",
+    "antutu": null
+  },
+  {
+    "idx": 34,
+    "id": "galaxy-a36-5g-256gb-8ram",
+    "name": "Samsung Galaxy A36 5G 256GB (8GB RAM)",
+    "brand": "Samsung",
+    "processor": "Samsung Exynos 1380 5G (5nm)",
+    "antutu": null
+  },
+  {
+    "idx": 35,
+    "id": "galaxy-a37-5g-256gb-8ram",
+    "name": "Samsung Galaxy A37 5G 256GB (8GB RAM)",
+    "brand": "Samsung",
+    "processor": "Exynos 1480 5G con GPU AMD RDNA",
+    "antutu": null
+  },
+  {
+    "idx": 36,
+    "id": "galaxy-a56-5g-256gb-8ram-libre",
+    "name": "Samsung Galaxy A56 5G 256GB (8GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Samsung Exynos 1480 5G con gráficos AMD Xclipse",
+    "antutu": null
+  },
+  {
+    "idx": 37,
+    "id": "galaxy-a56-5g-256gb-8ram-reg",
+    "name": "Samsung Galaxy A56 5G 256GB (8GB RAM) Registrado",
+    "brand": "Samsung",
+    "processor": "Samsung Exynos 1480 5G con gráficos AMD Xclipse",
+    "antutu": null
+  },
+  {
+    "idx": 38,
+    "id": "galaxy-a56-5g-256gb-12ram-libre",
+    "name": "Samsung Galaxy A56 5G 256GB (12GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Samsung Exynos 1480 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 39,
+    "id": "galaxy-a56-5g-256gb-12ram-reg",
+    "name": "Samsung Galaxy A56 5G 256GB (12GB RAM) Registrado",
+    "brand": "Samsung",
+    "processor": "Samsung Exynos 1480 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 40,
+    "id": "galaxy-a57-5g-256gb-8ram-libre",
+    "name": "Samsung Galaxy A57 5G 256GB (8GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Samsung Exynos 1580 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 41,
+    "id": "galaxy-a57-5g-256gb-8ram-reg",
+    "name": "Samsung Galaxy A57 5G 256GB (8GB RAM) Registrado",
+    "brand": "Samsung",
+    "processor": "Samsung Exynos 1580 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 42,
+    "id": "galaxy-a57-5g-512gb-12ram-libre",
+    "name": "Samsung Galaxy A57 5G 512GB (12GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Samsung Exynos 1580 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 43,
+    "id": "galaxy-s26-256gb-12ram-libre",
+    "name": "Samsung Galaxy S26 5G 256GB (12GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Snapdragon 8 Elite / Exynos 2500 (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 44,
+    "id": "galaxy-s24-fe-256gb-8ram-reg",
+    "name": "Samsung Galaxy S24 FE 5G 256GB (8GB RAM) Registrado",
+    "brand": "Samsung",
+    "processor": "Exynos 2400e Deca-Core (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 45,
+    "id": "galaxy-s25-fe-256gb-8ram-libre",
+    "name": "Samsung Galaxy S25 FE 5G 256GB (8GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Exynos 2400 / Snapdragon 8 Gen 3 FE",
+    "antutu": null
+  },
+  {
+    "idx": 46,
+    "id": "galaxy-s25-fe-256gb-8ram-reg",
+    "name": "Samsung Galaxy S25 FE 5G 256GB (8GB RAM) Registrado",
+    "brand": "Samsung",
+    "processor": "Exynos 2400 / Snapdragon 8 Gen 3 FE",
+    "antutu": null
+  },
+  {
+    "idx": 47,
+    "id": "galaxy-s25-fe-512gb-8ram-libre",
+    "name": "Samsung Galaxy S25 FE 5G 512GB (8GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Exynos 2400 / Snapdragon 8 Gen 3 FE",
+    "antutu": null
+  },
+  {
+    "idx": 48,
+    "id": "galaxy-s25-ultra-256gb-12ram-libre",
+    "name": "Samsung Galaxy S25 Ultra 5G 256GB (12GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Qualcomm Snapdragon 8 Elite for Galaxy (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 49,
+    "id": "galaxy-s25-ultra-256gb-12ram-reg",
+    "name": "Samsung Galaxy S25 Ultra 5G 256GB (12GB RAM) Registrado",
+    "brand": "Samsung",
+    "processor": "Qualcomm Snapdragon 8 Elite for Galaxy (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 50,
+    "id": "galaxy-s25-ultra-512gb-12ram-libre",
+    "name": "Samsung Galaxy S25 Ultra 5G 512GB (12GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Qualcomm Snapdragon 8 Elite for Galaxy (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 51,
+    "id": "galaxy-s25-ultra-512gb-12ram-reg",
+    "name": "Samsung Galaxy S25 Ultra 5G 512GB (12GB RAM) Registrado",
+    "brand": "Samsung",
+    "processor": "Qualcomm Snapdragon 8 Elite for Galaxy (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 52,
+    "id": "galaxy-s25-ultra-1tb-12ram-libre",
+    "name": "Samsung Galaxy S25 Ultra 5G 1TB (12GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Qualcomm Snapdragon 8 Elite for Galaxy (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 53,
+    "id": "galaxy-s25-ultra-1tb-12ram-reg",
+    "name": "Samsung Galaxy S25 Ultra 5G 1TB (12GB RAM) Registrado",
+    "brand": "Samsung",
+    "processor": "Qualcomm Snapdragon 8 Elite for Galaxy (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 54,
+    "id": "galaxy-s26-plus-256gb-12ram-libre",
+    "name": "Samsung Galaxy S26+ 5G 256GB (12GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Snapdragon 8 Elite / Exynos 2500 (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 55,
+    "id": "galaxy-s26-ultra-256gb-12ram-libre",
+    "name": "Samsung Galaxy S26 Ultra 5G 256GB (12GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Qualcomm Snapdragon 8 Elite Gen 2 (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 56,
+    "id": "galaxy-s26-ultra-512gb-12ram-libre",
+    "name": "Samsung Galaxy S26 Ultra 5G 512GB (12GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Qualcomm Snapdragon 8 Elite Gen 2 (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 57,
+    "id": "galaxy-s26-ultra-512gb-12ram-reg",
+    "name": "Samsung Galaxy S26 Ultra 5G 512GB (12GB RAM) Registrado",
+    "brand": "Samsung",
+    "processor": "Qualcomm Snapdragon 8 Elite Gen 2 (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 58,
+    "id": "samsung-zfold-8-ultra-256gb-12ram-libre",
+    "name": "Samsung Galaxy Z Fold 8 Ultra 5G 256GB (12GB RAM) Libre",
+    "brand": "Samsung",
+    "processor": "Qualcomm Snapdragon 8 Elite for Galaxy (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 59,
+    "id": "xiaomi-14-ultra",
+    "name": "Xiaomi 14 Ultra 5G 512GB Leica Edition",
+    "brand": "Xiaomi",
+    "processor": "Snapdragon 8 Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 60,
+    "id": "moto-g06-64gb",
+    "name": "MOTO G06 64GB (4GB RAM)",
+    "brand": "Motorola",
+    "processor": "Unisoc T606 / Helio Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 61,
+    "id": "moto-g06-128gb",
+    "name": "MOTO G06 128GB (4GB RAM)",
+    "brand": "Motorola",
+    "processor": "Unisoc T606 / Helio Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 62,
+    "id": "moto-g06-256gb",
+    "name": "MOTO G06 256GB (4GB RAM)",
+    "brand": "Motorola",
+    "processor": "Unisoc T606 / Helio Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 63,
+    "id": "moto-g17-128gb",
+    "name": "MOTO G17 128GB (4GB RAM)",
+    "brand": "Motorola",
+    "processor": "MediaTek Helio G85 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 64,
+    "id": "moto-g17-256gb",
+    "name": "MOTO G17 256GB (4GB RAM)",
+    "brand": "Motorola",
+    "processor": "MediaTek Helio G85 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 65,
+    "id": "moto-g77-5g-256gb",
+    "name": "MOTO G77 5G 256GB (8GB RAM)",
+    "brand": "Motorola",
+    "processor": "MediaTek Dimensity 7025 5G (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 66,
+    "id": "moto-g86-power-5g-256gb",
+    "name": "MOTO G86 Power 5G 256GB (8GB RAM)",
+    "brand": "Motorola",
+    "processor": "Qualcomm Snapdragon 6s Gen 3 5G / Dimensity 7050",
+    "antutu": null
+  },
+  {
+    "idx": 67,
+    "id": "moto-g-max-5g-256gb",
+    "name": "MOTO G Max 5G 256GB (8GB RAM)",
+    "brand": "Motorola",
+    "processor": "MediaTek Dimensity 7025 Ultra 5G",
+    "antutu": null
+  },
+  {
+    "idx": 68,
+    "id": "moto-edge-60-fusion-256gb",
+    "name": "MOTO Edge 60 Fusion 5G 256GB (8GB RAM)",
+    "brand": "Motorola",
+    "processor": "Snapdragon 7s Gen 2 / 7s Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 69,
+    "id": "moto-edge-70-fusion-fifa-256gb",
+    "name": "MOTO Edge 70 Fusion 5G 256GB (8GB RAM) Edición FIFA",
+    "brand": "Motorola",
+    "processor": "Qualcomm Snapdragon 7 Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 70,
+    "id": "moto-edge-50-buds-pack-256gb",
+    "name": "MOTO Edge 50 5G 256GB (12GB RAM) + Moto Buds Pack",
+    "brand": "Motorola",
+    "processor": "Qualcomm Snapdragon 7 Gen 1 Accelerated (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 71,
+    "id": "moto-edge-50-ultra-512gb",
+    "name": "MOTO Edge 50 Ultra 5G 512GB (12GB RAM)",
+    "brand": "Motorola",
+    "processor": "Qualcomm Snapdragon 8s Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 72,
+    "id": "moto-edge-60-pro-512gb",
+    "name": "MOTO Edge 60 Pro 5G 512GB (12GB RAM)",
+    "brand": "Motorola",
+    "processor": "Qualcomm Snapdragon 8 Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 73,
+    "id": "moto-razr-60-ultra-1tb",
+    "name": "MOTO Razr 60 Ultra Plegable 1TB (12GB RAM)",
+    "brand": "Motorola",
+    "processor": "Qualcomm Snapdragon 8s Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 74,
+    "id": "motorola-signature-1tb",
+    "name": "Motorola Signature Ultra Edition 1TB (12GB RAM)",
+    "brand": "Motorola",
+    "processor": "Qualcomm Snapdragon 8 Elite / Gen 3 Leading Version",
+    "antutu": null
+  },
+  {
+    "idx": 75,
+    "id": "honor-play-10-64gb",
+    "name": "HONOR Play 10 64GB (3+3GB RAM)",
+    "brand": "Honor",
+    "processor": "MediaTek Helio G36 / Unisoc Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 76,
+    "id": "honor-play-10-128gb",
+    "name": "HONOR Play 10 128GB (4+4GB RAM)",
+    "brand": "Honor",
+    "processor": "MediaTek Helio G36 / Unisoc Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 77,
+    "id": "honor-x5c-64gb",
+    "name": "HONOR X5c 64GB (4+4GB RAM)",
+    "brand": "Honor",
+    "processor": "MediaTek Helio G36 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 78,
+    "id": "honor-x5c-128gb",
+    "name": "HONOR X5c 128GB (4+4GB RAM)",
+    "brand": "Honor",
+    "processor": "MediaTek Helio G36 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 79,
+    "id": "honor-play-20a-64gb",
+    "name": "HONOR Play 20A 64GB (4+4GB RAM)",
+    "brand": "Honor",
+    "processor": "Unisoc T610 Octa-Core (2x A75 + 6x A55)",
+    "antutu": null
+  },
+  {
+    "idx": 80,
+    "id": "honor-play-20a-128gb",
+    "name": "HONOR Play 20A 128GB (4+4GB RAM)",
+    "brand": "Honor",
+    "processor": "Unisoc T610 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 81,
+    "id": "honor-x5c-plus-256gb-4ram",
+    "name": "HONOR X5c Plus 256GB (4+4GB RAM)",
+    "brand": "Honor",
+    "processor": "MediaTek Helio G36 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 82,
+    "id": "honor-x5c-plus-256gb-6ram",
+    "name": "HONOR X5c Plus 256GB (6+6GB RAM)",
+    "brand": "Honor",
+    "processor": "MediaTek Helio G36 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 83,
+    "id": "honor-x5d-64gb",
+    "name": "HONOR X5d 64GB (4+4GB RAM)",
+    "brand": "Honor",
+    "processor": "Helio G36 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 84,
+    "id": "honor-x5d-128gb",
+    "name": "HONOR X5d 128GB (4+4GB RAM)",
+    "brand": "Honor",
+    "processor": "Helio G36 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 85,
+    "id": "honor-x6e-128gb",
+    "name": "HONOR X6e 128GB (4GB RAM)",
+    "brand": "Honor",
+    "processor": "MediaTek Helio G36 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 86,
+    "id": "honor-x6e-256gb",
+    "name": "HONOR X6e 256GB (4GB RAM)",
+    "brand": "Honor",
+    "processor": "MediaTek Helio G36 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 87,
+    "id": "honor-x6d-256gb",
+    "name": "HONOR X6d 256GB (4GB RAM)",
+    "brand": "Honor",
+    "processor": "MediaTek Helio G85 Gaming Processor",
+    "antutu": null
+  },
+  {
+    "idx": 88,
+    "id": "honor-x7d-256gb",
+    "name": "HONOR X7d 256GB (8GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 680 (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 89,
+    "id": "honor-x7e-256gb",
+    "name": "HONOR X7e 256GB (6GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 680 / 685 (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 90,
+    "id": "honor-x8d-256gb",
+    "name": "HONOR X8d 256GB (8GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 680 / Dimensity 6080",
+    "antutu": null
+  },
+  {
+    "idx": 91,
+    "id": "honor-x9d-5g-256gb",
+    "name": "HONOR X9d 5G 256GB (8GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 6 Gen 1 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 92,
+    "id": "honor-x9d-5g-512gb",
+    "name": "HONOR X9d 5G 512GB (8GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 6 Gen 1 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 93,
+    "id": "honor-magic-8-lite-256gb",
+    "name": "HONOR Magic 8 Lite 5G 256GB (8GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 6 Gen 1 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 94,
+    "id": "honor-magic-8-lite-512gb",
+    "name": "HONOR Magic 8 Lite 5G 512GB (8GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 6 Gen 1 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 95,
+    "id": "honor-400-lite-pack-256gb",
+    "name": "HONOR 400 Lite 5G 256GB (8GB RAM) con Pack de Regalo",
+    "brand": "Honor",
+    "processor": "MediaTek Dimensity 6080 5G (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 96,
+    "id": "honor-400-512gb-12ram",
+    "name": "HONOR 400 5G 512GB (12GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 7 Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 97,
+    "id": "honor-600e-5g-256gb",
+    "name": "HONOR 600e 5G 256GB (8GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 7 Gen 3 / Dimensity 8200",
+    "antutu": null
+  },
+  {
+    "idx": 98,
+    "id": "honor-600-5g-256gb-8ram",
+    "name": "HONOR 600 5G 256GB (8GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 7 Gen 3 / 8s Gen 3",
+    "antutu": null
+  },
+  {
+    "idx": 99,
+    "id": "honor-600-5g-256gb-reloj",
+    "name": "HONOR 600 5G 256GB (8GB RAM) + HONOR Watch de Regalo",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 7 Gen 3 / 8s Gen 3",
+    "antutu": null
+  },
+  {
+    "idx": 100,
+    "id": "honor-600-5g-256gb-12ram",
+    "name": "HONOR 600 5G 256GB (12GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 8s Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 101,
+    "id": "honor-600-5g-512gb-12ram",
+    "name": "HONOR 600 5G 512GB (12GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 8s Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 102,
+    "id": "honor-600-pro-5g-512gb",
+    "name": "HONOR 600 Pro 5G 512GB (12GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 8 Gen 3 / 8s Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 103,
+    "id": "honor-600-pro-5g-512gb-reloj",
+    "name": "HONOR 600 Pro 5G 512GB (12GB RAM) + HONOR Watch de Regalo",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 8 Gen 3 / 8s Gen 3",
+    "antutu": null
+  },
+  {
+    "idx": 104,
+    "id": "honor-win-512gb-12ram",
+    "name": "HONOR Win Gaming Edition 512GB (12GB RAM) Libre",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 8 Elite / 8 Gen 3 Leading Version",
+    "antutu": null
+  },
+  {
+    "idx": 105,
+    "id": "honor-400-pro-512gb-libre",
+    "name": "HONOR 400 Pro 5G 512GB (12GB RAM) Libre",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 8s Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 106,
+    "id": "honor-400-pro-512gb-reg",
+    "name": "HONOR 400 Pro 5G 512GB (12GB RAM) Registrado",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 8s Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 107,
+    "id": "honor-magic-8-pro-512gb",
+    "name": "HONOR Magic 8 Pro 5G 512GB (12GB RAM)",
+    "brand": "Honor",
+    "processor": "Qualcomm Snapdragon 8 Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 108,
+    "id": "poco-c71-64gb",
+    "name": "POCO C71 64GB (3GB RAM)",
+    "brand": "POCO",
+    "processor": "Octa-Core 2.2GHz de alta eficiencia",
+    "antutu": null
+  },
+  {
+    "idx": 109,
+    "id": "poco-c71-128gb",
+    "name": "POCO C71 128GB (4GB RAM)",
+    "brand": "POCO",
+    "processor": "Octa-Core 2.2GHz eficiente",
+    "antutu": null
+  },
+  {
+    "idx": 110,
+    "id": "poco-c85-128gb",
+    "name": "POCO C85 128GB (6GB RAM)",
+    "brand": "POCO",
+    "processor": "MediaTek Helio G85 Octa-Core 2.0GHz",
+    "antutu": null
+  },
+  {
+    "idx": 111,
+    "id": "poco-c85-256gb",
+    "name": "POCO C85 256GB (8GB RAM)",
+    "brand": "POCO",
+    "processor": "MediaTek Helio G85 Octa-Core 2.0GHz",
+    "antutu": null
+  },
+  {
+    "idx": 112,
+    "id": "poco-x7-pro-512gb",
+    "name": "POCO X7 Pro 5G 512GB (12GB RAM)",
+    "brand": "POCO",
+    "processor": "MediaTek Dimensity 8400-Ultra (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 113,
+    "id": "poco-x8-pro-256gb-libre",
+    "name": "POCO X8 Pro 5G 256GB (8GB RAM) Libre",
+    "brand": "POCO",
+    "processor": "Dimensity 8400 Max / Snapdragon 7+ Gen 3",
+    "antutu": null
+  },
+  {
+    "idx": 114,
+    "id": "poco-x8-pro-256gb-reg",
+    "name": "POCO X8 Pro 5G 256GB (8GB RAM) Registrado",
+    "brand": "POCO",
+    "processor": "Dimensity 8400 Max / Snapdragon 7+ Gen 3",
+    "antutu": null
+  },
+  {
+    "idx": 115,
+    "id": "poco-x8-pro-512gb-8ram",
+    "name": "POCO X8 Pro 5G 512GB (8GB RAM) Libre",
+    "brand": "POCO",
+    "processor": "Dimensity 8400 Max Octa-Core 4nm",
+    "antutu": null
+  },
+  {
+    "idx": 116,
+    "id": "poco-x8-pro-512gb-12ram-libre",
+    "name": "POCO X8 Pro 5G 512GB (12GB RAM) Libre",
+    "brand": "POCO",
+    "processor": "Dimensity 8400-Ultra Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 117,
+    "id": "poco-x8-pro-512gb-12ram-reg",
+    "name": "POCO X8 Pro 5G 512GB (12GB RAM) Registrado",
+    "brand": "POCO",
+    "processor": "Dimensity 8400-Ultra Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 118,
+    "id": "poco-x8-pro-max-512gb-libre",
+    "name": "POCO X8 Pro Max 5G 512GB (12GB RAM) Libre",
+    "brand": "POCO",
+    "processor": "MediaTek Dimensity 9300+ Flagship",
+    "antutu": null
+  },
+  {
+    "idx": 119,
+    "id": "poco-x8-pro-max-512gb-reg",
+    "name": "POCO X8 Pro Max 5G 512GB (12GB RAM) Registrado",
+    "brand": "POCO",
+    "processor": "MediaTek Dimensity 9300+ Flagship",
+    "antutu": null
+  },
+  {
+    "idx": 120,
+    "id": "poco-f8-pro-512gb-libre",
+    "name": "POCO F8 Pro 5G 512GB (12GB RAM) Libre",
+    "brand": "POCO",
+    "processor": "Qualcomm Snapdragon 8 Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 121,
+    "id": "poco-f8-pro-512gb-reg",
+    "name": "POCO F8 Pro 5G 512GB (12GB RAM) Registrado",
+    "brand": "POCO",
+    "processor": "Qualcomm Snapdragon 8 Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 122,
+    "id": "poco-f8-ultra-256gb-libre",
+    "name": "POCO F8 Ultra 5G 256GB (12GB RAM) Libre",
+    "brand": "POCO",
+    "processor": "Qualcomm Snapdragon 8 Elite / Gen 3 Leading",
+    "antutu": null
+  },
+  {
+    "idx": 123,
+    "id": "poco-f8-ultra-256gb-reg",
+    "name": "POCO F8 Ultra 5G 256GB (12GB RAM) Registrado",
+    "brand": "POCO",
+    "processor": "Qualcomm Snapdragon 8 Elite / Gen 3 Leading",
+    "antutu": null
+  },
+  {
+    "idx": 124,
+    "id": "poco-f8-ultra-512gb-libre",
+    "name": "POCO F8 Ultra 5G 512GB (16GB RAM) Libre",
+    "brand": "POCO",
+    "processor": "Qualcomm Snapdragon 8 Elite / Gen 3 Leading Version",
+    "antutu": null
+  },
+  {
+    "idx": 125,
+    "id": "poco-f8-ultra-512gb-reg",
+    "name": "POCO F8 Ultra 5G 512GB (16GB RAM) Registrado",
+    "brand": "POCO",
+    "processor": "Qualcomm Snapdragon 8 Elite / Gen 3 Leading Version",
+    "antutu": null
+  },
+  {
+    "idx": 126,
+    "id": "zte-blade-a35e",
+    "name": "ZTE Blade A35e 64GB (2+4GB RAM)",
+    "brand": "ZTE",
+    "processor": "Unisoc SC9863A Octa-Core 1.6GHz",
+    "antutu": null
+  },
+  {
+    "idx": 127,
+    "id": "zte-blade-a56-pro",
+    "name": "ZTE Blade A56 Pro 128GB (4+8GB RAM)",
+    "brand": "ZTE",
+    "processor": "Unisoc T606 (12nm) Octa-Core 1.6GHz",
+    "antutu": null
+  },
+  {
+    "idx": 128,
+    "id": "zte-blade-a71",
+    "name": "ZTE Blade A71 64GB (3GB RAM)",
+    "brand": "ZTE",
+    "processor": "Unisoc SC9863A Octa-Core 1.6GHz",
+    "antutu": null
+  },
+  {
+    "idx": 129,
+    "id": "zte-blade-a76-5g",
+    "name": "ZTE Blade A76 5G 256GB (4GB RAM)",
+    "brand": "ZTE",
+    "processor": "Unisoc T760 5G (6nm) Octa-Core 2.2GHz",
+    "antutu": null
+  },
+  {
+    "idx": 130,
+    "id": "zte-blade-v60-smart",
+    "name": "ZTE Blade V60 Smart 256GB (4GB RAM)",
+    "brand": "ZTE",
+    "processor": "Unisoc T606 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 131,
+    "id": "zte-blade-v70-max",
+    "name": "ZTE Blade V70 Max 256GB (4+10GB RAM)",
+    "brand": "ZTE",
+    "processor": "Octa-Core 1.6GHz de alta eficiencia",
+    "antutu": null
+  },
+  {
+    "idx": 132,
+    "id": "zte-blade-v80-max-4gb",
+    "name": "ZTE Blade V80 Max 256GB (4+10GB RAM)",
+    "brand": "ZTE",
+    "processor": "Unisoc T760 / Octa-Core 2.0GHz",
+    "antutu": null
+  },
+  {
+    "idx": 133,
+    "id": "zte-blade-v80-max-8gb",
+    "name": "ZTE Blade V80 Max 256GB (8+12GB RAM)",
+    "brand": "ZTE",
+    "processor": "Octa-Core 2.2GHz Performance Edition",
+    "antutu": null
+  },
+  {
+    "idx": 134,
+    "id": "zte-blade-v80-pro",
+    "name": "ZTE Blade V80 Pro 256GB (8+12GB RAM)",
+    "brand": "ZTE",
+    "processor": "MediaTek Dimensity / Helio G99 Octa-Core 2.4GHz",
+    "antutu": null
+  },
+  {
+    "idx": 135,
+    "id": "nubia-neo-5-5g",
+    "name": "ZTE Nubia Neo 5 5G 256GB (8+12GB RAM)",
+    "brand": "ZTEnubia",
+    "processor": "Unisoc T820 5G (6nm) Octa-Core hasta 2.7GHz",
+    "antutu": null
+  },
+  {
+    "idx": 136,
+    "id": "nubia-neo-5-5g-kit",
+    "name": "ZTE Nubia Neo 5 5G 256GB (8+12GB RAM) KIT",
+    "brand": "ZTEnubia",
+    "processor": "Unisoc T820 5G (6nm) Octa-Core 2.7GHz",
+    "antutu": null
+  },
+  {
+    "idx": 137,
+    "id": "nubia-neo-5-gt",
+    "name": "ZTE Nubia Neo 5 GT 256GB (8+12GB RAM)",
+    "brand": "ZTEnubia",
+    "processor": "Procesador Gamer 5G Octa-Core 2.8GHz",
+    "antutu": null
+  },
+  {
+    "idx": 138,
+    "id": "nubia-neo-5-max-mando",
+    "name": "ZTE Nubia Neo 5 5G MAX 512GB (8+12RAM) + Mando",
+    "brand": "ZTEnubia",
+    "processor": "Gaming Chipset 5G Octa-Core Avanzado",
+    "antutu": null
+  },
+  {
+    "idx": 139,
+    "id": "redmagic-11s-pro-256gb",
+    "name": "ZTE Nubia Redmagic 11S Pro 256GB 12GB RAM",
+    "brand": "ZTEnubia",
+    "processor": "Snapdragon 8 Gen 3 Leading Version (3.4GHz) / Red Core R2 Pro",
+    "antutu": null
+  },
+  {
+    "idx": 140,
+    "id": "redmagic-11s-pro-512gb",
+    "name": "ZTE Nubia Redmagic 11S Pro 512GB 16GB RAM",
+    "brand": "ZTEnubia",
+    "processor": "Snapdragon 8 Gen 3 Leading Version / Snapdragon 8 Elite",
+    "antutu": null
+  },
+  {
+    "idx": 141,
+    "id": "redmi-a5-64gb",
+    "name": "Xiaomi Redmi A5 64GB (3+3GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Helio G36 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 142,
+    "id": "redmi-a7-pro-64gb",
+    "name": "Xiaomi Redmi A7 Pro 64GB (4+4GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "Helio / Unisoc Octa-Core 2.0GHz",
+    "antutu": null
+  },
+  {
+    "idx": 143,
+    "id": "redmi-a7-pro-128gb",
+    "name": "Xiaomi Redmi A7 Pro 128GB (4+4GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "Helio / Unisoc Octa-Core 2.0GHz",
+    "antutu": null
+  },
+  {
+    "idx": 144,
+    "id": "redmi-15c-128gb",
+    "name": "Xiaomi Redmi 15C 128GB (4+4GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Helio G81-Ultra (12nm)",
+    "antutu": null
+  },
+  {
+    "idx": 145,
+    "id": "redmi-15c-256gb-4ram",
+    "name": "Xiaomi Redmi 15C 256GB (4+4GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Helio G81-Ultra (12nm)",
+    "antutu": null
+  },
+  {
+    "idx": 146,
+    "id": "redmi-15c-256gb-8ram",
+    "name": "Xiaomi Redmi 15C 256GB (8+8GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Helio G81-Ultra (12nm)",
+    "antutu": null
+  },
+  {
+    "idx": 147,
+    "id": "redmi-13-128gb-6ram",
+    "name": "Xiaomi Redmi 13 128GB (6GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Helio G91-Ultra (12nm)",
+    "antutu": null
+  },
+  {
+    "idx": 148,
+    "id": "redmi-15-256gb-8ram",
+    "name": "Xiaomi Redmi 15 256GB (8GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Helio G99 / G100 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 149,
+    "id": "redmi-17-128gb-4ram",
+    "name": "Xiaomi Redmi 17 128GB (4GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "Snapdragon / Helio Octa-Core 6nm",
+    "antutu": null
+  },
+  {
+    "idx": 150,
+    "id": "redmi-17-256gb-8ram",
+    "name": "Xiaomi Redmi 17 256GB (8GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "Snapdragon / Helio Octa-Core 6nm",
+    "antutu": null
+  },
+  {
+    "idx": 151,
+    "id": "redmi-note-15-128gb-6ram",
+    "name": "Xiaomi Redmi Note 15 128GB (6GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "Qualcomm Snapdragon 685 Octa-Core (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 152,
+    "id": "redmi-note-15-256gb-8ram",
+    "name": "Xiaomi Redmi Note 15 256GB (8GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "Qualcomm Snapdragon 685 Octa-Core (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 153,
+    "id": "redmi-note-15-5g-256gb-8ram",
+    "name": "Xiaomi Redmi Note 15 5G 256GB (8GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 6080 5G (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 154,
+    "id": "redmi-note-17-128gb-6ram",
+    "name": "Xiaomi Redmi Note 17 128GB (6GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "Snapdragon 6 Gen 1 / Dimensity 5G",
+    "antutu": null
+  },
+  {
+    "idx": 155,
+    "id": "redmi-note-17-256gb-6ram",
+    "name": "Xiaomi Redmi Note 17 256GB (6GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "Snapdragon 6 Gen 1 / Dimensity 5G",
+    "antutu": null
+  },
+  {
+    "idx": 156,
+    "id": "redmi-note-17-256gb-8ram",
+    "name": "Xiaomi Redmi Note 17 256GB (8GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "Snapdragon 6 Gen 1 / Dimensity 5G",
+    "antutu": null
+  },
+  {
+    "idx": 157,
+    "id": "redmi-note-17-pro-5g-256gb-6ram",
+    "name": "Xiaomi Redmi Note 17 Pro 5G 256GB (6+6GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 7200 Ultra 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 158,
+    "id": "redmi-note-17-pro-5g-512gb-8ram",
+    "name": "Xiaomi Redmi Note 17 Pro 5G 512GB (8+8GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 7200 Ultra 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 159,
+    "id": "redmi-note-17-pro-max-256gb-8ram",
+    "name": "Xiaomi Redmi Note 17 Pro Max 5G 256GB (8GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 7300 / 8020 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 160,
+    "id": "redmi-note-17-pro-max-512gb-8ram",
+    "name": "Xiaomi Redmi Note 17 Pro Max 5G 512GB (8GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 7300 / 8020 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 161,
+    "id": "redmi-note-15-pro-4g-256gb-libre",
+    "name": "Xiaomi Redmi Note 15 Pro 4G 256GB (8GB RAM) Libre",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Helio G99-Ultra (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 162,
+    "id": "redmi-note-15-pro-4g-256gb-reg",
+    "name": "Xiaomi Redmi Note 15 Pro 4G 256GB (8GB RAM) Registrado",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Helio G99-Ultra (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 163,
+    "id": "redmi-note-15-pro-5g-256gb-libre",
+    "name": "Xiaomi Redmi Note 15 Pro 5G 256GB (8GB RAM) Libre",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 7200 Ultra 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 164,
+    "id": "redmi-note-15-pro-5g-256gb-reg",
+    "name": "Xiaomi Redmi Note 15 Pro 5G 256GB (8GB RAM) Registrado",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 7200 Ultra 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 165,
+    "id": "redmi-note-15-pro-5g-512gb-libre",
+    "name": "Xiaomi Redmi Note 15 Pro 5G 512GB (8GB RAM) Libre",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 7200 Ultra 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 166,
+    "id": "redmi-note-15-pro-5g-512gb-reg",
+    "name": "Xiaomi Redmi Note 15 Pro 5G 512GB (8GB RAM) Registrado",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 7200 Ultra 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 167,
+    "id": "redmi-note-12-pro-plus-256gb",
+    "name": "Xiaomi Redmi Note 12 Pro+ 5G 256GB (8GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 1080 5G (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 168,
+    "id": "redmi-note-14-pro-plus-256gb",
+    "name": "Xiaomi Redmi Note 14 Pro+ 5G 256GB (8GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "Snapdragon 7s Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 169,
+    "id": "redmi-note-15-pro-plus-256gb-libre",
+    "name": "Xiaomi Redmi Note 15 Pro+ 5G 256GB (8GB RAM) Libre",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 7200 Ultra 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 170,
+    "id": "redmi-note-15-pro-plus-256gb-reg",
+    "name": "Xiaomi Redmi Note 15 Pro+ 5G 256GB (8GB RAM) Registrado",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 7200 Ultra 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 171,
+    "id": "redmi-note-15-pro-plus-512gb-libre",
+    "name": "Xiaomi Redmi Note 15 Pro+ 5G 512GB (12GB RAM) Libre",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 7200 Ultra 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 172,
+    "id": "redmi-note-15-pro-plus-512gb-reg",
+    "name": "Xiaomi Redmi Note 15 Pro+ 5G 512GB (12GB RAM) Registrado",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 7200 Ultra 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 173,
+    "id": "xiaomi-mi-12-lite-128gb",
+    "name": "Xiaomi 12 Lite 5G 128GB (8GB RAM)",
+    "brand": "Xiaomi",
+    "processor": "Snapdragon 778G 5G (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 174,
+    "id": "xiaomi-mi-12-5g-256gb",
+    "name": "Xiaomi 12 5G 256GB (8GB RAM) Flagship Compacto",
+    "brand": "Xiaomi",
+    "processor": "Qualcomm Snapdragon 8 Gen 1 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 175,
+    "id": "xiaomi-mi-15t-5g-512gb",
+    "name": "Xiaomi 15T 5G 512GB (12GB RAM) Leica Edition",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 8300 Ultra 5G (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 176,
+    "id": "xiaomi-mi-15t-pro-5g-512gb",
+    "name": "Xiaomi 15T Pro 5G 512GB (12GB RAM) Leica Edition",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 9300+ Flagship (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 177,
+    "id": "xiaomi-17t-512gb-libre",
+    "name": "Xiaomi 17T 5G 512GB (12GB RAM) Libre Leica",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 8400 / 9300 5G",
+    "antutu": null
+  },
+  {
+    "idx": 178,
+    "id": "xiaomi-17t-512gb-reg",
+    "name": "Xiaomi 17T 5G 512GB (12GB RAM) Registrado Leica",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 8400 / 9300 5G",
+    "antutu": null
+  },
+  {
+    "idx": 179,
+    "id": "xiaomi-17t-pro-512gb-libre",
+    "name": "Xiaomi 17T Pro 5G 512GB (12GB RAM) Libre Leica",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 9400 Flagship (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 180,
+    "id": "xiaomi-17t-pro-512gb-reg",
+    "name": "Xiaomi 17T Pro 5G 512GB (12GB RAM) Registrado Leica",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 9400 Flagship (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 181,
+    "id": "xiaomi-17t-pro-1tb-reg",
+    "name": "Xiaomi 17T Pro 5G 1TB (12GB RAM) Registrado Leica",
+    "brand": "Xiaomi",
+    "processor": "MediaTek Dimensity 9400 Flagship (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 182,
+    "id": "xiaomi-17-512gb-12ram",
+    "name": "Xiaomi 17 5G 512GB (12GB RAM) Flagship Leica",
+    "brand": "Xiaomi",
+    "processor": "Qualcomm Snapdragon 8 Elite / Gen 4 (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 183,
+    "id": "xiaomi-17-ultra-512gb-16ram",
+    "name": "Xiaomi 17 Ultra 5G 512GB (16GB RAM) Leica Master Photography",
+    "brand": "Xiaomi",
+    "processor": "Qualcomm Snapdragon 8 Elite (3nm)",
+    "antutu": null
+  },
+  {
+    "idx": 184,
+    "id": "infinix-smart-10-256gb",
+    "name": "Infinix Smart 10 256GB (4+4GB RAM)",
+    "brand": "Infinix",
+    "processor": "Unisoc T606 Octa-Core de alto rendimiento",
+    "antutu": null
+  },
+  {
+    "idx": 185,
+    "id": "infinix-smart-20-64gb",
+    "name": "Infinix Smart 20 64GB (4+4GB RAM)",
+    "brand": "Infinix",
+    "processor": "Unisoc T606 / Helio Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 186,
+    "id": "infinix-smart-20-128gb",
+    "name": "Infinix Smart 20 128GB (4+4GB RAM)",
+    "brand": "Infinix",
+    "processor": "Unisoc T606 / Helio Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 187,
+    "id": "infinix-hot-40i-256gb",
+    "name": "Infinix Hot 40i 256GB (4+4GB RAM)",
+    "brand": "Infinix",
+    "processor": "Unisoc T606 Octa-Core Gaming Engine",
+    "antutu": null
+  },
+  {
+    "idx": 188,
+    "id": "infinix-hot-60i-256gb",
+    "name": "Infinix Hot 60i 256GB (4+4GB RAM)",
+    "brand": "Infinix",
+    "processor": "MediaTek Helio G81 Octa-Core de alta eficiencia",
+    "antutu": null
+  },
+  {
+    "idx": 189,
+    "id": "infinix-hot-60-pro-256gb",
+    "name": "Infinix Hot 60 Pro 256GB (8+8GB RAM)",
+    "brand": "Infinix",
+    "processor": "MediaTek Helio G99 / G100 Octa-Core 6nm",
+    "antutu": null
+  },
+  {
+    "idx": 190,
+    "id": "infinix-hot-60-pro-plus-256gb",
+    "name": "Infinix Hot 60 Pro+ 256GB (8+8GB RAM)",
+    "brand": "Infinix",
+    "processor": "MediaTek Helio G100 Octa-Core 6nm Gaming",
+    "antutu": null
+  },
+  {
+    "idx": 191,
+    "id": "infinix-hot-70-128gb",
+    "name": "Infinix Hot 70 128GB (4+4GB RAM)",
+    "brand": "Infinix",
+    "processor": "MediaTek Helio G91 / G99 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 192,
+    "id": "infinix-hot-70-256gb",
+    "name": "Infinix Hot 70 256GB (4+4GB RAM)",
+    "brand": "Infinix",
+    "processor": "MediaTek Helio G91 / G99 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 193,
+    "id": "infinix-hot-70-pro-5g-256gb",
+    "name": "Infinix Hot 70 Pro 5G 256GB (6+6GB RAM)",
+    "brand": "Infinix",
+    "processor": "MediaTek Dimensity 7020 / 6300 5G (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 194,
+    "id": "infinix-note-50-pro-256gb",
+    "name": "Infinix Note 50 Pro 256GB (8+8GB RAM)",
+    "brand": "Infinix",
+    "processor": "MediaTek Helio G99 Ultimate (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 195,
+    "id": "infinix-note-60-pro-256gb-wireless",
+    "name": "Infinix Note 60 Pro 256GB (8+8GB RAM) + Cargador Inalámbrico",
+    "brand": "Infinix",
+    "processor": "MediaTek Helio G100 / Dimensity 7020 5G",
+    "antutu": null
+  },
+  {
+    "idx": 196,
+    "id": "infinix-note-60-pro-pininfarina-256gb",
+    "name": "Infinix Note 60 Pro 256GB (8+8GB RAM) + Pack Pininfarina & Carga Inalámbrica",
+    "brand": "Infinix",
+    "processor": "MediaTek Helio G100 / Dimensity 5G Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 197,
+    "id": "infinix-note-edge-256gb",
+    "name": "Infinix Note Edge 256GB (8+8GB RAM)",
+    "brand": "Infinix",
+    "processor": "MediaTek Helio G99 / Dimensity 6nm",
+    "antutu": null
+  },
+  {
+    "idx": 198,
+    "id": "infinix-gt-50-pro-gamer-256gb",
+    "name": "Infinix GT 50 Pro 5G 256GB (12+12GB RAM) + Kit Gamer Oficial",
+    "brand": "Infinix",
+    "processor": "MediaTek Dimensity 8200 / 8300 Ultra 5G + Chip Display Gaming Dedicado",
+    "antutu": null
+  },
+  {
+    "idx": 199,
+    "id": "google-pixel-11-pro",
+    "name": "Google Pixel 11 Pro 256GB (12GB RAM) Gemini Nano OLED 120Hz",
+    "brand": "Google",
+    "processor": "Google Tensor G5 (3nm) + Coprocesador Titan M3",
+    "antutu": null
+  },
+  {
+    "idx": 200,
+    "id": "google-pixel-10-pro-xl-fisico",
+    "name": "Google Pixel 10 Pro XL Físico 256GB (16GB RAM) Ranura SIM Nano-SIM + eSIM",
+    "brand": "Google",
+    "processor": "Google Tensor G5 con Motor de IA TPU de Nueva Generación",
+    "antutu": null
+  },
+  {
+    "idx": 201,
+    "id": "realme-note-50-64gb",
+    "name": "Realme Note 50 64GB (3GB RAM) Midnight Black 90Hz",
+    "brand": "Realme",
+    "processor": "Unisoc T612 Octa-Core (12nm)",
+    "antutu": null
+  },
+  {
+    "idx": 202,
+    "id": "realme-c53-128gb",
+    "name": "Realme C53 128GB (6GB RAM) Champion Gold Mini Cápsula",
+    "brand": "Realme",
+    "processor": "Unisoc T612 Octa-Core (12nm)",
+    "antutu": null
+  },
+  {
+    "idx": 203,
+    "id": "realme-c75-128gb",
+    "name": "Realme C75 128GB (6GB RAM) ArmorShell Batería 6000mAh",
+    "brand": "Realme",
+    "processor": "MediaTek Helio G92 Max Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 204,
+    "id": "realme-16-pro-512gb",
+    "name": "Realme 16 Pro 5G 512GB (12GB RAM) Pantalla Curva OLED 120Hz",
+    "brand": "Realme",
+    "processor": "MediaTek Dimensity 7050 5G Octa-Core (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 205,
+    "id": "realme-16-pro-plus-512gb-libre",
+    "name": "Realme 16 Pro Plus 5G 512GB (12GB RAM) Lente Periscopio 64MP OIS Libre",
+    "brand": "Realme",
+    "processor": "Qualcomm Snapdragon 7s Gen 2 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 206,
+    "id": "realme-16-pro-plus-512gb-registrado",
+    "name": "Realme 16 Pro Plus 5G 512GB (12GB RAM) Lente Periscopio Registrado",
+    "brand": "Realme",
+    "processor": "Qualcomm Snapdragon 7s Gen 2 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 207,
+    "id": "oppo-a6t-128gb",
+    "name": "OPPO A6T 128GB (4GB RAM) Resistente IP54 90Hz",
+    "brand": "OPPO",
+    "processor": "Qualcomm Snapdragon Octa-Core (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 208,
+    "id": "oppo-a6c-128gb",
+    "name": "OPPO A6C 128GB (4GB RAM) Pantalla Solar 90Hz",
+    "brand": "OPPO",
+    "processor": "MediaTek Octa-Core de Alta Eficiencia",
+    "antutu": null
+  },
+  {
+    "idx": 209,
+    "id": "oppo-a6x-256gb",
+    "name": "OPPO A6X 256GB (4GB RAM) 256GB Almacenamiento 90Hz",
+    "brand": "OPPO",
+    "processor": "Qualcomm Snapdragon Octa-Core (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 210,
+    "id": "oppo-a5-5g-256gb",
+    "name": "OPPO A5 5G 256GB (8GB RAM) Red 5G Ultra Rápida",
+    "brand": "OPPO",
+    "processor": "MediaTek Dimensity 6020 5G (7nm)",
+    "antutu": null
+  },
+  {
+    "idx": 211,
+    "id": "oppo-reno-11-5g-256gb",
+    "name": "OPPO Reno 11 5G 256GB (12GB RAM) Experto en Retratos Pantalla Curva OLED 120Hz",
+    "brand": "OPPO",
+    "processor": "MediaTek Dimensity 7050 5G (6nm)",
+    "antutu": null
+  },
+  {
+    "idx": 212,
+    "id": "oppo-a6-pro-256gb",
+    "name": "OPPO A6 Pro 5G 256GB (8GB RAM) Grado Militar 67W SUPERVOOC",
+    "brand": "OPPO",
+    "processor": "MediaTek Dimensity 7050 5G Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 213,
+    "id": "oppo-find-x7-ultra",
+    "name": "OPPO Find X7 Ultra 5G 512GB Hasselblad Cuero Negro",
+    "brand": "OPPO",
+    "processor": "Qualcomm Snapdragon 8 Gen 3 (4nm)",
+    "antutu": null
+  },
+  {
+    "idx": 214,
+    "id": "tecno-spark-go-3-64gb",
+    "name": "Tecno Spark Go 3 64GB (4GB+4GB RAM) Pantalla 120Hz Dinámica",
+    "brand": "Tecno",
+    "processor": "Unisoc T606 Octa-Core de Gran Eficiencia",
+    "antutu": null
+  },
+  {
+    "idx": 215,
+    "id": "tecno-spark-go-3-128gb",
+    "name": "Tecno Spark Go 3 128GB (4GB+4GB RAM) 120Hz Dynamic Port",
+    "brand": "Tecno",
+    "processor": "Unisoc T606 Octa-Core de Gran Eficiencia",
+    "antutu": null
+  },
+  {
+    "idx": 216,
+    "id": "tecno-spark-40c-256gb",
+    "name": "Tecno Spark 40C 256GB (8GB+8GB RAM) Pantalla Solar 90Hz",
+    "brand": "Tecno",
+    "processor": "MediaTek Helio G36 Octa-Core",
+    "antutu": null
+  },
+  {
+    "idx": 217,
+    "id": "tecno-spark-50-256gb",
+    "name": "Tecno Spark 50 256GB (4GB+12GB RAM) Pantalla 90Hz FHD+ 50MP",
+    "brand": "Tecno",
+    "processor": "MediaTek Helio G85 Gaming Processor (12nm)",
+    "antutu": null
+  },
+  {
+    "idx": 218,
+    "id": "tecno-spark-40-pro-256gb",
+    "name": "Tecno Spark 40 Pro 256GB (8GB+8GB RAM) AMOLED 120Hz 108MP",
+    "brand": "Tecno",
+    "processor": "MediaTek Helio G99 Ultimate (6nm) de Alto Rendimiento",
+    "antutu": null
+  },
+  {
+    "idx": 219,
+    "id": "tecno-curve-2-5g-256gb",
+    "name": "Tecno Curve 2 5G 256GB (8GB+8GB RAM) Pantalla Curva AMOLED 120Hz 70W",
+    "brand": "Tecno",
+    "processor": "MediaTek Dimensity 7020 5G Octa-Core (6nm)",
+    "antutu": null
+  }
+]

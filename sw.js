@@ -3,7 +3,7 @@
    Caché estático y soporte offline para Netlify / Web
    =================================================== */
 
-const CACHE_NAME = 'maccell-cache-v1';
+const CACHE_NAME = 'maccell-cache-v34';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -30,13 +30,14 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Activación: limpia cachés antiguas
+// Activación: limpia cachés antiguas automáticamente
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME) {
+            console.log('[SW] Purgando caché desactualizada:', key);
             return caches.delete(key);
           }
         })
@@ -45,8 +46,8 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch: Network-first para páginas HTML (para siempre ver cambios de Netlify)
-// y Cache-first para recursos estáticos pesados (imágenes, CSS, JS)
+// Fetch: Network-first para páginas HTML y catálogo de productos (para reflejar cambios de stock y modelos)
+// y Cache-first para recursos estáticos pesados (imágenes, CSS)
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
@@ -56,8 +57,11 @@ self.addEventListener('fetch', (event) => {
   // Ignorar peticiones a otros dominios o analytics
   if (url.origin !== self.location.origin) return;
 
-  // HTML: Network first
-  if (req.headers.get('accept') && req.headers.get('accept').includes('text/html')) {
+  // HTML y archivos de productos: Network first para siempre recibir los nuevos celulares y precios
+  const isHtml = req.headers.get('accept') && req.headers.get('accept').includes('text/html');
+  const isDynamicCatalog = url.pathname.includes('products.js') || url.pathname.includes('products-render.js');
+
+  if (isHtml || isDynamicCatalog) {
     event.respondWith(
       fetch(req)
         .then((response) => {
@@ -67,7 +71,7 @@ self.addEventListener('fetch', (event) => {
           }
           return response;
         })
-        .catch(() => caches.match(req).then((cached) => cached || caches.match('./index.html')))
+        .catch(() => caches.match(req).then((cached) => cached || (isHtml ? caches.match('./index.html') : null)))
     );
     return;
   }

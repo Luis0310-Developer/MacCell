@@ -23,8 +23,8 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/styles.css?v=20261023-v33">
+    <link rel="stylesheet" href="css/components.css?v=20261023-v39">
 </head>
 
 <body>
@@ -247,6 +247,7 @@
             <li class="mobile-sub"><a href="pages/catalogo.html?marca=honor" onclick="toggleMenuMovil()">Honor</a></li>
             <li class="mobile-sub"><a href="pages/catalogo.html?marca=motorola" onclick="toggleMenuMovil()">Motorola</a></li>
             <li class="mobile-sub"><a href="pages/catalogo.html?marca=infinix" onclick="toggleMenuMovil()">Infinix</a></li>
+            <li class="mobile-sub"><a href="pages/catalogo.html?marca=zte" onclick="toggleMenuMovil()">ZTE / Nubia</a></li>
             <li>
                 <a href="pages/ubicacion.html#delivery" onclick="toggleMenuMovil()">
                     <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -379,7 +380,7 @@
                 <div>
                     <span class="section-badge" style="background: rgba(0, 210, 255, 0.12); color: var(--accent-cyan);">MARCAS OFICIALES</span>
                     <h2 class="brands-showcase-title">Compra por Marcas</h2>
-                    <p class="brands-showcase-sub">Equipos 100% nuevos de fábrica con garantía real de 1 año y entrega inmediata</p>
+                    <p class="brands-showcase-sub">Equipos 100% nuevos de fábrica. Se emite comprobante de venta para garantía y entrega inmediata</p>
                 </div>
                 <a href="pages/catalogo.html" class="btn-link-all" style="text-decoration:none;">
                     <span>Ver todo el catálogo</span>
@@ -392,11 +393,11 @@
             <div class="brands-cards-grid">
                 <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=apple';" title="Ver catálogo Apple iPhone">
                     <div class="brand-card-phone-wrap">
-                        <img src="assets/img/brands/Iphone/Iphone 18 pro max.jpeg" alt="Apple iPhone" class="brand-card-phone-img">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792728584/Iphone_18_pro_max_clean.png" alt="Apple iPhone" class="brand-card-phone-img">
                     </div>
                     <div class="brand-card-divider"></div>
                     <div class="brand-card-footer">
-                        <img src="assets/img/brands/Iphone/iphone_logo_clean.png" alt="Apple" class="brand-card-logo-img brand-logo-apple">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792728588/iphone_logo_clean.png" alt="Apple" class="brand-card-logo-img brand-logo-apple">
                     </div>
                 </div>
 
@@ -412,41 +413,91 @@
 
                 <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=xiaomi';" title="Ver catálogo Xiaomi">
                     <div class="brand-card-phone-wrap">
-                        <img src="assets/img/brands/Xiaomi/Xioami 18 pro max.jpg" alt="Xiaomi" class="brand-card-phone-img">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792795879/Xioami_18_pro_max.jpg" alt="Xiaomi" class="brand-card-phone-img">
                     </div>
                     <div class="brand-card-divider"></div>
                     <div class="brand-card-footer">
-                        <img src="assets/img/brands/Xiaomi/Xiaomi_logo_clean.png" alt="Xiaomi" class="brand-card-logo-img brand-logo-xiaomi">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792795878/Xiaomi_logo_clean.png" alt="Xiaomi" class="brand-card-logo-img brand-logo-xiaomi">
                     </div>
                 </div>
 
                 <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=honor';" title="Ver catálogo Honor">
                     <div class="brand-card-phone-wrap">
-                        <img src="assets/img/brands/Honor/HONOR MAGIC 8 PRO.webp" alt="Honor" class="brand-card-phone-img">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792796978/HONOR_MAGIC_8_PRO.webp" alt="Honor" class="brand-card-phone-img">
                     </div>
                     <div class="brand-card-divider"></div>
                     <div class="brand-card-footer">
-                        <img src="assets/img/brands/Honor/Honor_logo_clean.png" alt="Honor" class="brand-card-logo-img brand-logo-honor">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792797020/Honor_logo_clean.png" alt="Honor" class="brand-card-logo-img brand-logo-honor">
                     </div>
                 </div>
 
                 <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=motorola';" title="Ver catálogo Motorola">
                     <div class="brand-card-phone-wrap">
-                        <img src="assets/img/brands/Motorola/MOTO EDGE 50 ULTRA 5G.webp" alt="Motorola" class="brand-card-phone-img">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/e_trim/v1792733291/MOTO_EDGE_50_ULTRA_5G.webp" alt="Motorola" class="brand-card-phone-img">
                     </div>
                     <div class="brand-card-divider"></div>
                     <div class="brand-card-footer">
-                        <img src="assets/img/brands/Motorola/motorola_logo_clean.png" alt="Motorola" class="brand-card-logo-img brand-logo-motorola">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792734291/motorola_logo_clean.png" alt="Motorola" class="brand-card-logo-img brand-logo-motorola">
                     </div>
                 </div>
 
                 <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=poco';" title="Ver catálogo POCO">
                     <div class="brand-card-phone-wrap">
-                        <img src="assets/img/brands/Poco/Poco f9 ultra.webp" alt="POCO" class="brand-card-phone-img">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792729244/Poco_f9_ultra.webp" alt="POCO" class="brand-card-phone-img">
                     </div>
                     <div class="brand-card-divider"></div>
                     <div class="brand-card-footer">
-                        <img src="assets/img/brands/Poco/Poco_logo_clean.png" alt="POCO" class="brand-card-logo-img brand-logo-poco">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792729273/Poco_logo_clean.png" alt="POCO" class="brand-card-logo-img brand-logo-poco">
+                    </div>
+                </div>
+
+                <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=infinix';" title="Ver catálogo Infinix">
+                    <div class="brand-card-phone-wrap">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/e_trim/v1792734877/INFINIX_GT_50_PRO_1.webp" alt="Infinix" class="brand-card-phone-img">
+                    </div>
+                    <div class="brand-card-divider"></div>
+                    <div class="brand-card-footer">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792735009/infinix_logo_clean.png" alt="Infinix" class="brand-card-logo-img brand-logo-infinix">
+                    </div>
+                </div>
+
+                <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=oppo';" title="Ver catálogo OPPO">
+                    <div class="brand-card-phone-wrap">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792718211/Celular_oppo_clean.png" alt="OPPO" class="brand-card-phone-img">
+                    </div>
+                    <div class="brand-card-divider"></div>
+                    <div class="brand-card-footer">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792718224/oppo_logo_black.png" alt="OPPO" class="brand-card-logo-img brand-logo-oppo">
+                    </div>
+                </div>
+
+                <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=realme';" title="Ver catálogo Realme">
+                    <div class="brand-card-phone-wrap">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792719372/Celular_realme_clean.png" alt="Realme" class="brand-card-phone-img">
+                    </div>
+                    <div class="brand-card-divider"></div>
+                    <div class="brand-card-footer">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792719383/realme_logo_black.png" alt="Realme" class="brand-card-logo-img brand-logo-realme">
+                    </div>
+                </div>
+
+                <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=google';" title="Ver catálogo Google Pixel">
+                    <div class="brand-card-phone-wrap">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792718178/Celular_google_clean.png" alt="Google Pixel" class="brand-card-phone-img">
+                    </div>
+                    <div class="brand-card-divider"></div>
+                    <div class="brand-card-footer">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792718180/google_logo_black.png" alt="Google Pixel" class="brand-card-logo-img brand-logo-google">
+                    </div>
+                </div>
+
+                <div class="brand-card-item" onclick="window.location.href='pages/catalogo.html?marca=tecno';" title="Ver catálogo Tecno Mobile">
+                    <div class="brand-card-phone-wrap">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792719919/Celular_tecno_clean.png" alt="Tecno Mobile" class="brand-card-phone-img">
+                    </div>
+                    <div class="brand-card-divider"></div>
+                    <div class="brand-card-footer">
+                        <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792719936/tecno_logo_black.png" alt="Tecno Mobile" class="brand-card-logo-img brand-logo-tecno">
                     </div>
                 </div>
             </div>
@@ -464,7 +515,7 @@
                         </h3>
                         <p class="clientes-subtext">
                             Más de <strong>5,000 entregas exitosas</strong> en Lima y envíos a todo el Perú.
-                            Equipos 100% nuevos, sellados y con garantía real de fábrica.
+                            Equipos 100% nuevos y sellados. Se emite comprobante de venta para garantía.
                         </p>
                     </div>
 
@@ -511,6 +562,14 @@
                     </h2>
                     <p class="accesorios-section-sub">Cargadores de alta velocidad, audífonos certificados y accesorios 100% garantizados.</p>
                 </div>
+                <div class="accesorios-nav-arrows">
+                    <button type="button" class="acc-nav-arrow-btn" onclick="scrollAccesoriosTrack(-1)" aria-label="Ver accesorio anterior" title="Anterior">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
+                    </button>
+                    <button type="button" class="acc-nav-arrow-btn" onclick="scrollAccesoriosTrack(1)" aria-label="Ver siguiente accesorio" title="Siguiente">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+                    </button>
+                </div>
             </div>
 
             <div class="accesorios-motion-wrapper" id="accesoriosMotionWrapper">
@@ -546,7 +605,7 @@
 
                 <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
                     onclick="navegarA('marcas', 'motorola')" title="Ver celulares Motorola">
-                    <img src="assets/img/trusted-bar/motorola%20logo%20bar.jpeg" alt="Motorola" class="trusted-big-logo motorola-logo">
+                    <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792734291/motorola_logo_clean.png" alt="Motorola" class="trusted-big-logo motorola-logo">
                 </div>
 
                 <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
@@ -555,8 +614,28 @@
                 </div>
 
                 <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'infinix')" title="Ver celulares Infinix">
+                    <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792735009/infinix_logo_clean.png" alt="Infinix" class="trusted-big-logo infinix-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'oppo')" title="Ver celulares OPPO">
+                    <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792718225/oppo_logo_cropped.png" alt="OPPO" class="trusted-big-logo oppo-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'realme')" title="Ver celulares Realme">
+                    <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792719379/realme_logo_para_filtro.png" alt="Realme" class="trusted-big-logo realme-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'google')" title="Ver celulares Google Pixel">
+                    <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792718178/google_logo.png" alt="Google Pixel" class="trusted-big-logo google-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
                     onclick="navegarA('marcas', 'tecno')" title="Ver celulares Tecno">
-                    <img src="assets/img/trusted-bar/tecnolo%20logo%20bar.png" alt="Tecno Mobile" class="trusted-big-logo tecno-logo">
+                    <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792719937/tecno_logo_cropped.png" alt="Tecno Mobile" class="trusted-big-logo tecno-logo">
                 </div>
 
                 <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
@@ -564,6 +643,7 @@
                     <img src="assets/img/trusted-bar/zte%20logo%20bar.png" alt="ZTE Nubia" class="trusted-big-logo zte-logo">
                 </div>
 
+                <!-- Segunda ronda duplicada para scroll infinito continuo -->
                 <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
                     onclick="navegarA('marcas', 'apple')" title="Ver celulares Apple iPhone">
                     <img src="assets/img/trusted-bar/iphone%20logo%20bar.png" alt="Apple iPhone" class="trusted-big-logo iphone-logo">
@@ -586,7 +666,7 @@
 
                 <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
                     onclick="navegarA('marcas', 'motorola')" title="Ver celulares Motorola">
-                    <img src="assets/img/trusted-bar/motorola%20logo%20bar.jpeg" alt="Motorola" class="trusted-big-logo motorola-logo">
+                    <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792734291/motorola_logo_clean.png" alt="Motorola" class="trusted-big-logo motorola-logo">
                 </div>
 
                 <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
@@ -595,8 +675,28 @@
                 </div>
 
                 <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'infinix')" title="Ver celulares Infinix">
+                    <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792735009/infinix_logo_clean.png" alt="Infinix" class="trusted-big-logo infinix-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'oppo')" title="Ver celulares OPPO">
+                    <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792718225/oppo_logo_cropped.png" alt="OPPO" class="trusted-big-logo oppo-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'realme')" title="Ver celulares Realme">
+                    <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792719379/realme_logo_para_filtro.png" alt="Realme" class="trusted-big-logo realme-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
+                    onclick="navegarA('marcas', 'google')" title="Ver celulares Google Pixel">
+                    <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792718178/google_logo.png" alt="Google Pixel" class="trusted-big-logo google-logo">
+                </div>
+
+                <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
                     onclick="navegarA('marcas', 'tecno')" title="Ver celulares Tecno">
-                    <img src="assets/img/trusted-bar/tecnolo%20logo%20bar.png" alt="Tecno Mobile" class="trusted-big-logo tecno-logo">
+                    <img src="https://res.cloudinary.com/qknps0t6/image/upload/v1792719937/tecno_logo_cropped.png" alt="Tecno Mobile" class="trusted-big-logo tecno-logo">
                 </div>
 
                 <div class="trusted-marquee-card flex items-center justify-center border rounded-lg shadow hover:shadow-lg transition-all border-slate-200 p-5"
@@ -620,7 +720,7 @@
                         <span>Tienda Física Oficial • CC. Plaza Tec 303</span>
                     </div>
                     <p class="footer-brand-desc">
-                        Especialistas en smartphones de última generación 100% nuevos y sellados de fábrica con 1 año de garantía oficial, comprobante electrónico legal (boleta o factura) y envíos asegurados a todo el Perú.
+                        Especialistas en smartphones de última generación 100% nuevos y sellados de fábrica. Se emite comprobante de venta para garantía y envíos asegurados a todo el Perú.
                     </p>
                     <div class="footer-quick-contacts">
                         <a href="pages/ubicacion.html" class="footer-contact-chip">
@@ -972,10 +1072,10 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="js/ubicanos-map.js"></script>
     <script src="js/animated-icons-data.js"></script>
-    <script src="data/products.js"></script>
-    <script src="js/products-render.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/checkout-modal.js"></script>
+    <script src="data/products.js?v=20261023-v39"></script>
+    <script src="js/products-render.js?v=20261023-v39"></script>
+    <script src="js/main.js?v=20261023-v39"></script>
+    <script src="js/checkout-modal.js?v=20261023-v39"></script>
 
 </body>
 

@@ -17,15 +17,130 @@ function getProductsList() {
   return [];
 }
 
+const FALLBACK_ACCESORIOS = [
+  {
+    "id": "acc-cubo-20w-apple",
+    "nombre": "CUBO 20W APPLE",
+    "name": "CUBO 20W APPLE",
+    "tipo": "Cargador Rápido",
+    "brand": "Apple",
+    "precio": 65,
+    "price": 65,
+    "originalPrice": 89,
+    "imagen": "assets/img/ui/accesorios/cubo_20w_apple.webp",
+    "image": "assets/img/ui/accesorios/cubo_20w_apple.webp",
+    "badge": "100% ORIGINAL",
+    "specs": ["Carga Rápida 20W", "Conector USB-C", "Compatibilidad iPhone / iPad"]
+  },
+  {
+    "id": "acc-cubo-40w-apple",
+    "nombre": "CUBO 40W APPLE DUAL",
+    "name": "CUBO 40W APPLE DUAL",
+    "tipo": "Cargador Dual",
+    "brand": "Apple",
+    "precio": 95,
+    "price": 95,
+    "originalPrice": 129,
+    "imagen": "assets/img/ui/accesorios/cubo_40w_apple.webp",
+    "image": "assets/img/ui/accesorios/cubo_40w_apple.webp",
+    "badge": "DOBLE PUERTO",
+    "specs": ["Doble Puerto USB-C", "40W Potencia Total", "Chip de Seguridad"]
+  },
+  {
+    "id": "acc-cubo-25w-samsung",
+    "nombre": "CUBO 25W SAMSUNG SUPER FAST",
+    "name": "CUBO 25W SAMSUNG SUPER FAST",
+    "tipo": "Cargador Rápido",
+    "brand": "Samsung",
+    "precio": 55,
+    "price": 55,
+    "originalPrice": 79,
+    "imagen": "assets/img/ui/accesorios/cubo_25w_samsung.webp",
+    "image": "assets/img/ui/accesorios/cubo_25w_samsung.webp",
+    "badge": "SUPER FAST",
+    "specs": ["Super Fast Charging 25W", "PD 3.0 PPS", "Certificado Samsung"]
+  },
+  {
+    "id": "acc-cubo-45w-samsung",
+    "nombre": "CUBO 45W SAMSUNG ULTRA FAST",
+    "name": "CUBO 45W SAMSUNG ULTRA FAST",
+    "tipo": "Cargador Ultra",
+    "brand": "Samsung",
+    "precio": 85,
+    "price": 85,
+    "originalPrice": 119,
+    "imagen": "assets/img/ui/accesorios/cubo_45w_samsung.webp",
+    "image": "assets/img/ui/accesorios/cubo_45w_samsung.webp",
+    "badge": "45W ULTRA",
+    "specs": ["Carga Ultra Rápida 2.0", "Compatible Galaxy S24 Ultra", "Incluye Cable 5A"]
+  },
+  {
+    "id": "acc-honor-earbuds-x7-lite",
+    "nombre": "HONOR EARBUDS X7 LITE",
+    "name": "HONOR EARBUDS X7 LITE",
+    "tipo": "Audífonos Inalámbricos",
+    "brand": "Honor",
+    "precio": 99,
+    "price": 99,
+    "originalPrice": 139,
+    "imagen": "assets/img/ui/accesorios/honor_earbuds_x7_lite.webp",
+    "image": "assets/img/ui/accesorios/honor_earbuds_x7_lite.webp",
+    "badge": "BLUETOOTH 5.3",
+    "specs": ["Batería hasta 28 Horas", "Cancelación de Ruido AI", "Control Táctil"]
+  },
+  {
+    "id": "acc-galaxy-buds-core",
+    "nombre": "GALAXY BUDS CORE",
+    "name": "GALAXY BUDS CORE",
+    "tipo": "Audífonos Inalámbricos",
+    "brand": "Samsung",
+    "precio": 149,
+    "price": 149,
+    "originalPrice": 199,
+    "imagen": "assets/img/ui/accesorios/galaxy_buds_core.webp",
+    "image": "assets/img/ui/accesorios/galaxy_buds_core.webp",
+    "badge": "SONIDO AKG",
+    "specs": ["Sonido Hi-Fi AKG", "Diseño Ergonómico", "Conexión Instantánea Galaxy"]
+  },
+  {
+    "id": "acc-buds-6-play",
+    "nombre": "BUDS 6 PLAY INALÁMBRICO",
+    "name": "BUDS 6 PLAY INALÁMBRICO",
+    "tipo": "Audífonos Inalámbricos",
+    "brand": "Xiaomi",
+    "precio": 69,
+    "price": 69,
+    "originalPrice": 99,
+    "imagen": "assets/img/ui/accesorios/buds_6_play.webp",
+    "image": "assets/img/ui/accesorios/buds_6_play.webp",
+    "badge": "BAJOS POTENTES",
+    "specs": ["Driver Dinámico 12mm", "Latencia Ultrabaja", "Resistente a Salpicaduras"]
+  },
+  {
+    "id": "acc-cable-iphone",
+    "nombre": "CABLE DE IPHONE USB-C / LIGHTNING",
+    "name": "CABLE DE IPHONE USB-C / LIGHTNING",
+    "tipo": "Cable de Datos y Carga",
+    "brand": "Apple",
+    "precio": 39,
+    "price": 39,
+    "originalPrice": 59,
+    "imagen": "assets/img/ui/accesorios/cable_iphone.webp",
+    "image": "assets/img/ui/accesorios/cable_iphone.webp",
+    "badge": "ALTA DURABILIDAD",
+    "specs": ["Carga Rápida Power Delivery", "Transferencia 480 Mbps", "Conector Reforzado"]
+  }
+];
+
 // Helper para obtener la lista de accesorios
 function getAccessoriesList() {
   if (typeof window !== 'undefined' && Array.isArray(window.accesorios) && window.accesorios.length > 0) {
     return window.accesorios;
   }
-  if (typeof accesorios !== 'undefined' && Array.isArray(accesorios)) {
+  if (typeof accesorios !== 'undefined' && Array.isArray(accesorios) && accesorios.length > 0) {
     return accesorios;
   }
-  return [];
+  return FALLBACK_ACCESORIOS;
 }
 
 // Helper para formato de moneda
@@ -123,6 +238,9 @@ if (typeof window !== 'undefined') {
 // Helper para resolver rutas de imágenes según el directorio actual (/pages/ vs raíz)
 function resolveAssetPath(path) {
   if (!path) return '';
+  if (typeof path === 'string' && path.includes('res.cloudinary.com') && path.includes('/image/upload/') && !path.includes('/image/upload/e_trim/')) {
+    path = path.replace('/image/upload/', '/image/upload/e_trim/');
+  }
   if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:') || path.startsWith('/')) {
     return path;
   }
@@ -145,6 +263,7 @@ if (typeof window !== 'undefined') {
     window.appState = {
       currentCategory: 'all',
       currentRange: 'all',
+      currentSort: 'relevance',
       searchQuery: '',
       compareList: [],
       isCompareMode: false,
@@ -154,6 +273,7 @@ if (typeof window !== 'undefined') {
   } else {
     if (!Array.isArray(window.appState.compareList)) window.appState.compareList = [];
     if (typeof window.appState.isCompareMode === 'undefined') window.appState.isCompareMode = false;
+    if (typeof window.appState.currentSort === 'undefined') window.appState.currentSort = 'relevance';
     if (!window.appState.catalogViewMode) window.appState.catalogViewMode = 'grid';
     if (typeof window.appState.highlightDiff === 'undefined') window.appState.highlightDiff = false;
   }
@@ -162,6 +282,157 @@ if (typeof window !== 'undefined') {
 function isProductInCompare(id) {
   if (typeof appState === 'undefined' || !Array.isArray(appState.compareList)) return false;
   return appState.compareList.includes(String(id));
+}
+
+// ==========================================
+// ALGORITMO DE DISTRIBUCIÓN ARMÓNICA DE MODELOS
+// ==========================================
+// Extrae una clave representativa de la familia de modelo
+// (omite variaciones de RAM, ROM/GB, red 4G/5G, Libre/Registrado y SIM)
+function getProductModelKey(p) {
+  if (!p) return 'unknown';
+  const brand = (p.brand || p.marca || '').toLowerCase().trim();
+  const rawName = (p.name || p.nombre || '').toLowerCase();
+
+  const cleanName = rawName
+    .replace(/\s*\([^)]*\)/g, '')            // Remueve paréntesis ej: (4GB RAM), (8+8GB RAM)
+    .replace(/\b\d+\s*(gb|tb)\b/gi, '')      // Remueve capacidades ej: 128GB, 256GB, 1TB
+    .replace(/\b(4g|5g|lte|wifi)\b/gi, '')   // Remueve bandas 4G, 5G
+    .replace(/\b(single|dual)\s*sim\b/gi, '') // Remueve tipo de SIM
+    .replace(/\b(libre|registrado)\b/gi, '') // Remueve estado de registro
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  return brand + '::' + cleanName;
+}
+
+// Algoritmo para distribuir y alternar variantes y marcas en el catálogo
+// Evita que modelos idénticos aparezcan consecutivos, manteniendo un ritmo
+// visual variado, atractivo y balanceado entre gamas altas y accesibles.
+function distributeCatalogProducts(list, isMultiBrand) {
+  if (!list || list.length <= 2) return list ? [...list] : [];
+
+  // MODO MULTI-MARCA: Intercala equilibradamente entre todas las marcas del catálogo
+  if (isMultiBrand) {
+    const brandMap = new Map();
+    list.forEach(p => {
+      const b = (p.brand || p.marca || 'other').toLowerCase();
+      if (!brandMap.has(b)) brandMap.set(b, []);
+      brandMap.get(b).push(p);
+    });
+
+    const brandQueues = [];
+    for (const [, items] of brandMap.entries()) {
+      brandQueues.push(distributeCatalogProducts(items, false));
+    }
+
+    // Ordenar de mayor a menor cantidad para espaciar mejor marcas grandes
+    brandQueues.sort((a, b) => b.length - a.length);
+
+    const result = [];
+    let added = true;
+    while (added) {
+      added = false;
+      for (let i = 0; i < brandQueues.length; i++) {
+        if (brandQueues[i].length > 0) {
+          result.push(brandQueues[i].shift());
+          added = true;
+        }
+      }
+    }
+    return result;
+  }
+
+  // MODO MONO-MARCA: Agrupa por familia de modelo (Galaxy A17, S26 Ultra, etc.)
+  const modelMap = new Map();
+  list.forEach(p => {
+    const key = getProductModelKey(p);
+    if (!modelMap.has(key)) modelMap.set(key, []);
+    modelMap.get(key).push(p);
+  });
+
+  // Ordenar internamente variantes de menor a mayor precio
+  for (const items of modelMap.values()) {
+    items.sort((a, b) => Number(a.price || a.precio || 0) - Number(b.price || b.precio || 0));
+  }
+
+  // Calcular precio promedio para alternar gamas de entrada con buques insignia
+  const families = Array.from(modelMap.entries()).map(([key, items]) => {
+    const avgPrice = items.reduce((s, x) => s + Number(x.price || x.precio || 0), 0) / items.length;
+    return { key, items, avgPrice };
+  });
+
+  families.sort((a, b) => a.avgPrice - b.avgPrice);
+
+  const mid = Math.ceil(families.length / 2);
+  const lower = families.slice(0, mid);
+  const upper = families.slice(mid).reverse();
+
+  const orderedQueues = [];
+  const maxLen = Math.max(lower.length, upper.length);
+  for (let i = 0; i < maxLen; i++) {
+    if (i < upper.length) orderedQueues.push(upper[i]);
+    if (i < lower.length) orderedQueues.push(lower[i]);
+  }
+
+  const result = [];
+  let remaining = list.length;
+
+  // Extracción round-robin evitando duplicados consecutivos
+  while (remaining > 0) {
+    let progressed = false;
+    for (let i = 0; i < orderedQueues.length; i++) {
+      const q = orderedQueues[i];
+      if (q.items.length > 0) {
+        const lastItem = result.length > 0 ? result[result.length - 1] : null;
+        if (lastItem && getProductModelKey(lastItem) === q.key && orderedQueues.some((other, idx) => idx !== i && other.items.length > 0)) {
+          continue;
+        }
+        result.push(q.items.shift());
+        remaining--;
+        progressed = true;
+      }
+    }
+    if (!progressed) {
+      for (let i = 0; i < orderedQueues.length; i++) {
+        if (orderedQueues[i].items.length > 0) {
+          result.push(orderedQueues[i].items.shift());
+          remaining--;
+          break;
+        }
+      }
+    }
+  }
+
+  // Pase de intercambio seguro para garantizar 0 modelos idénticos continuos
+  for (let pass = 0; pass < 3; pass++) {
+    for (let i = 0; i < result.length - 1; i++) {
+      const keyI = getProductModelKey(result[i]);
+      const keyNext = getProductModelKey(result[i + 1]);
+      if (keyI === keyNext) {
+        for (let j = 0; j < result.length; j++) {
+          if (j === i || j === i + 1) continue;
+          const keyJ = getProductModelKey(result[j]);
+          if (keyJ === keyI) continue;
+
+          const prevOfI1 = keyI;
+          const nextOfI1 = (i + 2 < result.length) ? getProductModelKey(result[i + 2]) : null;
+          if (keyJ === prevOfI1 || (nextOfI1 !== null && keyJ === nextOfI1)) continue;
+
+          const prevOfJ = (j > 0) ? getProductModelKey(result[j - 1]) : null;
+          const nextOfJ = (j + 1 < result.length) ? getProductModelKey(result[j + 1]) : null;
+          if ((prevOfJ !== null && prevOfJ === keyI) || (nextOfJ !== null && nextOfJ === keyI)) continue;
+
+          const temp = result[i + 1];
+          result[i + 1] = result[j];
+          result[j] = temp;
+          break;
+        }
+      }
+    }
+  }
+
+  return result;
 }
 
 // ==========================================
@@ -188,9 +459,39 @@ function renderProducts() {
   let filtered = allProducts.filter(prod => {
     const brandName = (prod.brand || prod.marca || '').toLowerCase();
     const categoryName = (prod.category || '').toLowerCase();
-    const matchCategory = currentCategory === 'all' || 
-      categoryName === currentCategory.toLowerCase() ||
-      brandName === currentCategory.toLowerCase();
+    const prodName = (prod.name || prod.nombre || '').toLowerCase();
+
+    let matchCategory = false;
+    const catLower = currentCategory.toLowerCase();
+    if (catLower === 'all') {
+      matchCategory = true;
+    } else if (catLower === 'apple') {
+      matchCategory = categoryName.includes('apple') || brandName.includes('apple') || prodName.includes('iphone');
+    } else if (catLower === 'samsung') {
+      matchCategory = categoryName.includes('samsung') || brandName.includes('samsung') || prodName.includes('galaxy');
+    } else if (catLower === 'xiaomi' || catLower === 'redmi') {
+      matchCategory = categoryName.includes('xiaomi') || brandName.includes('xiaomi') || categoryName.includes('redmi') || brandName.includes('redmi') || prodName.includes('redmi') || prodName.includes('xiaomi');
+    } else if (catLower === 'poco') {
+      matchCategory = categoryName.includes('poco') || brandName.includes('poco') || prodName.includes('poco');
+    } else if (catLower === 'honor') {
+      matchCategory = categoryName.includes('honor') || brandName.includes('honor') || prodName.includes('honor');
+    } else if (catLower === 'motorola') {
+      matchCategory = categoryName.includes('motorola') || brandName.includes('motorola') || prodName.includes('moto');
+    } else if (catLower === 'infinix') {
+      matchCategory = categoryName.includes('infinix') || brandName.includes('infinix') || prodName.includes('infinix');
+    } else if (catLower === 'oppo') {
+      matchCategory = categoryName.includes('oppo') || brandName.includes('oppo') || prodName.includes('oppo');
+    } else if (catLower === 'realme') {
+      matchCategory = categoryName.includes('realme') || brandName.includes('realme') || prodName.includes('realme');
+    } else if (catLower === 'google') {
+      matchCategory = categoryName.includes('google') || brandName.includes('google') || prodName.includes('pixel') || prodName.includes('google');
+    } else if (catLower === 'zte') {
+      matchCategory = categoryName.includes('zte') || brandName.includes('zte') || brandName.includes('nubia') || prodName.includes('zte') || prodName.includes('nubia') || prodName.includes('redmagic');
+    } else if (catLower === 'tecno') {
+      matchCategory = categoryName.includes('tecno') || brandName.includes('tecno') || prodName.includes('tecno') || prodName.includes('spark');
+    } else {
+      matchCategory = categoryName === catLower || brandName === catLower || prodName.includes(catLower);
+    }
 
     const prodRange = (prod.range || '').toLowerCase();
     const prodPrice = prod.price || prod.precio || 0;
@@ -207,7 +508,6 @@ function renderProducts() {
       matchRange = prodRange === currentRange.toLowerCase();
     }
 
-    const prodName = (prod.name || prod.nombre || '').toLowerCase();
     const proc = (prod.specsObj && prod.specsObj.processor ? prod.specsObj.processor : (Array.isArray(prod.specs) ? prod.specs.join(' ') : '')).toLowerCase();
     const matchSearch = searchQuery === '' || 
       prodName.includes(searchQuery) ||
@@ -216,6 +516,21 @@ function renderProducts() {
 
     return matchCategory && matchRange && matchSearch;
   });
+
+  // Ordenamiento de productos (Relevancia, Menor a Mayor, Mayor a Menor)
+  const currentSort = (typeof appState !== 'undefined' && appState.currentSort) ? appState.currentSort : 'relevance';
+  if (currentSort === 'price-asc') {
+    // Orden estricto por precio menor a mayor solicitado por el usuario
+    filtered.sort((a, b) => Number(a.price || a.precio || 0) - Number(b.price || b.precio || 0));
+  } else if (currentSort === 'price-desc') {
+    // Orden estricto por precio mayor a menor solicitado por el usuario
+    filtered.sort((a, b) => Number(b.price || b.precio || 0) - Number(a.price || a.precio || 0));
+  } else if (currentSort === 'relevance' && searchQuery === '') {
+    // Modo predeterminado (relevancia y sin búsqueda de texto):
+    // Distribuimos los modelos armónicamente para intercalar variantes repetidas
+    const isMultiBrand = currentCategory.toLowerCase() === 'all';
+    filtered = distributeCatalogProducts(filtered, isMultiBrand);
+  }
 
   // Actualizar contador en la barra de controles
   const countEl = document.getElementById('catalogProductsCount');
@@ -246,7 +561,9 @@ function renderFeaturedProducts() {
   if (!container) return;
 
   const allProducts = getProductsList();
-  const featured = allProducts.slice(0, 4);
+  // Distribuir para exhibir modelos y marcas variadas en la portada
+  const distributed = distributeCatalogProducts(allProducts, true);
+  const featured = distributed.slice(0, 4);
   container.innerHTML = featured.map(prod => buildProductCardHtml(prod)).join('');
 }
 
@@ -257,10 +574,37 @@ function buildProductCardHtml(prod) {
   const discount = originalPrice > price ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0;
   const brand = prod.brand || prod.marca || '';
   const name = prod.name || prod.nombre || '';
+  const id = prod.id;
   const rawImage = prod.image || prod.imagen || '';
   const image = resolveAssetPath(rawImage);
   const fallbackLogo = resolveAssetPath('assets/img/ui/Logo.jpeg');
-  const id = prod.id;
+  const brandLower = (prod.brand || prod.marca || '').toLowerCase();
+  let defaultFallback = fallbackLogo;
+  if (brandLower.includes('poco')) {
+    defaultFallback = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792729244/Poco_f9_ultra.webp';
+  } else if (brandLower.includes('zte') || brandLower.includes('nubia') || brandLower.includes('redmagic')) {
+    defaultFallback = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792647096/Redmagic_11s.webp';
+  } else if (brandLower.includes('motorola') || brandLower.includes('moto')) {
+    defaultFallback = 'https://res.cloudinary.com/qknps0t6/image/upload/e_trim/v1792733291/MOTO_EDGE_50_ULTRA_5G.webp';
+  } else if (brandLower.includes('honor')) {
+    defaultFallback = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792796978/HONOR_MAGIC_8_PRO.webp';
+  } else if (brandLower.includes('apple') || brandLower.includes('iphone')) {
+    defaultFallback = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792728584/Iphone_18_pro_max_clean.png';
+  } else if (brandLower.includes('infinix')) {
+    defaultFallback = 'https://res.cloudinary.com/qknps0t6/image/upload/e_trim/v1792734877/INFINIX_GT_50_PRO_1.webp';
+  } else if (brandLower.includes('oppo')) {
+    defaultFallback = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792718210/Celular_oppo_para_inicio.webp';
+  } else if (brandLower.includes('realme')) {
+    defaultFallback = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792719372/Celular_realme_para_inicio.webp';
+  } else if (brandLower.includes('google') || brandLower.includes('pixel')) {
+    defaultFallback = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792718180/google_pixel_para_inicio.jpg';
+  } else if (brandLower.includes('tecno')) {
+    defaultFallback = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792719919/Celular_tecno_clean.png';
+  } else if (brandLower.includes('xiaomi') || brandLower.includes('redmi')) {
+    defaultFallback = 'https://res.cloudinary.com/qknps0t6/image/upload/v1792795879/Xioami_18_pro_max.jpg';
+  } else if (brandLower.includes('samsung') || brandLower.includes('galaxy')) {
+    defaultFallback = resolveAssetPath('assets/img/brands/Samsung/S26 ultra.jpeg');
+  }
   const inCompare = isProductInCompare(id);
   const isCompareMode = (typeof appState !== 'undefined' && appState.isCompareMode);
   const viewMode = (typeof appState !== 'undefined' && appState.catalogViewMode) ? appState.catalogViewMode : 'grid';
@@ -278,40 +622,21 @@ function buildProductCardHtml(prod) {
     `;
   }
 
-  // Colors swatches display
-  const colorsList = Array.isArray(prod.colors) ? prod.colors : [];
-  const defaultColor = colorsList.length > 0 ? colorsList[0] : 'Original';
-  let colorsHtml = '';
-  if (colorsList.length > 0) {
-    colorsHtml = `
-      <div class="card-color-swatches-wrap" onclick="event.stopPropagation()">
-        <div class="card-swatches-dots">
-          ${colorsList.map((c, idx) => {
-            const hex = getSwatchHex(c);
-            const isLight = hex === '#f5f5f7' || hex === '#fcfcfc' || hex === '#ffffff' || hex === '#f8fafc' || hex === '#f9f6ef';
-            return `
-              <button type="button" 
-                class="card-swatch-dot ${idx === 0 ? 'active' : ''}" 
-                style="background-color: ${hex}; ${isLight ? 'border: 1px solid #94a3b8;' : ''}" 
-                title="${c}" 
-                aria-label="Color ${c}"
-                data-color-name="${c}"
-                onclick="selectCardColor(this, '${id}', '${c.replace(/'/g, "\\'")}')">
-              </button>
-            `;
-          }).join('')}
-        </div>
-        <span class="card-swatch-name-label" id="swatchLabel_${id}">${defaultColor}</span>
-      </div>
-    `;
-  }
+  const defaultColor = (Array.isArray(prod.colors) && prod.colors.length > 0) ? prod.colors[0] : '';
+
+  // Badge de Registro en Lista Blanca (Registrado o Libre)
+  const isLibre = prod.registro && String(prod.registro).toLowerCase().trim() === 'libre';
+  const regBadgeText = isLibre ? 'Libre' : 'Registrado';
+  const regBadgeClass = isLibre ? 'badge-reg-libre' : 'badge-reg-r';
+  const regBadgeTitle = isLibre ? 'Libre: No registrado en lista blanca' : 'Registrado: Registrado en lista blanca';
+
+  const discountPercent = originalPrice > price ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0;
 
   return `
     <div class="product-card ${inCompare ? 'in-compare-active' : ''} ${viewMode === 'list' ? 'list-view-card' : ''}" data-id="${id}" data-selected-color="${defaultColor}">
       <!-- Badges -->
       <div class="product-badge-stack">
-        ${prod.badge ? `<span class="product-badge badge-${prod.badgeType || 'new'}">${prod.badge} ${discount > 0 ? `-${discount}%` : ''}</span>` : ''}
-        <span class="product-badge badge-garantia">Garantía 1 Año</span>
+        <span class="product-badge badge-registro ${regBadgeClass}" title="${regBadgeTitle}">${regBadgeText}</span>
       </div>
 
       <!-- Control de Comparar en Tarjeta -->
@@ -337,25 +662,25 @@ function buildProductCardHtml(prod) {
 
       <!-- Product Image -->
       <div class="product-image-wrap" onclick="openQuickView('${id}')" style="cursor: pointer;">
-        <img src="${image}" alt="${name}" class="product-img" loading="lazy" onerror="this.onerror=null; this.src='${fallbackLogo}'">
+        <img src="${image}" alt="${name}" class="product-img" loading="lazy" onerror="this.onerror=null; this.src='${defaultFallback}'">
       </div>
 
       <div class="product-card-body-content">
         <!-- Brand & Title -->
         <span class="product-brand">${brand}</span>
         <h3 class="product-title" onclick="openQuickView('${id}')" style="cursor: pointer;" title="${name}">${name}</h3>
-        ${colorsHtml}
-
-        <!-- Key Specs -->
-        <div class="product-specs-list">
-          ${specsHtml}
-        </div>
 
         <!-- Price -->
         <div class="product-price-box">
-          <div>
+          <div class="price-details-wrap">
+            <span class="price-prefix">Desde</span>
             <span class="price-main">${formatPrice(price)}</span>
-            ${originalPrice > price ? `<span class="price-old">${formatPrice(originalPrice)}</span>` : ''}
+            ${originalPrice > price ? `
+              <div class="price-sub-row">
+                <span class="price-old">${formatPrice(originalPrice)}</span>
+                <span class="price-discount-tag">${discountPercent}% OFF</span>
+              </div>
+            ` : ''}
           </div>
         </div>
 
@@ -647,13 +972,18 @@ function renderCompareModalContent() {
     { title: "Precio Regular", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33"/></svg>`, get: p => (p.originalPrice > (p.price || p.precio)) ? `<span style="text-decoration: line-through; color: #94a3b8;">${formatPrice(p.originalPrice)}</span>` : 'Mismo precio' },
     { title: "Calificación", icon: `<svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`, get: p => `${p.rating || 4.9} / 5 (${p.reviewsCount || 40} opiniones)` },
     { title: "Pantalla", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01"/></svg>`, get: p => (p.specsObj && p.specsObj.screen) ? p.specsObj.screen : (p.specs ? p.specs[3] : '-') },
-    { title: "Procesador", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>`, get: p => (p.specsObj && p.specsObj.processor) ? p.specsObj.processor : (p.specs ? p.specs[0] : '-') },
+    { title: "Procesador", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>`, get: p => {
+      const proc = (p.specsObj && p.specsObj.processor) ? p.specsObj.processor : (p.specs ? p.specs[0] : '-');
+      const antutu = (p.specsObj && p.specsObj.antutu) ? `<div class="compare-antutu-score">⚡ AnTuTu v10: <strong>${Number(p.specsObj.antutu).toLocaleString('es-PE')}</strong> pts</div>` : '';
+      return `${proc}${antutu}`;
+    } },
     { title: "Memoria RAM", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="18" height="14" x="3" y="5" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M7 15h4M7 9h10"/></svg>`, get: p => (p.specsObj && p.specsObj.ram) ? p.specsObj.ram : (p.specs ? p.specs[1] : '-') },
     { title: "Almacenamiento", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h10M7 12h10M7 17h10"/></svg>`, get: p => (p.specsObj && p.specsObj.storage) ? p.specsObj.storage : '-' },
     { title: "Cámaras", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z"/><circle cx="12" cy="13.5" r="3.75"/></svg>`, get: p => (p.specsObj && p.specsObj.cameras) ? p.specsObj.cameras : (p.specs ? p.specs[2] : '-') },
     { title: "Batería y Carga", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="16" height="10" x="2" y="7" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M22 11v2"/></svg>`, get: p => (p.specsObj && p.specsObj.battery) ? p.specsObj.battery : '-' },
     { title: "Colores Disponibles", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 3a9 9 0 0 1 9 9c0 2.5-2 4.5-4.5 4.5h-1.5a1.5 1.5 0 0 0-1.5 1.5c0 .8-.7 1.5-1.5 1.5A9 9 0 0 1 12 3Z"/></svg>`, get: p => (p.colors && p.colors.length > 0) ? p.colors.map(c => `<span class="compare-color-chip">${c}</span>`).join(' ') : 'Original' },
-    { title: "Garantía & Estado", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>`, get: p => `1 Año Oficial • Caja Sellada • Libre de Fábrica` }
+    { title: "Garantía & Comprobante", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>`, get: p => `Se emite comprobante de venta para garantía • Caja sellada original` },
+    { title: "Registro Lista Blanca", icon: `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>`, get: p => (p.registro === 'Libre' ? `<span class="product-badge badge-registro badge-reg-libre">Libre (No registrado)</span>` : `<span class="product-badge badge-registro badge-reg-r">R (Registrado)</span>`) }
   ];
 
   const highlight = appState.highlightDiff;
@@ -872,12 +1202,97 @@ function filterByRange(range, element) {
   renderProducts();
 }
 
+// Control interactivo del menú desplegable / bottom-sheet de ordenamiento
+function toggleSortFilterMenu(forceState) {
+  const modal = document.getElementById('sortAnimatedDropdown');
+  const backdrop = document.getElementById('sortModalBackdrop');
+  const triggerBtn = document.getElementById('sortSquareBtn');
+  if (!modal) return;
+
+  const willOpen = typeof forceState === 'boolean' ? forceState : !modal.classList.contains('open');
+
+  if (willOpen) {
+    modal.classList.add('open');
+    if (backdrop) backdrop.classList.add('open');
+    if (triggerBtn) {
+      triggerBtn.classList.add('active');
+      triggerBtn.setAttribute('aria-expanded', 'true');
+    }
+    document.body.style.overflow = 'hidden';
+  } else {
+    modal.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('open');
+    if (triggerBtn) {
+      triggerBtn.classList.remove('active');
+      triggerBtn.setAttribute('aria-expanded', 'false');
+    }
+    document.body.style.overflow = '';
+  }
+}
+
+// Aplicar criterio de ordenamiento: 'relevance' | 'price-asc' | 'price-desc'
+function setCatalogSort(sortType, element) {
+  if (typeof appState !== 'undefined') {
+    appState.currentSort = sortType;
+  }
+
+  // Actualizar indicador visual en el botón cuadradito
+  const dot = document.getElementById('sortDotIndicator');
+  const triggerBtn = document.getElementById('sortSquareBtn');
+  if (dot) {
+    dot.style.display = sortType !== 'relevance' ? 'block' : 'none';
+  }
+  if (triggerBtn) {
+    if (sortType !== 'relevance') {
+      triggerBtn.classList.add('is-sorted');
+    } else {
+      triggerBtn.classList.remove('is-sorted');
+    }
+  }
+
+  // Actualizar clases activas en las opciones del modal
+  document.querySelectorAll('.sort-modal-opt, .sort-compact-opt').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  if (element) {
+    element.classList.add('active');
+  } else {
+    const target = document.querySelector(`.sort-modal-opt[data-sort="${sortType}"], .sort-compact-opt[data-sort="${sortType}"]`);
+    if (target) target.classList.add('active');
+  }
+
+  // Renderizar productos reordenados
+  renderProducts();
+
+  // Animación visual suave de entrada en las tarjetas de producto
+  const container = document.getElementById('productsContainer');
+  if (container) {
+    container.classList.remove('sort-animated-enter');
+    void container.offsetWidth; // reiniciar animación
+    container.classList.add('sort-animated-enter');
+  }
+
+  // Cerrar el modal suavemente tras 150ms de feedback táctil
+  setTimeout(() => {
+    toggleSortFilterMenu(false);
+  }, 150);
+}
+
 function resetFilters() {
   if (typeof appState !== 'undefined') {
     appState.currentCategory = 'all';
     appState.currentRange = 'all';
+    appState.currentSort = 'relevance';
     appState.searchQuery = '';
   }
+
+  const labelEl = document.getElementById('currentSortLabel');
+  if (labelEl) labelEl.textContent = 'Relevancia';
+
+  document.querySelectorAll('.sort-dropdown-option').forEach(btn => {
+    if (btn.dataset.sort === 'relevance') btn.classList.add('active');
+    else btn.classList.remove('active');
+  });
 
   const searchInp = document.getElementById('mainSearchInput');
   if (searchInp) searchInp.value = '';
@@ -895,6 +1310,15 @@ function resetFilters() {
   renderProducts();
 }
 
+// Cerrar el modal de ordenamiento con tecla Escape
+if (typeof document !== 'undefined') {
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      toggleSortFilterMenu(false);
+    }
+  });
+}
+
 // Exponer en window para compatibilidad directa desde eventos inline HTML
 if (typeof window !== 'undefined') {
   window.renderProducts = renderProducts;
@@ -904,6 +1328,8 @@ if (typeof window !== 'undefined') {
   window.buildAccessoryCardHtml = buildAccessoryCardHtml;
   window.filterByBrand = filterByBrand;
   window.filterByRange = filterByRange;
+  window.toggleSortFilterMenu = toggleSortFilterMenu;
+  window.setCatalogSort = setCatalogSort;
   window.resetFilters = resetFilters;
   window.initUrlFilters = initUrlFilters;
   window.getProductsList = getProductsList;

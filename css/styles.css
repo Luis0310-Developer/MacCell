@@ -5,6 +5,119 @@
 
 @import url('components.css');
 
+/* ==========================================================================
+   CROSS-BROWSER & MULTI-PLATFORM ENGINE (Safari, Chrome, Brave, Opera, Edge, Firefox)
+   Garantiza compatibilidad total en WebKit (iOS/macOS), Blink (Chromium) y Gecko
+   ========================================================================== */
+
+/* 1. Normalización de viewport y tipografía */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 2. Suavizado de fuentes y aceleración de hardware */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 3. Soporte universal de scrollbars (Firefox + WebKit / Blink) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
+}
+
+/* 4. Normalización de controles de formulario para Safari, Brave, Chrome y Firefox */
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  touch-action: manipulation;
+}
+
+/* Fix para Safari en inputs de búsqueda (remover estilo nativo de lupa y botón cancelar) */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  outline-offset: -2px;
+  box-sizing: border-box;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  display: none;
+}
+
+/* Evitar auto-zoom molesto en inputs en Safari iOS (hace zoom si font-size < 16px) */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="number"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* 5. Fluid images & media sin distorsiones en WebKit */
+img, picture, video, canvas, svg {
+  max-width: 100%;
+}
+
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* 6. Scroll inercial táctil nativo en contenedores con scroll para Safari iOS */
+.products-grid,
+.accesorios-motion-wrapper,
+.brand-chips-strip,
+.product-thumbnails-strip,
+.casu-carousel-track,
+.cart-items-container,
+.compare-modal-body,
+.dispatch-items-list,
+.live-search-results-list,
+.modal-content {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 7. Variables de Safe Area (iOS Notch / Home Indicator) */
+:root {
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+}
+
+
 :root {
   /* Tonos base degradado negro a gris (Paleta Dark Metallic) */
   --bg-dark-start: #1c2026;       /* Gris carbón / grafito suave */
@@ -303,6 +416,7 @@ input, select, textarea {
   top: 0;
   z-index: 999;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -752,6 +866,7 @@ input, select, textarea {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.68);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   z-index: 9998;
@@ -778,6 +893,9 @@ input, select, textarea {
   border: 1px solid #e2e8f0;
   background: #ffffff;
   margin-bottom: 24px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -884,6 +1002,7 @@ input, select, textarea {
   gap: 6px;
   flex-wrap: wrap;
   background: rgba(255, 255, 255, 0.88);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 7px 16px;
@@ -929,6 +1048,7 @@ input, select, textarea {
   height: 44px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(226, 232, 240, 0.8);
@@ -1149,10 +1269,10 @@ input, select, textarea {
   transform: translateX(3px);
 }
 
-/* Grid de 6 Tarjetas con espacio limpio y balanceado */
+/* Grid de 10 Tarjetas con espacio limpio y balanceado (2 filas de 5 en desktop) */
 .brands-cards-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 16px;
   padding-top: 8px;
 }
@@ -1268,6 +1388,31 @@ input, select, textarea {
 .brand-logo-poco {
   height: 20px;
   max-width: 78px;
+}
+
+.brand-logo-infinix {
+  height: 19px;
+  max-width: 86px;
+}
+
+.brand-logo-oppo {
+  height: 20px;
+  max-width: 86px;
+}
+
+.brand-logo-realme {
+  height: 20px;
+  max-width: 90px;
+}
+
+.brand-logo-google {
+  height: 22px;
+  max-width: 76px;
+}
+
+.brand-logo-tecno {
+  height: 19px;
+  max-width: 86px;
 }
 
 .brand-card-item:hover .brand-card-logo-img {
@@ -1406,6 +1551,9 @@ input, select, textarea {
   cursor: pointer;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: var(--shadow-sm);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   white-space: nowrap;
 }
@@ -1436,9 +1584,10 @@ input, select, textarea {
 }
 
 .brand-chip-img {
-  height: 15px;
+  height: 24px;
   width: auto;
-  max-width: 58px;
+  max-width: 110px;
+  max-height: 32px;
   object-fit: contain;
   flex-shrink: 0;
   display: inline-block;
@@ -1646,6 +1795,45 @@ input, select, textarea {
   border: 1px solid rgba(16, 185, 129, 0.25);
 }
 
+.badge-registro {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.7rem;
+  padding: 2.5px 7px;
+  border-radius: 5px;
+  text-transform: none;
+  cursor: help;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+.badge-reg-r {
+  background: #ecfdf5 !important;
+  color: #047857 !important;
+  border: 1.5px solid #10b981 !important;
+  box-shadow: 0 1px 3px rgba(16, 185, 129, 0.2);
+}
+
+.badge-reg-r:hover {
+  background: #d1fae5 !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+}
+
+.badge-reg-libre {
+  background: #fffbeb !important;
+  color: #b45309 !important;
+  border: 1.5px solid #f59e0b !important;
+  box-shadow: 0 1px 3px rgba(245, 158, 11, 0.2);
+}
+
+.badge-reg-libre:hover {
+  background: #fef3c7 !important;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.35);
+}
+
 .product-quick-view-btn {
   position: absolute;
   top: 12px;
@@ -1684,15 +1872,19 @@ input, select, textarea {
   align-items: center;
   justify-content: center;
   margin: 10px 0 14px;
-  background: #f8fafc;
+  background: #ffffff;
   border-radius: var(--radius-md);
   position: relative;
 }
 
 .product-img {
-  max-height: 175px;
-  max-width: 85%;
-  object-fit: contain;
+  height: 170px !important;
+  width: auto !important;
+  max-height: 170px !important;
+  max-width: 90% !important;
+  object-fit: contain !important;
+  mix-blend-mode: multiply !important;
+  filter: none !important;
   transition: transform 0.3s ease;
 }
 
@@ -1709,23 +1901,22 @@ input, select, textarea {
 }
 
 .product-title {
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #0f172a;
-  margin: 4px 0 6px;
   line-height: 1.35;
+  height: 2.7em;
+  min-height: 2.7em;
+  max-height: 2.7em;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: 2.7em;
+  margin-bottom: 12px;
 }
 
 .product-specs-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-bottom: 12px;
+  display: none !important;
 }
 
 .spec-pill {
@@ -1742,22 +1933,58 @@ input, select, textarea {
   padding-top: 10px;
   border-top: 1px solid var(--border-color);
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.price-details-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.price-prefix {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
 }
 
 .price-main {
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.35rem;
+  font-weight: 900;
   color: #0f172a;
+  line-height: 1.15;
+  display: block;
+}
+
+.price-sub-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 3px;
 }
 
 .price-old {
   font-size: 0.82rem;
   color: #94a3b8;
   text-decoration: line-through;
-  margin-left: 5px;
+  font-weight: 600;
+}
+
+.price-discount-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+  line-height: 1;
 }
 
 .stock-status {
@@ -1784,7 +2011,7 @@ input, select, textarea {
 
 .btn-card-cart {
   width: 100%;
-  background: #0f172a;
+  background: #00b4d8;
   color: #ffffff;
   border: none;
   padding: 10px 14px;
@@ -1797,11 +2024,13 @@ input, select, textarea {
   gap: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0, 180, 216, 0.28);
 }
 
 .btn-card-cart:hover {
-  background: #4f46e5;
+  background: #0096c7;
   color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 180, 216, 0.45);
 }
 
 .btn-card-whatsapp {
@@ -3195,6 +3424,7 @@ input, select, textarea {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   z-index: 100;
   opacity: 0;
@@ -3390,6 +3620,7 @@ input, select, textarea {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.65);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   z-index: 120;
   opacity: 0;
@@ -3769,6 +4000,7 @@ input, select, textarea {
   left: 50%;
   transform: translateX(-50%);
   background: rgba(15, 23, 42, 0.85);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   color: #ffffff;
   font-size: 0.68rem;
@@ -3958,26 +4190,35 @@ input, select, textarea {
    SECCIÓN: TODO EN ACCESORIOS (BORDES NEGROS Y MOVIMIENTO)
    =================================================== */
 .accesorios-showcase-section {
-  margin: 40px 0 45px;
+  max-width: 1280px;
+  margin: 45px auto 55px;
+  padding: 0 24px;
+  position: relative;
 }
 
 .accesorios-header-wrap {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   flex-wrap: wrap;
   gap: 15px;
 }
 
+.accesorios-title-group {
+  flex: 1;
+  min-width: 250px;
+}
+
 .accesorios-section-title {
-  font-size: 1.8rem;
+  font-size: 1.85rem;
   font-weight: 800;
   color: #0f172a;
   display: inline-block;
   position: relative;
   padding-bottom: 6px;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
+  letter-spacing: -0.5px;
 }
 
 .accesorios-title-underline {
@@ -3994,6 +4235,40 @@ input, select, textarea {
   font-size: 0.92rem;
   color: #64748b;
   margin: 0;
+  line-height: 1.4;
+}
+
+.accesorios-nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.acc-nav-arrow-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.acc-nav-arrow-btn:hover {
+  background: #00b4d8;
+  color: #ffffff;
+  border-color: #00b4d8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.35);
+}
+
+.acc-nav-arrow-btn:active {
+  transform: translateY(0);
 }
 
 .accesorios-slider-controls {
@@ -4003,8 +4278,9 @@ input, select, textarea {
 /* Envoltura con overflow para desplazamiento continuo sin trabas */
 .accesorios-motion-wrapper {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   scroll-behavior: auto;
-  padding: 8px 4px 18px;
+  padding: 10px 4px 20px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -4130,23 +4406,23 @@ input, select, textarea {
   justify-content: center;
   gap: 6px;
   padding: 10px 14px;
-  background: #0f172a;
+  background: #00b4d8;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(0, 180, 216, 0.3);
   border-radius: 10px;
   font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 180, 216, 0.2);
 }
 
 .btn-accesorio-cart:hover {
-  background: #00b4d8;
-  color: #0b0f19;
-  border-color: #00b4d8;
+  background: #0096c7;
+  color: #ffffff;
+  border-color: #0096c7;
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 180, 216, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 180, 216, 0.4);
 }
 
 .btn-accesorio-ws {
@@ -4160,6 +4436,7 @@ input, select, textarea {
   position: fixed;
   inset: 0;
   background: rgba(15, 23, 42, 0.82);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 999999;
@@ -4325,6 +4602,9 @@ input, select, textarea {
   flex-shrink: 0;
   line-height: 1.25;
   transition: all 0.2s ease;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -5129,6 +5409,7 @@ footer,
   position: fixed;
   inset: 0;
   background: rgba(15, 23, 42, 0.72);
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   z-index: 10001;
@@ -5791,8 +6072,10 @@ footer,
   bottom: 0;
   left: 0;
   right: 0;
-  height: 64px;
+  height: calc(64px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   background: rgba(12, 15, 23, 0.95);
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -6063,7 +6346,10 @@ footer,
   }
 
   .product-img {
+    height: 130px !important;
+    width: auto !important;
     max-height: 130px !important;
+    max-width: 90% !important;
   }
 
   .product-title {
@@ -6108,15 +6394,92 @@ footer,
   .ig-posts-grid {
     grid-template-columns: 1fr;
   }
+  /* Responsive Accesorios */
+  .accesorios-showcase-section {
+    margin: 28px auto 36px;
+    padding: 0 14px;
+  }
+  .accesorios-header-wrap {
+    margin-bottom: 16px;
+  }
+  .accesorios-section-title {
+    font-size: 1.45rem;
+  }
+  .accesorios-section-sub {
+    font-size: 0.82rem;
+  }
   .accesorio-card-box {
-    width: 180px;
-    padding: 12px 10px;
+    width: 172px;
+    padding: 12px 10px 10px;
+    border-radius: 15px;
+    border-width: 1.5px;
+  }
+  .accesorio-pill-tag {
+    font-size: 0.58rem;
+    padding: 1.5px 5px;
+    top: 7px;
+    left: 8px;
+    border-radius: 4px;
   }
   .accesorio-img-wrap {
-    height: 105px;
+    height: 98px;
+    margin: 8px 0 6px;
   }
   .accesorio-img {
-    max-height: 90px;
+    max-height: 84px;
+  }
+  .accesorio-brand {
+    font-size: 0.65rem;
+  }
+  .accesorio-name {
+    font-size: 0.78rem;
+    height: 32px;
+    line-height: 1.22;
+    margin: 2px 0 6px;
+  }
+  .accesorio-price {
+    font-size: 1.12rem;
+  }
+  .accesorio-old-price {
+    font-size: 0.74rem;
+  }
+  .btn-accesorio-cart {
+    padding: 8px 8px;
+    font-size: 0.72rem;
+    border-radius: 8px;
+    gap: 4px;
+  }
+  .btn-accesorio-cart svg {
+    width: 13px;
+    height: 13px;
+  }
+  .acc-nav-arrow-btn {
+    width: 32px;
+    height: 32px;
+  }
+  .acc-nav-arrow-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 380px) {
+  .accesorio-card-box {
+    width: 154px;
+    padding: 10px 8px 8px;
+  }
+  .accesorio-img-wrap {
+    height: 86px;
+  }
+  .accesorio-img {
+    max-height: 74px;
+  }
+  .accesorio-name {
+    font-size: 0.72rem;
+    height: 28px;
+  }
+  .accesorio-price {
+    font-size: 1.02rem;
   }
 }
 
@@ -6539,6 +6902,9 @@ footer,
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   border: 1px solid #e2e8f0;
 }
@@ -6827,6 +7193,45 @@ footer,
   transform: scale(1.06);
 }
 
+.trusted-big-logo.infinix-logo {
+  max-height: 36px;
+  max-width: 140px;
+  transform: none;
+}
+.trusted-marquee-card:hover .trusted-big-logo.infinix-logo {
+  transform: scale(1.06);
+}
+
+.trusted-big-logo.oppo-logo {
+  max-height: 40px;
+  max-width: 155px;
+  width: auto;
+  transform: scale(1.05);
+}
+.trusted-marquee-card:hover .trusted-big-logo.oppo-logo {
+  transform: scale(1.12);
+}
+
+.trusted-big-logo.realme-logo {
+  max-height: 48px;
+  max-width: 160px;
+  width: auto;
+  transform: scale(1.05);
+}
+.trusted-marquee-card:hover .trusted-big-logo.realme-logo {
+  transform: scale(1.12);
+}
+
+.trusted-big-logo.google-logo {
+  max-height: 46px;
+  max-width: 155px;
+  width: auto;
+  transform: scale(1.05);
+}
+.trusted-marquee-card:hover .trusted-big-logo.google-logo {
+  transform: scale(1.12);
+}
+
 @media (max-width: 768px) {
   .trusted-marquee-section {
     padding: 34px 0 24px;
@@ -6927,6 +7332,7 @@ footer,
   min-width: 340px;
   max-width: 460px;
   background: rgba(15, 23, 42, 0.96);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -7197,114 +7603,6 @@ footer,
   box-shadow: 0 0 12px rgba(0, 210, 255, 0.25);
 }
 
-/* 6. PWA INSTALL BANNER */
-.pwa-install-banner {
-  position: fixed;
-  bottom: 28px;
-  left: 28px;
-  right: auto;
-  z-index: 99999;
-  background: rgba(15, 23, 42, 0.96);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 16px;
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 210, 255, 0.15);
-  max-width: 420px;
-  width: calc(100% - 56px);
-  animation: pwaSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
 
-@keyframes pwaSlideUp {
-  from {
-    transform: translateY(120%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.pwa-banner-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  object-fit: cover;
-  flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.pwa-banner-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.pwa-banner-title {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #f8fafc;
-  margin: 0 0 2px 0;
-}
-
-.pwa-banner-desc {
-  font-size: 0.74rem;
-  color: #94a3b8;
-  margin: 0;
-  line-height: 1.3;
-}
-
-.pwa-banner-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.pwa-btn-install {
-  background: linear-gradient(135deg, #00d2ff 0%, #0070f3 100%);
-  color: #0b0f19;
-  font-size: 0.78rem;
-  font-weight: 700;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.pwa-btn-install:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 210, 255, 0.35);
-}
-
-.pwa-btn-close {
-  background: transparent;
-  border: none;
-  color: #94a3b8;
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding: 4px;
-  line-height: 1;
-  transition: color 0.15s ease;
-}
-
-.pwa-btn-close:hover {
-  color: #ffffff;
-}
-
-@media (max-width: 768px) {
-  .pwa-install-banner {
-    bottom: 148px;
-    right: 16px;
-    left: 16px;
-    width: auto;
-    max-width: calc(100% - 32px);
-  }
-}
 
 
